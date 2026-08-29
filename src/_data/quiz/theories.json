@@ -1,0 +1,180 @@
+{
+  "cop": {
+    "hook": "The most successful position in the history of physics is a very disciplined \"don't ask.\" Here's why that isn't a cop-out. Mostly.",
+    "cold": [
+      "The city's best detective has never been wrong. Give her the suspect and the street and she'll tell you what happens next — which door, which stairwell, which minute. Tonight the rookie asks the obvious question: \"Before we kick the door — what's he <em>thinking</em> in there?\"",
+      "She doesn't look up. \"When I was young, I wrote whole stories about what happens behind doors before they open. Great stories.\" She taps the case board. \"That's when I used to be wrong.\""
+    ],
+    "story": [
+      "In the 1920s, quantum mechanics got assembled in a hurry — a working theory before anyone agreed what it meant. The meaning arguments kept circling one question: what is the electron actually doing between measurements? At his institute in Copenhagen, Niels Bohr gave the answer that stuck: you're smuggling. Words like \"position\" and \"path\" were built by large creatures to describe large things, and dragging them somewhere they were never defined isn't deep — it's a grammar mistake.",
+      "Bohr's version came with a principle called [[complementarity]]: a quantum thing will show you wave behavior or particle behavior depending on what you ask, never both at once, and neither picture is what it \"really\" is — the pictures only mean anything relative to an experimental setup. At the famous 1927 Solvay conference, Einstein spent a week inventing thought experiments to break this. Bohr answered every one. Einstein never conceded; Bohr never lost; the field sided with Bohr and moved on.",
+      "What followed was the most productive half-century any science has ever had. Transistors, lasers, chemistry, the chip you're reading this on — all built on the math, by people who never once needed to settle what the [[wavefunction]] is. The house style got a name, coined later and half as a joke: \"shut up and calculate.\" As working advice, it's undefeated.",
+      "The honest weakness has a name too: the cut. Somewhere between the atom and your eyeball, quantum \"maybe\" becomes definite \"did.\" Copenhagen lets you place that line wherever convenience demands and refuses to say what happens at it, or why, or where it really is. Critics call this quietism dressed as rigor. Defenders call it intellectual hygiene. Both descriptions are accurate, which is the most Copenhagen fact of all."
+    ],
+    "argument": [
+      { "say": "That's not an interpretation. That's a refusal to interpret.", "reply": "It's a boundary. Every honest theory has one; mine is drawn where the predictions end. I've never once been wrong inside the line. Show me the experiment that needs me to cross it." },
+      { "say": "But where exactly is the cut between quantum and classical?", "reply": "Wherever you put your apparatus. Yes, that's movable. It has also never failed. You're welcome to go find the cut — people are trying with bigger and bigger molecules — and if you find it, one of my neighbors gets a Nobel and I retire gracefully." },
+      { "say": "Something must actually be happening in between.", "reply": "\"Must\" is doing a lot of work in that sentence, and none of it is physics." }
+    ],
+    "neighbors": [
+      { "slug": "qb", "name": "QBism", "line": "also refuses to narrate the unobserved — but keeps the question open, in the first person." },
+      { "slug": "rqm", "name": "Relational", "line": "also gave up the view from nowhere — then filled the in-between with everyone's." }
+    ]
+  },
+  "mw": {
+    "hook": "Take the math at its word and the price is everything else. The interpretation for people who trust the equation over their own feelings — all the way down.",
+    "cold": [
+      "The train doors are closing. In one cut she slips through; in the other she's half a second late and watches it pull away.",
+      "Ten years later she's in a kitchen in Tokyo, laughing: \"If I'd missed that train, none of this happens.\"",
+      "Ten years later she's on a rooftop in Barcelona, laughing: \"If I'd <em>caught</em> that train, none of this happens.\"",
+      "Nobody's lying. Nobody's dreaming. Both mornings happened, both lives got lived, and each of her is certain she's the only one telling the story. The doors didn't choose. The doors did both."
+    ],
+    "story": [
+      "In 1957 a Princeton PhD student named Hugh Everett III asked the forbidden question in its simplest form: what happens if we just delete the collapse rule? Keep the equation — the [[unitary]], smoothly-evolving Schrödinger equation — and add nothing. His answer: the equation already describes a measurement perfectly well. The measuring device ends up correlated with both outcomes. So does the physicist reading it. The mathematics doesn't describe one result happening; it describes both, each with an observer who saw it cleanly. Everett's move was to say: believe that.",
+      "Copenhagen's old guard was not amused. Bohr's circle dismissed the thesis; Everett got the message, finished a heavily trimmed version, and walked out of physics into Pentagon war-gaming. He died in 1982, at fifty-one, decades before his idea became respectable. It got its name — \"many worlds\" — from Bryce DeWitt, who championed it in the 1970s when almost nobody else would.",
+      "The modern version is more careful than the science-fiction picture. Branches aren't parallel universes that \"split\" with a pop; they're parts of one wavefunction that [[decoherence]] has made permanently unable to interact — practically separate histories, all equally real, all embedded in the same math. Nothing collapses, nothing is added, observers aren't special: you're just one more physical system that ends up on every branch, and each version of you finds a single definite past in their memory.",
+      "The honest open wound is probability. If every outcome happens, what were you saying when you said \"30% chance\"? The Oxford Everettians — David Deutsch, David Wallace — have a sophisticated answer involving how a rational agent should bet across their own branches. Others have different answers. The critics' point isn't that there's no answer; it's that there are several, and they don't agree, and for a theory whose whole sales pitch is \"we added nothing,\" needing this much philosophy at checkout stings."
+    ],
+    "argument": [
+      { "say": "An infinity of unobservable universes is the least parsimonious idea ever proposed.", "reply": "Count rules, not universes. I have one postulate and it's the equation you already believe. You're the one adding a collapse mechanism nobody has ever written down properly." },
+      { "say": "It's untestable — the other branches can't be observed even in principle.", "reply": "I'm not a separate theory; I'm quantum mechanics, taken literally. Every interference experiment that keeps working on bigger objects is a test I keep passing. Find a real collapse and I'm dead. People are looking. That's testable enough." },
+      { "say": "If everything happens, choices don't matter.", "reply": "The version of you that chooses well still lives a different life than the one that doesn't — and the weights aren't decoration. You're not off the hook. You're on every hook." }
+    ],
+    "neighbors": [
+      { "slug": "pw", "name": "Pilot Wave", "line": "your fellow wave-realist — kept the wave, added a particle, skipped the branching." },
+      { "slug": "sd", "name": "Superdeterminism", "line": "the other fully deterministic picture — one history instead of all of them." }
+    ]
+  },
+  "pw": {
+    "hook": "Physics spent a century calling this theory unnecessary. It spent the century being right anyway.",
+    "cold": [
+      "In 1992 a shipping container cracked open in a Pacific storm, and 28,000 rubber ducks went overboard. For the next twenty years they kept landing — Alaska, Hawaii, eventually England — and not randomly: bunches here, nothing there, the same beaches over and over. Scientists were thrilled, because the ducks were drawing a map.",
+      "Each duck drifted alone — one dumb bit of yellow plastic riding one line of water. But the ocean it rode is a single connected thing, and the ocean knew the whole route. The ducks never did. They didn't have to."
+    ],
+    "story": [
+      "In 1927, at the most famous physics conference ever held, Louis de Broglie proposed something almost embarrassingly reasonable: maybe a particle is just a particle, and it rides a wave. The particle goes through one slit. Its wave goes through both. The wave ripples, interferes, and steers the particle into the stripes. No dice, no paradox. A mechanism. The room — Bohr, Pauli, Heisenberg at the peak of their powers — took it apart. Pauli hit him with a technical objection; de Broglie, underprepared, folded.",
+      "For the next twenty-five years the field believed this kind of picture had been proven impossible, on the strength of a celebrated proof by John von Neumann. A young mathematician named Grete Hermann pointed out in 1935 that the proof assumed what it was proving. Nobody listened to her either. The argument wasn't lost; it was adjourned without anyone checking the paperwork.",
+      "Then in 1952 David Bohm — pushed out of American physics in the McCarthy purges, working from exile in Brazil — rebuilt the whole theory from scratch, in full detail, and it worked. Same predictions as textbook quantum mechanics, everywhere, forever; but underneath, particles with real positions riding a real wave, watched or not. John Bell — of the famous theorem — read Bohm and never got over it: \"In 1952 I saw the impossible done.\" Bell spent years asking why nobody had told him this theory existed.",
+      "So why isn't everyone a Bohmian? One honest reason, one embarrassing one. Honest: the wave lives in a huge abstract space and steers every particle based on where all of them are, instantly, across any distance — [[nonlocality]], worn openly. (Bell later proved every quantum theory pays something like this. Pilot wave is just the one that itemizes the bill.) Embarrassing: momentum. Careers were built elsewhere, the argument was declared over, and nobody likes reopening a settled case. The theory didn't lose. It got outvoted."
+    ],
+    "argument": [
+      { "say": "It makes the same predictions with extra machinery. Unnecessary.", "reply": "And Many-Worlds makes the same predictions with extra universes. Everybody pays. I pay in machinery you can draw." },
+      { "say": "The wave pushes the particle around, but the particle never pushes back. What kind of physics is that?", "reply": "Strange physics. Strange isn't wrong — show me the experiment it fails. (Quietly: Bohmians argue about this one at their own conferences. We just don't do it in front of you.)" },
+      { "say": "Bell's theorem killed hidden variables.", "reply": "Bell's theorem killed <em>local</em> hidden variables, and Bell himself was this theory's loudest defender. He proved my theory has to be nonlocal. It is. Openly. Next." }
+    ],
+    "neighbors": [
+      { "slug": "grw", "name": "Spontaneous Collapse", "line": "the other mechanism-lover — but theirs can be caught by an experiment." },
+      { "slug": "mw", "name": "Many-Worlds", "line": "your fellow wave-realist — kept the wave and fired the particle." }
+    ]
+  },
+  "rqm": {
+    "hook": "There is no view from nowhere. This is the theory that stopped looking for one.",
+    "cold": [
+      "Before the date, you ask around. One friend says he's the sweetest guy she's ever met. Another says intense — kind of exhausting, actually. A third says: honestly? A mess. Then you meet him, and you get a fourth person. Yours.",
+      "So which one is he <em>really</em>? Wrong question. Nobody has ever met him-in-general — every version was earned face to face, each one is exactly who he is with that person, and there's no referee version standing behind them keeping the official file. He isn't hiding behind the versions. The versions are all there is."
+    ],
+    "story": [
+      "Physics has pulled this move before. Velocity feels like a property a thing just has — until relativity points out it's a relation: you have a velocity <em>relative to</em> something, and there's no absolute answer, and the sky doesn't fall. In 1996 Carlo Rovelli — a quantum-gravity physicist by trade — proposed that <em>every</em> physical property works like velocity. Not just speed: position, spin, being-alive-or-dead. All of it relational, all of it facts-<em>for</em> somebody, none of it facts, period.",
+      "Run the cat through it. Inside the box, the interaction has happened: relative to the box, the cat is definitely asleep. Relative to the hallway, no interaction has happened yet, so there is genuinely no fact about the cat — not a hidden fact, no fact. When the hallway opens the door, the hallway gets its own fact, and the accounts always turn out consistent when compared. No contradiction ever arrives, because a contradiction would need a master ledger where both entries sit side by side — and there is no master ledger.",
+      "What does \"measurement\" mean here? Nothing special: any interaction. A photon bouncing counts. A mushroom counts. Observers aren't privileged, consciousness is irrelevant, no collapse pulse rolls across the cosmos. The [[wavefunction]] isn't a thing that lives in the world; it's bookkeeping for one system's information about another. Quantum mechanics stops being a theory of objects and becomes a theory of meetings.",
+      "The cost is the regress. When two observers compare notes, the comparison is itself just another interaction, with its own relative facts — it's relations all the way down, and anyone looking for solid ground never finds it. Whether that's the deepest lesson quantum mechanics has been trying to teach us for a century, or a beautiful way of never answering the question, is genuinely unsettled. In 2019 it stopped being armchair-only: photonic [[wigners-friend]] experiments produced two observers with irreconcilable accounts — and quantum mechanics endorsed both."
+    ],
+    "argument": [
+      { "say": "This is just relativism with equations.", "reply": "It's relativity with smaller things. You already accept that velocity has no absolute value and you don't call that relativism — you call it physics being honest about what's measurable." },
+      { "say": "When we compare notes, we always agree. Doesn't that prove there's one shared reality?", "reply": "It proves the theory guarantees consistent <em>meetings</em> — which it does, every time. You've never once checked agreement outside an interaction, because there is no outside. Try to describe one." },
+      { "say": "Facts that aren't facts for everyone aren't facts.", "reply": "Said the hallway to the box. Both of your ledgers are perfect. There was just never a third one." }
+    ],
+    "neighbors": [
+      { "slug": "qb", "name": "QBism", "line": "your closest kin — but they say only agents get a ledger; you let the mushrooms in." },
+      { "slug": "cop", "name": "Copenhagen", "line": "also dropped the view from nowhere — then closed the question you keep open." }
+    ]
+  },
+  "qb": {
+    "hook": "Quantum theory as a user's manual. You're the user.",
+    "cold": [
+      "Two wires, red and blue. Forty seconds. The rookie's manual says fifty-fifty. The veteran has defused three of this maker's bombs; she says red, nine to one. Same bomb. Same wires. Two numbers.",
+      "So what are the <em>real</em> odds? The bomb doesn't have odds. It was wired months ago; it's just sitting there, already being the answer. The fifty-fifty lives in him. The nine-to-one lives in her. Both exactly right, given what each has seen. She cuts red. The city doesn't collapse. Two sets of beliefs do — one gracefully, one very hard."
+    ],
+    "story": [
+      "Start with an old heresy about ordinary probability. The Italian statistician Bruno de Finetti liked to say \"probability does not exist\" — meaning: a probability is never a property of the world, only somebody's betting rate. The coin doesn't carry a 50%. You do. Most of science quietly runs on this and never admits it.",
+      "In the early 2000s, Christopher Fuchs, Rüdiger Schack, and Carlos Caves took de Finetti's heresy and aimed it at the quantum state itself. The result — QBism, for Quantum Bayesianism — says the [[wavefunction]] was never furniture. It's an agent's personal book of bets about their own future experiences. \"Collapse\" is what it feels like to update: check the lottery numbers, and something snaps — in you. Nothing snapped in the world. The theory's famous weirdness was a category error: we kept mistaking the user's manual for the machine.",
+      "Watch the paradoxes deflate. Two observers assign different states to the same system? Two gamblers, two books — no contradiction, no master bookie. \"Spooky action\" between distant particles? Nothing acted on anything; when you learned your outcome, you updated your bets about the far side, which is exactly as spooky as checking a scratch card. Wigner and his friend disagree? They're supposed to. The math survives untouched; only its job description changed — from describing the world to advising you about yours.",
+      "The bill: QBism declines, politely and permanently, to say what the world is like when nobody's betting on it. Critics call it solipsism with extra linear algebra; the 2012 [[pbr]] theorem squeezed the lazy versions of \"the state is just information\" hard. QBism escapes on a technicality that is also its entire soul: it denies there's a deeper filing cabinet the information is <em>about</em>. What's left of reality? Something, QBists insist — the world is what keeps surprising you; a universe with real chance in it, still under construction, met one experience at a time. Whether that's profound or a shrug in a tuxedo is the open question. It knows. It's comfortable there."
+    ],
+    "argument": [
+      { "say": "This is solipsism.", "reply": "A solipsist doesn't need a manual for placing bets, because nothing ever surprises them. My whole theory is about a world that pushes back. I just stopped pretending I could describe it from nowhere." },
+      { "say": "So the wavefunction of the universe—", "reply": "— is a bet with no bettor, and I decline it. States belong to agents. The universe doesn't take a stance on itself." },
+      { "say": "Science is supposed to be objective.", "reply": "Science is agents comparing notes and converging — it always was. Show me one measurement ever taken from nowhere by no one, and I'll concede the view from nowhere exists." }
+    ],
+    "neighbors": [
+      { "slug": "rqm", "name": "Relational", "line": "your closest kin — but they hand a ledger to any interaction; you reserve it for whoever bets." },
+      { "slug": "cop", "name": "Copenhagen", "line": "also won't narrate the unobserved — but closed the question for everyone, third-person." }
+    ]
+  },
+  "grw": {
+    "hook": "The only theory on this site an experiment can kill. It's proud of that.",
+    "cold": [
+      "One popcorn kernel with the patience of a saint: left to itself, it pops maybe once in a hundred million years. You could watch it your whole life and see nothing. Now the bag: a trillion trillion kernels — and in this bag there's a rule: when one pops, they all pop.",
+      "\"Almost never, each\" times a trillion trillion equals \"instantly, somewhere.\" The bag can't stay quiet for a single heartbeat. One kernel gets to sit there undecided forever. A bagful is forced to commit before the previews end. Small things get to stay fuzzy. Big things pop."
+    ],
+    "story": [
+      "In 1986, in Trieste, Giancarlo Ghirardi, Alberto Rimini, and Tullio Weber got tired of the interpretation wars and did the rudest possible thing: they changed the equation. One added ingredient — every particle, at random, very rarely, spontaneously snaps to a definite position. How rarely? About once per hundred million years, per particle. For a lone atom, that's never. Nothing in any atomic experiment would show it.",
+      "The trick is [[entanglement]]. In a measuring device or a cat, particles are linked — snap one and the whole configuration snaps with it. A cat has around 10²⁷ particles, so \"once per hundred million years, each\" becomes \"within a microsecond, somewhere\" — and one snap localizes the lot. Small systems keep their quantum fuzz; big systems are forced definite by sheer headcount. The [[measurement-problem]] doesn't get interpreted away. It gets solved by a mechanism with two new constants of nature in it.",
+      "John Bell — hard to impress — wrote about GRW with real warmth: at last, he said, someone had replaced the vague word \"measurement\" with actual physics. And because it's actual physics, it's different physics: GRW makes predictions that differ, slightly, from standard quantum mechanics. Interference should fail for objects above a certain size. The snaps should very faintly heat things up, and should make matter emit a whisper of radiation that standard theory forbids.",
+      "So the hunt is on, and it's real. Giant-molecule interferometers keep pushing the size ceiling up without finding it. In 2020, a detector deep under the Gran Sasso mountain listened for the forbidden whisper of X-rays from a slab of germanium — and heard silence, wiping out a large slice of the theory's parameter space. Proposed space experiments would squeeze most of what's left. The theory now lives in a shrinking box, which its fans will tell you, with genuine pride, is exactly what an honest theory's box should do. One day the box closes empty — or something snaps in it, and every other page on this site gets rewritten."
+    ],
+    "argument": [
+      { "say": "You invented new physics nobody has ever observed.", "reply": "Yes. That's called a prediction. The others on this site invented universes, cosmic conspiracies, or a permanent ban on asking — and none of it can ever be checked. Mine can. Keep shooting." },
+      { "say": "The null results keep coming. Your theory is dying.", "reply": "My theory is being <em>tested</em>. Learn the difference and you'll understand why I sleep well." },
+      { "say": "The two new constants are suspiciously convenient — tuned so the snap hides between atoms and cats.", "reply": "Convenient is another word for \"where the data allows.\" The window's still open. It's just — measurably — closing. I'll be here for the verdict either way. Will you?" }
+    ],
+    "neighbors": [
+      { "slug": "pw", "name": "Pilot Wave", "line": "the other mechanism-lover — but their machinery hides in principle; yours glows in the dark, faintly, catchably." },
+      { "slug": "mw", "name": "Many-Worlds", "line": "your opposite number — they deleted the collapse; you made it real enough to shoot at." }
+    ]
+  },
+  "sd": {
+    "hook": "The loophole at the bottom of physics: what if nothing was ever free — including the experiments, the experimenters, and your decision to read this page?",
+    "cold": [
+      "\"Don't open the door.\" You say it out loud, at the screen, like everyone in every row before you. She opens the door. She always opens the door — it was filmed a year ago; her choice has been sitting in the can, finished, since before you bought your ticket. It felt free to her, inside the scene. It was also already printed. Both true. No friction — that's just movies.",
+      "Here's the part that isn't: on the way out you pass the projection booth, and there's a second projector, older, lens pointed at the <em>seats</em>. Your gasp. Your \"don't open it.\" Your ticket. Already developed."
+    ],
+    "story": [
+      "Every famous \"spooky\" quantum result leans on one assumption so natural nobody thought to put it on the poster: that the experimenters could have chosen otherwise. [[bell]]'s theorem — the proof that quantum correlations can't come from ordinary shared history — quietly requires that your choice of measurement settings is independent of the particles being measured. Bell knew this. He said, on the record, that if that independence fails — if the choices and the particles were correlated all along — the whole spooky edifice \"collapses into an innocent-looking determinism.\"",
+      "That escape hatch is superdeterminism. Wind every particle, every detector, every twitch of every experimenter's thumb back far enough and they share one origin. Let the correlations be set there — at the initial conditions of the universe — and nothing nonlocal ever needs to happen. No spooky action, no dice, no branching. Just one enormous, airtight unfolding, in which the \"free choices\" that make experiments feel like interrogations of nature were always part of the same script as the answers.",
+      "It is not a crowded field, but it is not empty: Gerard 't Hooft — an actual Nobel laureate — has spent years building deterministic models underneath quantum mechanics, and a handful of serious physicists argue the loophole deserves real investigation rather than eye-rolling. The eye-rolling, meanwhile, has been industrial-scale. In 2016, a hundred thousand people worldwide mashed buttons in a browser game to generate measurement settings from human whim; quantum weirdness won anyway. Other teams chose settings using starlight from quasars, fixed billions of years before Earth. Won anyway. The loophole now requires the conspiracy to include your gamer thumbs and light older than the planet. Superdeterminists reply, correctly, that this changes nothing: initial conditions don't care how baroque you make the test, and were never going to.",
+      "The real bill isn't physics, it's method: if experimental choices are secretly correlated with what's being examined, then controlled trials stop being evidence — anywhere, for anything, forever. Including the evidence for superdeterminism. Its critics call that self-immolating. Its friends call it the price of the only interpretation with no spookiness, no extra worlds, and no dice. You'll have your own reaction. You were always going to."
+    ],
+    "argument": [
+      { "say": "You've abolished the scientific method itself.", "reply": "I've noticed an assumption it was resting on. Not my fault nobody checked the foundations before building the cathedral." },
+      { "say": "A cosmic conspiracy coordinating particles, detectors, and your thumbs is absurd.", "reply": "\"Conspiracy\" is what you call a correlation you find rude. I call it initial conditions. The universe only had to be arranged once — and it demonstrably was arranged somehow." },
+      { "say": "There's no possible evidence for your position!", "reply": "Correct. Nor against it. I understand your frustration completely — I understood it before you arrived." }
+    ],
+    "neighbors": [
+      { "slug": "mw", "name": "Many-Worlds", "line": "the other fully deterministic picture — every history instead of exactly one." },
+      { "slug": "pw", "name": "Pilot Wave", "line": "your fellow hidden-variable theory — theirs pays in nonlocality what yours pays in freedom." }
+    ]
+  },
+  "decoherence": {
+    "hook": "Not an interpretation — the real physics of why the weirdness hides. The trap's exit, and everybody's homework.",
+    "cold": [
+      "Nobody told her about the surprise party. Nobody had to. The hairdresser texted a confirmation for the wrong day. Her sister's flight appeared in a shared calendar. The fridge is suspiciously full, her best friend keeps ending calls when she walks in, and the cake shop rang the landline.",
+      "A secret two people hold is still soft — it could still become anything, or quietly stop existing. This one leaked into forty little things, and forty little things all agree. By Friday she knows, and no one ever said a word. The world told her. The world can't help it."
+    ],
+    "story": [
+      "The quantum \"both at once\" trick — [[superposition]], the thing that makes the stripes — is real but fragile in a very specific way. It survives only as long as the system keeps its secret: as long as nothing else in the universe carries information about which alternative is which. The moment anything gets entangled with the difference — a photon bounces off, an air molecule collides, a speck of dust warms up — the alternatives stop being able to [[interference|interfere]]. Not because anyone looked. Because the information leaked, and the universe doesn't give copies back.",
+      "This is decoherence, and its discovery story is its own small tragedy. Heinz-Dieter Zeh worked it out around 1970 in Heidelberg and could barely get it published — the Copenhagen orthodoxy held that asking about the quantum-to-classical transition was bad manners, and his career paid for the asking. A decade later Wojciech Zurek rebuilt and sharpened it, and by the 1990s decoherence had gone from heresy to textbook. It has since been watched happening, in exquisite slow motion, in the lab — work that earned the 2012 Nobel Prize.",
+      "Do the numbers and the whole mystery of everyday life dissolves. A dust grain floating in air is hit so often that its position-superpositions decohere in about a nanosecond of a nanosecond of a nanosecond. Anything big, warm, or watched — and \"watched\" here means <em>bumped into</em>, a photon will do, no eyes required — is stripped of its quantum fuzz essentially instantly. That's why there are no visibly fuzzy cats: not because minds collapse them, but because a cat can't keep a secret from the air.",
+      "Now the honest part, and it matters: decoherence explains why you never <em>see</em> the weirdness. It does not explain why one outcome happens rather than another. After the leak, the math still contains every alternative — decoherence just makes them stop talking to each other. Which alternative becomes <em>your</em> definite experience, and what that even means, is exactly the fight the theory pages upstairs are having. Every interpretation on this site uses decoherence; none is replaced by it. So the mystery you came here for is real after all — it just lives one floor up from where the airport books told you. You now know more about this than most of the people who write them. Go pick a side."
+    ],
+    "argument": [
+      { "say": "So observation does change things! The quiz lied to me.", "reply": "Interaction changes things. A photon is an observer. A dust mote is an observer. You, specifically, were never required — and honestly, that's the more beautiful version." },
+      { "say": "Fine — decoherence solves the measurement problem, then.", "reply": "It solves half: why the alternatives stop interfering. The other half — why you get <em>one</em> — is untouched, and anyone who tells you otherwise is selling a different airport book." },
+      { "say": "Then which interpretation is true?", "reply": "Unknown. Genuinely, thrillingly unknown, after a hundred years of perfect predictions. That's not a scandal — it's the most interesting open question in physics, and you're now equipped to argue about it in the lobby." }
+    ],
+    "neighbors": [
+      { "slug": "cop", "name": "Copenhagen", "line": "drew a curtain where you found a mechanism — you two should talk." },
+      { "slug": "mw", "name": "Many-Worlds", "line": "leans on decoherence hardest: your leak is what carves their branches." }
+    ]
+  }
+}

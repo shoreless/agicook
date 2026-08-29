@@ -1,0 +1,9 @@
+name = "agicook-tally"
+main = "src/index.js"
+compatibility_date = "2026-08-29"
+
+# database_id is filled in by `wrangler d1 create agicook-quiz`
+[[d1_databases]]
+binding = "DB"
+database_name = "agicook-quiz"
+database_id = "REPLACE_ME"

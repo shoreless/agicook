@@ -10,6 +10,12 @@ experiments:
       No physics required. Some physics smuggled in anyway.
     date: 2026-08-26
     status: live
+    versions:
+      - label: v2
+        url: /which-quantum-interpretation-are-you/v2/
+        note: current
+      - label: v1
+        url: /which-quantum-interpretation-are-you/v1/
   - title: A Letter to Trace
     url: /letter-to-trace/
     blurb: >
@@ -70,6 +76,12 @@ experiments:
         <span class="status status--{% if x.status in ['live','essay'] %}live{% elif x.status == 'dormant' %}dormant{% else %}progress{% endif %}">{{ x.status }}</span>
         <span class="sep">/</span>
         <time datetime="{{ x.date | expiso }}">{{ x.date | expdate }}</time>
+        {%- if x.versions %}
+        <span class="sep">/</span>
+        <span class="versions">
+          {%- for ver in x.versions %}<a href="{{ ver.url }}"{% if ver.note %} title="{{ ver.note }}"{% endif %}>{{ ver.label }}</a>{% if not loop.last %}<span class="sep">·</span>{% endif %}{% endfor %}
+        </span>
+        {%- endif %}
       </p>
     </article>
     {%- endfor %}

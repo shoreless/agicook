@@ -1,0 +1,188 @@
+{
+  "cop": {
+    "name": "Copenhagen",
+    "tagline": "“Shut up and calculate.”",
+    "claims": "The wave function predicts measurement outcomes; measurement collapses it; and what is “really happening” in between is declared not a scientific question. This was the establishment position for most of a century — which is remarkable, for a position whose central move is refusing to answer.",
+    "cost": "It is less an answer than a restraining order against the question. Somewhere between the atom and your eyeball, “quantum” becomes “definite,” and Copenhagen declines to say where, how, or why — while insisting, firmly, that the matter is closed.",
+    "you": "You end arguments by declaring them over. You have strong opinions about which questions are allowed at dinner. You are, infuriatingly, very effective; your calendar is immaculate; and nobody knows what you actually believe — possibly including you. It works. Nobody knows why. You've forbidden asking.",
+    "book": "<em>What Is Real?</em> by Adam Becker — the prosecution’s case against you. Read it so you know exactly what you are refusing to discuss.",
+    "theory": [
+      "Quantum mechanics is the best-tested theory humans have ever produced. Copenhagen's move is simple: that's enough. The math tells you exactly what you'll see when you look. What's \"really going on\" when you're not looking? Copenhagen says that's not a physics question. Not because nobody's figured it out — because words like \"position\" and \"path\" were invented by large creatures to describe large things, and there may be nothing down there for them to point at.",
+      "The whole mess, by refusing to enter it. No extra universes, no invisible waves, no new physics. Calculate, predict, win Nobel Prizes, go home.",
+      "Somewhere between an atom and your eyeball, \"maybe\" becomes \"definitely,\" and Copenhagen won't say where, how, or why — while insisting, firmly, that the matter is closed. It ran physics for most of a century on the strength of that refusal."
+    ],
+    "experiment": {
+      "name": "Wheeler's delayed-choice experiment",
+      "year": "2007",
+      "ref": "Jacques et al., single-photon realisation",
+      "body": "In 2007, physicists finally built an experiment Wheeler dreamed up: they decided *how* to measure a photon after it was already in flight — too late, you'd think, for the photon to \"choose\" between acting like a wave or a particle. The results came out perfect anyway. The Copenhagen lesson: your story about what it was doing before you looked was never a real story. Stop telling it.",
+      "wiki": "https://en.wikipedia.org/wiki/Wheeler%27s_delayed-choice_experiment"
+    },
+    "books": "*What Is Real?* by Adam Becker — the case against you, so you know exactly what you're refusing to discuss. Then *Beyond Weird* by Philip Ball, the closest thing your position has to a love letter.",
+    "ctaLabel": "find out how it actually works",
+    "ctaTarget": "cop"
+  },
+  "mw": {
+    "name": "Many-Worlds",
+    "tagline": "“Everything happens.”",
+    "claims": "Take the Schrödinger equation literally and stop adding things to it. No collapse, no special role for measurement: the wave function just keeps evolving, and every possible outcome occurs in its own branch. The most parsimonious interpretation on assumptions; the most extravagant on universes.",
+    "cost": "An unimaginably vast, constantly branching multiverse — and an unfinished argument about why probability means anything when everything happens. If every outcome occurs, what exactly were you assigning thirty percent to? Everettians have answers. Everettians have several answers. That is the problem.",
+    "you": "Minimalist about rules, maximalist about consequences: you own one good jacket and several billion universes. When the math and your feelings disagree, you side with the math, calmly, every time. Yes, OK Computer is a masterpiece. No, you didn't need to bring it up again. And relax — somewhere there's a version of you that got a different result on this quiz. This result covers them too.",
+    "book": "<em>Something Deeply Hidden</em> by Sean Carroll — the case for taking the equation at its word, by the guy at the party you were just talking to.",
+    "theory": [
+      "One equation runs the whole quantum world, and nothing in it ever says \"collapse.\" Many-Worlds just takes that seriously. When an experiment could go two ways, the equation says both happen — so both do. The universe branches. You branch with it. The you reading this sentence is one of the versions, and every result this quiz could have given you was given, somewhere.",
+      "Everything, using nothing. No collapse, no special role for \"observers,\" not one symbol added to the math. It's the cheapest interpretation ever proposed — measured in assumptions.",
+      "Measured in universes, it's the most expensive idea in the history of ideas. Also: if everything happens, what did \"30% chance\" ever mean? Everettians have answers. They have *several* answers. That's the problem."
+    ],
+    "experiment": {
+      "name": "Interference of 25,000-dalton molecules",
+      "year": "2019",
+      "ref": "Fein et al., Nature Physics",
+      "body": "The \"both at once\" trick was supposed to be for tiny things. Then it worked on atoms. Then molecules. In 2019 it worked on molecules of around two thousand atoms each — big enough to almost see — and the wave behavior showed up right on schedule. Every year the trick works on something bigger, and nothing in the math says it stops before it reaches you.",
+      "wiki": "https://en.wikipedia.org/wiki/Matter_wave"
+    },
+    "books": "*Something Deeply Hidden* by Sean Carroll — the case for taking the equation at its word, written by the person at the party you'd actually enjoy arguing with. Then David Wallace's *The Emergent Multiverse* when you're ready to go professional.",
+    "ctaLabel": "find out how it actually works",
+    "ctaTarget": "mw"
+  },
+  "pw": {
+    "name": "Pilot Wave",
+    "tagline": "“There was always a particle.”",
+    "claims": "Particles have definite positions at every moment, chaperoned everywhere by a real wave that steers them. No collapse, no dice, no observer-worship: the double-slit experiment stops being a koan and becomes a mechanism. Proposed in 1927, dismissed, rediscovered in 1952, dismissed again. Still standing.",
+    "cost": "Nonlocality, worn openly: the wave links distant particles instantly and without apology. (No, you still cannot text faster than light — the connection is real but unsteerable, which is somehow more frustrating.) Also: nearly a century of being right on principle while nobody signs you.",
+    "you": "You keep receipts. You were told your approach was unnecessary; you did it anyway, correctly, and you've been waiting for the apology since 1927. You believe things are where they are even when nobody's looking, and you extend this courtesy to your keys — which is why you always know where they are.",
+    "book": "<em>Quantum Mechanics and Experience</em> by David Z Albert — or Becker’s <em>What Is Real?</em>, the closest thing you will get to a vindication tour.",
+    "theory": [
+      "What if the particle is just... always somewhere? Pilot-wave theory says every particle has a real position at every moment, and a real wave travels with it, steering it — like a surfer riding a swell they can't see. The famous double-slit mystery stops being a mystery: the particle goes through one slit, its wave goes through both, and the wave steers the particle into the stripy pattern. No dice. No riddles. A mechanism.",
+      "The measurement problem, completely. A measurement just finds out where the particle already was. The moon is there when nobody looks, and so is everything else.",
+      "The wave connects distant particles instantly — poke one here and the steering changes there, faster than light, no apology. (You still can't use it to text faster than light. Somehow that's more frustrating.) Also: nearly a century of being right on principle while nobody signs you."
+    ],
+    "experiment": {
+      "name": "Reconstructed average photon trajectories",
+      "year": "2011",
+      "ref": "Kocsis, Steinberg et al., Science",
+      "body": "In 2011, a Toronto lab gently tracked thousands of photons through a double slit — soft measurements, easy does it — and drew the average paths. The picture that came out looks *exactly* like the pilot-wave drawing from 1927: smooth lanes, flowing through the slits, braiding into stripes. It doesn't prove the theory. But nobody expected the picture to look that good.",
+      "wiki": "https://en.wikipedia.org/wiki/Weak_measurement"
+    },
+    "books": "*What Is Real?* by Adam Becker — the closest thing you'll get to a vindication tour. Then *Quantum Mechanics and Experience* by David Z Albert if you want the machinery.",
+    "ctaLabel": "find out how it actually works",
+    "ctaTarget": "pw"
+  },
+  "rqm": {
+    "name": "Relational Quantum Mechanics",
+    "tagline": "“Facts are relative to the witness.”",
+    "claims": "There are no absolute properties — only properties relative to whatever system interacted to witness them. The cat has a definite state relative to the box, and none relative to the hallway. There is no view from nowhere; the universe is a web of interactions, not a warehouse of objects.",
+    "cost": "The comparison problem: when two observers finally meet to compare notes, there is no master ledger where their accounts reconcile — only another interaction, relative to which there are new facts, relative to which… Whether this is profound or a regress is genuinely unresolved. You find that more exciting than troubling, which is diagnostic.",
+    "you": "You think in relationships, not objects. You keep threads open on purpose. You've said \"it depends what you mean by—\" this week, sincerely, and you were right. Your friends describe you completely differently to one another, and you consider that not a bug but the whole mechanism.",
+    "book": "<em>Helgoland</em> by Carlo Rovelli — written with such warmth you will briefly forget the regress. Relative to you, it resolves everything.",
+    "theory": [
+      "There's no view from nowhere. Relational quantum mechanics says things don't have properties, full stop — they have properties *relative to whatever they've interacted with*. The cat is definitely asleep relative to the box. Relative to the hallway, there's no fact about the cat yet. Neither description is the \"real\" one, because there's no cosmic ledger keeping the official version. The universe isn't a warehouse of objects. It's a web of meetings.",
+      "The measurement problem dissolves — a \"measurement\" is just an interaction, and any interaction counts. Mushrooms qualify. No special observers, no collapse, no extra universes.",
+      "When two people compare notes, their comparison is just another interaction — with its own relative facts. There's no bottom ledger. Ever. Whether that's the deepest insight on this page or a very elegant dodge is genuinely unsettled — and if you're honest, the fact that it's unsettled is exactly what you like about it."
+    ],
+    "experiment": {
+      "name": "Photonic Wigner's-friend tests",
+      "year": "2019-2020",
+      "ref": "Proietti et al., and successors",
+      "body": "In 2019 this stopped being pure philosophy: a photonic version of the \"Wigner's friend\" thought experiment created two observers with genuinely conflicting accounts of the same event — and quantum mechanics sided with both of them. Facts that refuse to be absolute, demonstrated on a lab bench. You were saying this at parties years ago.",
+      "wiki": "https://en.wikipedia.org/wiki/Wigner%27s_friend"
+    },
+    "books": "*Helgoland* by Carlo Rovelli — written with such warmth you'll briefly forget the missing ledger. Relative to you, it resolves everything.",
+    "ctaLabel": "find out how it actually works",
+    "ctaTarget": "rqm"
+  },
+  "qb": {
+    "name": "QBism",
+    "tagline": "“It was inference all the way down.”",
+    "claims": "The wave function is not a thing in the world — it is an agent’s degrees of belief about their own future experiences. “Collapse” is just you updating on new information, the way your hopes about a lottery ticket collapse when you check the numbers. Quantum theory is a user’s manual, and you, personally, are the user.",
+    "cost": "Critics call it solipsism with extra linear algebra. QBists reply that it is not, that first-person experience is where all science was hiding anyway — but the theory does keep declining to say what the world is like when you are not involved, and you would be lying if you said that never comes up at parties.",
+    "you": "You're extremely comfortable with subjectivity and it makes everyone around you nervous. You say \"that's just my prior\" as a complete sentence. When you're wrong you update so gracefully it's almost annoying — nothing embarrasses you, because nothing was ever a fact. It was only ever a bet.",
+    "book": "<em>QBism: The Future of Quantum Physics</em> by Hans Christian von Baeyer — you will experience it personally, which its author would insist is the only way anything is experienced.",
+    "theory": [
+      "The wavefunction isn't a thing out in the world. It's your betting slip. QBism says quantum theory is a user's manual — the best ever written — for one specific user: you, placing bets on your own next experience. \"Collapse\" is just you updating when the results come in, the way your hopes about a lottery ticket collapse when you check the numbers. Nothing snapped out there in the world. Something snapped in *you*.",
+      "Every paradox that comes from treating the wavefunction as furniture. Two observers with different wavefunctions? Two people with different bets. Nothing spooky ever happens, because the spooky thing was never out there.",
+      "It declines — politely, permanently — to say what the world is like when you're not involved. Critics call it solipsism with extra linear algebra. QBists reply that first-person experience is where science was hiding all along. Both sides are a little right, and it does come up at parties."
+    ],
+    "experiment": {
+      "name": "The PBR theorem, faced honestly",
+      "year": "2012",
+      "ref": "Pusey, Barrett & Rudolph, Nature Physics",
+      "body": "Your obstacle has a name: the PBR theorem, proved in 2012. Roughly — if there's a deeper reality underneath, the wavefunction can't be *just* information about it. QBism escapes on a technicality that is also its entire soul: it denies there's a deeper filing cabinet at all. Bold. Honestly, you'd respect it.",
+      "wiki": "https://en.wikipedia.org/wiki/Pusey%E2%80%93Barrett%E2%80%93Rudolph_theorem"
+    },
+    "books": "*QBism* by Hans Christian von Baeyer — short, friendly, personal, which its author would insist is the only way anything is. Then Rovelli's *Helgoland*, to meet your nearest neighbor.",
+    "ctaLabel": "find out how it actually works",
+    "ctaTarget": "qb"
+  },
+  "grw": {
+    "name": "Spontaneous Collapse",
+    "tagline": "“Put up or shut up.”",
+    "claims": "Stop interpreting; start editing. Add a tiny spontaneous-collapse term to the equations — rare random localizations that almost never disturb a lone particle but cascade instantly through anything the size of a cat — and the measurement problem dissolves into ordinary physics. Uniquely on this page: testable. Experiments are hunting it right now.",
+    "cost": "It proposes new physics that has never once been observed, and the experiments keep returning polite null results that shrink the territory it could be hiding in. You have chosen the one option that can actually be killed by data. You are proud of this. You should be. It might still get killed.",
+    "you": "You'd rather be wrong than unfalsifiable. You have opinions about other people's untested claims and you share them, unprompted, with citations. When you say \"source?\" you mean it lovingly. But you do mean it. One day the verdict will come in, and you alone will accept it — because you alone requested one.",
+    "book": "<em>Beyond Weird</em> by Philip Ball — rigorous, fair, allergic to hype. You will feel seen, then audited.",
+    "theory": [
+      "Everyone else on this quiz is interpreting the equation. This theory *edits* it. Add one tiny ingredient: every particle, at random, very rarely, snaps to a definite position — about once per hundred million years per particle. A lone atom basically never snaps. A cat is a trillion trillion particles, so a cat snaps instantly, always, everywhere. Small things get to stay fuzzy; big things are forced to be definite. The measurement problem just... becomes ordinary physics.",
+      "Definite outcomes with no observers, no branching, no philosophy seminar. A mechanism you could point at.",
+      "It predicts new physics that has never once been seen — and the experiments keep coming back with polite nothing, shrinking the territory where the snap could be hiding. This is the only theory on the quiz that can be killed by data. You're proud of that. You should be. It might still get killed."
+    ],
+    "experiment": {
+      "name": "Underground collapse hunts, and their null results",
+      "year": "2020",
+      "ref": "Donadi et al.; the parameter space keeps shrinking",
+      "body": "The snap should leave fingerprints — atoms glowing faintly for no reason. In 2020, a detector buried under an Italian mountain listened for that glow. Silence. A big slice of the theory's hiding room, gone. Your theory is being actively hunted right now, and you wouldn't have it any other way.",
+      "wiki": "https://en.wikipedia.org/wiki/Ghirardi%E2%80%93Rimini%E2%80%93Weber_theory"
+    },
+    "books": "*Beyond Weird* by Philip Ball — rigorous, fair, allergic to hype. You'll feel seen, then audited.",
+    "ctaLabel": "find out how it actually works",
+    "ctaTarget": "grw"
+  },
+  "sd": {
+    "name": "Superdeterminism",
+    "tagline": "“The universe wrote your answers before you took the quiz.”",
+    "secret": true,
+    "claims": "Bell’s theorem has a loophole: it assumes experimenters could have chosen their measurement settings freely. Deny that — let the detector settings and the particles be correlated since the Big Bang — and every “spooky” result becomes bookkeeping. Nothing nonlocal ever happened. Strictly speaking, nothing ever “happened” at all, except the one thing, once, at the beginning.",
+    "cost": "If measurement choices are secretly correlated with what is being measured, then controlled experiments stop being evidence for anything, anywhere, forever — including, awkwardly, the experiments that might support superdeterminism. It does not lose arguments. It dissolves the concept of arguing.",
+    "you": "You win arguments by making argument impossible. You answered these questions with the serenity of someone reading from a script — because you were. We'd congratulate you on unlocking the secret ending, but you didn't unlock anything: the ending, the quiz, this sentence, and the mild vindication you're feeling right now were all packed into the universe at the start. Your answers were never your own. Neither was your decision to take the quiz. Nor is what you do next — though you'll enjoy feeling otherwise.",
+    "book": "No book can help you; it was always going to be this way. Read <em>Beyond Weird</em> by Philip Ball anyway. You were always going to.",
+    "theory": [
+      "The famous \"spooky\" experiments all rest on one quiet assumption: that the experimenters could have chosen their settings freely. Deny that — let every choice, every particle, and every detector share one common cause at the beginning of time — and all the spookiness evaporates into bookkeeping. Nothing ever influenced anything faster than light. Nothing ever \"happened\" at all, really. Except once, at the start.",
+      "Everything, at the lowest possible price per universe and the highest possible price per everything else.",
+      "If choices are secretly correlated with what's being measured, then controlled experiments stop being evidence — anywhere, for anything, forever. Including the experiments that might have supported superdeterminism. It doesn't lose arguments. It dissolves the concept of arguing."
+    ],
+    "experiment": {
+      "name": "The Big Bell Test and quasar-light Bell tests",
+      "year": "2016-2018",
+      "ref": "100,000 human choosers; then light from distant quasars",
+      "body": "In 2016 physicists recruited 100,000 strangers to mash random buttons, live, worldwide, and used the mashing to choose detector settings. Quantum weirdness won anyway. Another version chose settings using light from quasars — fixed billions of years before Earth existed. Also won. So your loophole now requires the universe to have conspired using both gamer thumbs and ancient starlight. You're fine with this. You were always going to be.",
+      "wiki": "https://en.wikipedia.org/wiki/Bell_test"
+    },
+    "books": "No book can help you; it was always going to be this way. Read *Beyond Weird* by Philip Ball anyway. You were always going to.",
+    "ctaLabel": "find out how it actually works",
+    "ctaTarget": "sd"
+  },
+  "cc": {
+    "name": "Consciousness Causes Collapse",
+    "tagline": "“The disreputable uncle.”",
+    "secret": true,
+    "claims": "You clicked every answer with a candle burning inside it, so let us be direct. The idea that a conscious mind is what collapses the wave function has real pedigree — von Neumann was nobody’s crank — and almost no modern defenders, because measuring devices and stray air molecules decohere quantum states just fine with nobody watching. Today it survives mostly in airport books that promise the universe is thinking about you specifically. It is not.",
+    "cost": "To be clear about what quantum mechanics does not say: entanglement cannot carry a message. Superposition does not mean anything is possible. Observation, in the physics, means interaction — a photon will do; no soul required. The moon is there when nobody looks, or at the very least every working physicist bets that way.",
+    "you": "You picked every answer with a candle burning inside it, so let's be honest with each other. You're drawn to the deep questions — that instinct is *correct*, and we salute it — but somewhere along the way the crystals got involved. Here's the good news, and we mean it: the real quantum mechanics is weirder and better than the version you were sold.",
+    "book": "Start with <em>Beyond Weird</em> by Philip Ball. Then <em>What Is Real?</em> by Adam Becker. Then, when you are ready to have your mind blown honestly, <em>Something Deeply Hidden</em> by Sean Carroll. The real thing is better. It was always better.",
+    "theory": [
+      "In physics, \"observation\" just means *interaction*. A photon will do. A stray air molecule will do. Nobody has to be watching: the delicate \"both at once\" behavior gets scrambled the moment anything bumps into it — that's why we never see fuzzy cats. Labs have watched this scrambling happen, in detail, with no minds anywhere in the loop. The universe wasn't waiting for you to look. It was already bumping into itself.",
+      "entanglement can't carry a message. \"Anything is possible\" is not what the equations say. The moon is there when nobody looks — or at minimum, every working physicist bets that way.",
+      "the mystery you're hungry for is real. It's just not in the crystals — it's in the actual physics, which is stranger, more beautiful, and more honest about what it doesn't know than any airport book. You have the right appetite. You've been eating at the wrong restaurant."
+    ],
+    "experiment": {
+      "name": "Decoherence experiments",
+      "year": "-",
+      "ref": "observation means interaction; a stray photon will do it",
+      "body": "",
+      "wiki": "https://en.wikipedia.org/wiki/Quantum_decoherence"
+    },
+    "books": "Start with *Beyond Weird* by Philip Ball. Then *What Is Real?* by Adam Becker. Then, when you're ready to have your mind blown honestly, *Something Deeply Hidden* by Sean Carroll. The real thing is better. It was always better.",
+    "ctaLabel": "find out what's actually going on (it's better)",
+    "ctaTarget": "decoherence"
+  }
+}

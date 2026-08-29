@@ -1,0 +1,696 @@
+[
+  {
+    "id": "q2",
+    "title": "the transporter (Star Trek)",
+    "stem": "The teleporter is totally safe — millions of trips, zero accidents, the technician doesn't even look up anymore. It scans you, builds a perfect copy of you at your destination, and the you standing on the pad is gone, painlessly, in the same instant. Do you step on?",
+    "opts": [
+      {
+        "id": "q2-mw",
+        "t": "Energize. The pattern is the person; sentiment about which atoms is exactly that — sentiment.",
+        "w": {
+          "mw": 3
+        },
+        "unmask": ""
+      },
+      {
+        "id": "q2-pw",
+        "t": "Never. What steps off is a *second thing*. Where a thing has actually been matters, even if no scanner could ever tell the difference. I'll take the shuttle.",
+        "w": {
+          "pw": 3
+        },
+        "unmask": ""
+      },
+      {
+        "id": "q2-qb",
+        "t": "One question first, and the manual can't answer it: what will *I* experience? Not the me who waves from the far pad — me. Nobody answers that in the third person.",
+        "w": {
+          "qb": 3
+        },
+        "unmask": ""
+      },
+      {
+        "id": "q2-rqm",
+        "t": "To everyone at the destination, that's me — completely. To this room, something ends. Both are the case, and there is no extra fact about which one is 'really' me. I'd step on.",
+        "w": {
+          "rqm": 3
+        },
+        "unmask": ""
+      },
+      {
+        "id": "q2-cop",
+        "t": "It moves millions a day and the technician is bored. What happens 'during' is a question for people with too much layover.",
+        "w": {
+          "cop": 3
+        },
+        "unmask": ""
+      },
+      {
+        "id": "q2-grw",
+        "t": "Before I board I want the incident report — the famous one, where the pad glitched and *two* walked away. What they did next tells you what this machine actually is.",
+        "w": {
+          "grw": 3
+        },
+        "unmask": ""
+      },
+      {
+        "id": "q2-sd",
+        "t": "The manifest already knows whether I arrive. I'll find out at the gate.",
+        "w": {
+          "sd": 3
+        },
+        "unmask": ""
+      },
+      {
+        "id": "q2-cc",
+        "t": "The scanner gets every atom and misses the passenger. Something looks out of these eyes, and it isn't in the schematic.",
+        "w": {
+          "cc": 3
+        },
+        "unmask": ""
+      }
+    ]
+  },
+  {
+    "id": "q5",
+    "title": "the coincidence (11:11)",
+    "stem": "You think of an old friend for the first time in years. That same evening, they text you. What just happened?",
+    "opts": [
+      {
+        "id": "q5-pw",
+        "t": "Count the times you thought of someone and nothing happened. Nobody logs the misses. That's what just happened.",
+        "w": {
+          "pw": 2
+        },
+        "unmask": ""
+      },
+      {
+        "id": "q5-cc",
+        "t": "It's been like this all week — their initials, that song, 11:11. I don't have to explain it to notice it.",
+        "w": {
+          "cc": 2
+        },
+        "unmask": ""
+      },
+      {
+        "id": "q5-qb",
+        "t": "A coincidence — but a useful one: it told me I miss them. I'd answer fast either way.",
+        "w": {
+          "qb": 2
+        },
+        "unmask": ""
+      },
+      {
+        "id": "q5-cop",
+        "t": "A text arrived. That's the entire event.",
+        "w": {
+          "cop": 2
+        },
+        "unmask": ""
+      },
+      {
+        "id": "q5-rqm",
+        "t": "For me it's uncanny; for them it's Tuesday. Both descriptions are complete.",
+        "w": {
+          "rqm": 2
+        },
+        "unmask": ""
+      },
+      {
+        "id": "q5-mw",
+        "t": "Given enough friends and enough evenings, the real surprise would be this *never* happening.",
+        "w": {
+          "mw": 2
+        },
+        "unmask": ""
+      },
+      {
+        "id": "q5-sd",
+        "t": "The thought and the text share a cause somewhere upstream. Things that meet were aimed.",
+        "w": {
+          "sd": 2
+        },
+        "unmask": ""
+      }
+    ]
+  },
+  {
+    "id": "q1",
+    "title": "the train (Sliding Doors)",
+    "stem": "A canceled meeting puts you on an earlier train than usual. You end up next to an old acquaintance who starts gossiping — no idea you know the people involved. Mid-story, you realize you now know something you were never meant to: years ago, before things got serious, your best friend's partner cheated. Once. They're happy now. What do you do?",
+    "opts": [
+      {
+        "id": "q1-pw",
+        "t": "Tell. The truth doesn't expire, and my friend is navigating their life with a wrong map. Painful beats false.",
+        "w": {
+          "pw": 2
+        },
+        "unmask": ""
+      },
+      {
+        "id": "q1-cop",
+        "t": "Nothing. The relationship in front of me works; excavating what's underneath it answers no question anyone is asking.",
+        "w": {
+          "cop": 2
+        },
+        "unmask": ""
+      },
+      {
+        "id": "q1-rqm",
+        "t": "What happened was one thing inside their relationship and another from where I stand. I don't hold their fact — I hold a stranger's copy of it. Not mine to install.",
+        "w": {
+          "rqm": 2
+        },
+        "unmask": ""
+      },
+      {
+        "id": "q1-qb",
+        "t": "Telling isn't handing them a fact — it's forcing a bet they never placed. I'd sit with my friend, learn what they'd *want* to know, before deciding I know it for them.",
+        "w": {
+          "qb": 2
+        },
+        "unmask": ""
+      },
+      {
+        "id": "q1-grw",
+        "t": "The unbearable option is knowing forever and saying nothing. I go to the partner: you tell them, or I do. Either way it resolves.",
+        "w": {
+          "grw": 2
+        },
+        "unmask": ""
+      },
+      {
+        "id": "q1-mw",
+        "t": "I make the rule that the version of me who missed this train could also endorse — what should *anyone* do with this, every time — then I do that, even when it stings.",
+        "w": {
+          "mw": 2
+        },
+        "unmask": ""
+      },
+      {
+        "id": "q1-sd",
+        "t": "A canceled meeting, that seat, that stranger, that story. By the time a train has handed you a thing like this, what you'll do with it was already aboard. I'll watch myself find out.",
+        "w": {
+          "sd": 2
+        },
+        "unmask": ""
+      },
+      {
+        "id": "q1-cc",
+        "t": "I wasn't meant to catch that train — or I was. Information doesn't ride to you for nothing. I'd wait until it's clear why it came to me.",
+        "w": {
+          "cc": 2
+        },
+        "unmask": ""
+      }
+    ]
+  },
+  {
+    "id": "q3",
+    "title": "the cut to black (Inception / Sopranos)",
+    "stem": "A movie ends by cutting to black right before you find out the answer. Walking out, you and your friends are already arguing about what really happened — and mid-sentence you realize this one can never be settled. The answer just isn't in the movie. Where do you land?",
+    "opts": [
+      {
+        "id": "q3-grw",
+        "t": "Then the director owes us. Somebody knows what the script said; there are interviews; there is an on-record answer and I will find it or die cranky.",
+        "w": {
+          "grw": 2
+        },
+        "unmask": ""
+      },
+      {
+        "id": "q3-pw",
+        "t": "The frame exists — it existed *on set*. Continuity notes, props, what the actors were told that morning. The answer is in the world even if it isn't in the film.",
+        "w": {
+          "pw": 2
+        },
+        "unmask": ""
+      },
+      {
+        "id": "q3-cop",
+        "t": "The cut is the answer: the film ends exactly where the question stops being the film's business. Respect it.",
+        "w": {
+          "cop": 2
+        },
+        "unmask": ""
+      },
+      {
+        "id": "q3-rqm",
+        "t": "The film you watched and the film I watched ended differently. Two tickets, two films. Nothing needs reconciling in the lobby.",
+        "w": {
+          "rqm": 2
+        },
+        "unmask": ""
+      },
+      {
+        "id": "q3-qb",
+        "t": "The ending is whatever each viewer walked in carrying. That's not a cop-out — that's what endings are for.",
+        "w": {
+          "qb": 2
+        },
+        "unmask": ""
+      },
+      {
+        "id": "q3-mw",
+        "t": "Both endings are in that cut. That's what the cut *is*. The film is complete — it's just bigger than one screening of it.",
+        "w": {
+          "mw": 2
+        },
+        "unmask": ""
+      },
+      {
+        "id": "q3-sd",
+        "t": "The film was always going to end there, and you were always going to need it not to. Enjoy the drive home.",
+        "w": {
+          "sd": 2
+        },
+        "unmask": ""
+      },
+      {
+        "id": "q3-cc",
+        "t": "I don't think it's an accident which ending each person needs it to be. The film shows you yours.",
+        "w": {
+          "cc": 2
+        },
+        "unmask": ""
+      }
+    ]
+  },
+  {
+    "id": "q10",
+    "title": "the album (palate cleanser; plays at slot 5)",
+    "stem": "Pick an album.",
+    "opts": [
+      {
+        "id": "q10-pw",
+        "t": "Discovery — Daft Punk. Every single sound on it came from somewhere, and people have found them all. That's what makes it *better*.",
+        "w": {
+          "pw": 1
+        },
+        "unmask": ""
+      },
+      {
+        "id": "q10-mw",
+        "t": "The Smile Sessions — Beach Boys. The 'finished' album never came out, and it doesn't need to. Every version is the album.",
+        "w": {
+          "mw": 1
+        },
+        "unmask": ""
+      },
+      {
+        "id": "q10-qb",
+        "t": "Blonde — Frank Ocean. Memories bent to how they felt instead of how they happened — which is the honest version.",
+        "w": {
+          "qb": 1
+        },
+        "unmask": ""
+      },
+      {
+        "id": "q10-cop",
+        "t": "ABBA Gold. Not technically an album, and I will not be taking questions.",
+        "w": {
+          "cop": 1
+        },
+        "unmask": ""
+      },
+      {
+        "id": "q10-grw",
+        "t": "Unknown Pleasures — Joy Division. The cover is literally a chart of pulsar data. Austere. Measurable. No notes wasted.",
+        "w": {
+          "grw": 1
+        },
+        "unmask": ""
+      },
+      {
+        "id": "q10-sd",
+        "t": "4'33\" — John Cage. Nobody plays a note, and it still comes out exactly as it was always going to — four and a half minutes of the world proceeding without anyone's input. Every performance goes perfectly.",
+        "w": {
+          "sd": 1
+        },
+        "unmask": ""
+      },
+      {
+        "id": "q10-cc",
+        "t": "The Dark Side of the Moon — started at the exact moment the lion roars the third time. It syncs. It syncs *too well*. Explain that.",
+        "w": {
+          "cc": 1
+        },
+        "unmask": ""
+      },
+      {
+        "id": "q10-rqm",
+        "t": "The Grey Album — Danger Mouse. It's just two other records meeting each other. It was never even officially released — and it's still completely real.",
+        "w": {
+          "rqm": 1
+        },
+        "unmask": ""
+      }
+    ]
+  },
+  {
+    "id": "q6",
+    "title": "the 3am replay (La La Land epilogue / EEAAO)",
+    "stem": "It's 3am and you're replaying a decision from last year that went badly. What are you actually replaying?",
+    "opts": [
+      {
+        "id": "q6-qb",
+        "t": "The information I had at the time. Given that, I'd bet the same way again — the outcome was bad, the bet was fine. Filed, updated, closed.",
+        "w": {
+          "qb": 2
+        },
+        "unmask": ""
+      },
+      {
+        "id": "q6-pw",
+        "t": "The detail I missed. It was there, it was findable — that's the part that stings and the part that teaches.",
+        "w": {
+          "pw": 2
+        },
+        "unmask": ""
+      },
+      {
+        "id": "q6-mw",
+        "t": "The whole other life, playing out in montage — where they'd be by now, who they'd know, the apartment. I can visit. I just can't stay.",
+        "w": {
+          "mw": 2
+        },
+        "unmask": ""
+      },
+      {
+        "id": "q6-grw",
+        "t": "The exact moment it tipped. Everything before that was recoverable; I want to know precisely where it stopped being.",
+        "w": {
+          "grw": 2
+        },
+        "unmask": ""
+      },
+      {
+        "id": "q6-cop",
+        "t": "Nothing, honestly. I don't do replays — it happened, it's over, there's nothing back there to watch.",
+        "w": {
+          "cop": 2
+        },
+        "unmask": ""
+      },
+      {
+        "id": "q6-rqm",
+        "t": "Depends who's asking. The version I tell my mother, my partner, and myself at 3am are three different calls — none of them the original.",
+        "w": {
+          "rqm": 2
+        },
+        "unmask": ""
+      },
+      {
+        "id": "q6-sd",
+        "t": "'The call' — as if there were a fork. There was a person, being exactly who they were, doing the only thing that person does. I've stopped grading it.",
+        "w": {
+          "sd": 2
+        },
+        "unmask": ""
+      },
+      {
+        "id": "q6-cc",
+        "t": "It went badly so that something else could happen. I've started looking for what.",
+        "w": {
+          "cc": 2
+        },
+        "unmask": ""
+      }
+    ]
+  },
+  {
+    "id": "q4",
+    "title": "the magician's offer (The Prestige)",
+    "stem": "A magician fools you so badly you lose sleep over it. A week later you run into them, and they offer to tell you how the trick was done — with a warning: knowing ruins it. Do you want to know?",
+    "opts": [
+      {
+        "id": "q4-pw",
+        "t": "Instantly. The explanation is the best part; a mystery is just a mechanism I haven't met yet. Nothing true gets worse by being known.",
+        "w": {
+          "pw": 2
+        },
+        "unmask": ""
+      },
+      {
+        "id": "q4-cc",
+        "t": "No. For one moment the world was something other than solid and ordinary, and that moment is worth protecting from the truth. Keep your secret.",
+        "w": {
+          "cc": 2
+        },
+        "unmask": ""
+      },
+      {
+        "id": "q4-cop",
+        "t": "No, and not out of romance: the trick works whether or not I know how. Knowing adds nothing I can use.",
+        "w": {
+          "cop": 2
+        },
+        "unmask": ""
+      },
+      {
+        "id": "q4-qb",
+        "t": "Yes — but what I actually want explained is the other half of the trick: me, being fooled. That mechanism I can take home.",
+        "w": {
+          "qb": 2
+        },
+        "unmask": ""
+      },
+      {
+        "id": "q4-mw",
+        "t": "Yes, and then the general theory — not this trick, all tricks. One principle, every card.",
+        "w": {
+          "mw": 2
+        },
+        "unmask": ""
+      },
+      {
+        "id": "q4-grw",
+        "t": "Yes, and then let me try it until it breaks on me. You only understand a trick at the edge where it fails.",
+        "w": {
+          "grw": 2
+        },
+        "unmask": ""
+      },
+      {
+        "id": "q4-rqm",
+        "t": "The trick I'd be told isn't the trick the person beside me saw. There were as many tricks as seats.",
+        "w": {
+          "rqm": 2
+        },
+        "unmask": ""
+      },
+      {
+        "id": "q4-sd",
+        "t": "Take it or don't — I was always going to be fooled, and knowing how won't make the next one avoidable.",
+        "w": {
+          "sd": 2
+        },
+        "unmask": ""
+      }
+    ]
+  },
+  {
+    "id": "q7",
+    "title": "the 30% wedding (forecast discourse)",
+    "stem": "Your friend's outdoor wedding. The weather app said 30% chance of rain. It poured from the first speech to the last dance. Was the app wrong?",
+    "opts": [
+      {
+        "id": "q7-qb",
+        "t": "No. A 30% isn't a promise, it's a posture. The forecast did its job; the sky did its thing.",
+        "w": {
+          "qb": 2
+        },
+        "unmask": ""
+      },
+      {
+        "id": "q7-grw",
+        "t": "That's my real complaint: said that way, it can never be caught being wrong. Show me their track record — if their 30%s come true about three times in ten, I'll forgive any one Saturday.",
+        "w": {
+          "grw": 2
+        },
+        "unmask": ""
+      },
+      {
+        "id": "q7-pw",
+        "t": "Yes — not as a bet, as a description. That storm was already assembled off the coast by morning. Someone with better data knew.",
+        "w": {
+          "pw": 2
+        },
+        "unmask": ""
+      },
+      {
+        "id": "q7-cop",
+        "t": "'Wrong' isn't a property forecasts have. It said 30, it rained, the marquee was cheap insurance nobody bought.",
+        "w": {
+          "cop": 2
+        },
+        "unmask": ""
+      },
+      {
+        "id": "q7-mw",
+        "t": "The 30 was right about the whole population of Saturdays like that one. This particular soaked wedding isn't evidence about anything.",
+        "w": {
+          "mw": 2
+        },
+        "unmask": ""
+      },
+      {
+        "id": "q7-rqm",
+        "t": "Wrong for the bride, fine for the region, excellent for the reservoir. 'The forecast' was never one thing.",
+        "w": {
+          "rqm": 2
+        },
+        "unmask": ""
+      },
+      {
+        "id": "q7-sd",
+        "t": "The rain, the app, and everyone's decision to trust it were never separate things. There's nothing to blame — it all arrived together.",
+        "w": {
+          "sd": 2
+        },
+        "unmask": ""
+      },
+      {
+        "id": "q7-cc",
+        "t": "It rained on the one day it mattered, on the one hour it mattered most. At some point 'chance' stops being the humble explanation.",
+        "w": {
+          "cc": 2
+        },
+        "unmask": ""
+      }
+    ]
+  },
+  {
+    "id": "q8",
+    "title": "morning pages (The Artist's Way)",
+    "stem": "Say you keep a journal with one strict rule: write every morning, never read it back. Nobody else will ever read it either. Is the writing actually doing anything?",
+    "opts": [
+      {
+        "id": "q8-qb",
+        "t": "Everything. The reader was never the point; the writing rearranges the *writer*. It's the most honest instrument I own.",
+        "w": {
+          "qb": 3
+        },
+        "unmask": ""
+      },
+      {
+        "id": "q8-rqm",
+        "t": "Something happens between me and the page, every morning. That it goes no further doesn't make it less — most of what happens goes no further.",
+        "w": {
+          "rqm": 3
+        },
+        "unmask": ""
+      },
+      {
+        "id": "q8-pw",
+        "t": "It's doing what everything does: existing. The pages are real, the ink is real; readership was always a separate question.",
+        "w": {
+          "pw": 3
+        },
+        "unmask": ""
+      },
+      {
+        "id": "q8-cop",
+        "t": "If no one ever reads it, then whether it's 'doing anything' is a question with no consequences either way. But you keep showing up every morning — so it's doing that.",
+        "w": {
+          "cop": 3
+        },
+        "unmask": ""
+      },
+      {
+        "id": "q8-mw",
+        "t": "Yes — and the rule is the whole point. I don't need to read them for the pages to count; I need the practice to be total. No exceptions, no peeking, no special mornings.",
+        "w": {
+          "mw": 3
+        },
+        "unmask": ""
+      },
+      {
+        "id": "q8-grw",
+        "t": "No — and I'd stop. Output nothing can ever check isn't reflection, it's rehearsal. Say one sentence out loud to a real person instead.",
+        "w": {
+          "grw": 3
+        },
+        "unmask": ""
+      },
+      {
+        "id": "q8-cc",
+        "t": "A day fully attended to is different afterward, and so is the person attending. Attention is never wasted — it goes somewhere.",
+        "w": {
+          "cc": 3
+        },
+        "unmask": ""
+      }
+    ]
+  },
+  {
+    "id": "q9",
+    "title": "two cities (Moneyball / the pro-con list)",
+    "stem": "You're choosing between two cities — basically two different lives. You make the spreadsheet: pros, cons, weights, the works. It picks the city you don't want. What now?",
+    "opts": [
+      {
+        "id": "q9-mw",
+        "t": "I go with the spreadsheet. I built it precisely because I knew this moment would come, and gut-me doesn't get a veto it didn't earn.",
+        "w": {
+          "mw": 2
+        },
+        "unmask": ""
+      },
+      {
+        "id": "q9-pw",
+        "t": "I open the formulas. The dread means an input is wrong — the gut is usually reporting something it can't cite yet.",
+        "w": {
+          "pw": 2
+        },
+        "unmask": ""
+      },
+      {
+        "id": "q9-qb",
+        "t": "The dread *is* data — a criterion I was too embarrassed to weight. Back into the model it goes, honestly this time.",
+        "w": {
+          "qb": 2
+        },
+        "unmask": ""
+      },
+      {
+        "id": "q9-cop",
+        "t": "Spreadsheets are for narrowing, not deciding. It did its job; now I do mine.",
+        "w": {
+          "cop": 2
+        },
+        "unmask": ""
+      },
+      {
+        "id": "q9-grw",
+        "t": "A month there, sublet, cheap flights — run the trial the scouts in my head keep scoffing at. Arguments end; seasons conclude.",
+        "w": {
+          "grw": 2
+        },
+        "unmask": ""
+      },
+      {
+        "id": "q9-rqm",
+        "t": "I show it to three friends and get three verdicts on 'what it says.' The spreadsheet was never going to be the last conversation.",
+        "w": {
+          "rqm": 2
+        },
+        "unmask": ""
+      },
+      {
+        "id": "q9-sd",
+        "t": "The spreadsheet, the gut, and the eventual choice are one process pretending to be three. I watch it finish.",
+        "w": {
+          "sd": 2
+        },
+        "unmask": ""
+      },
+      {
+        "id": "q9-cc",
+        "t": "I notice which cell my eye keeps snagging on. The discomfort is pointing somewhere; numbers are one of the ways it talks.",
+        "w": {
+          "cc": 2
+        },
+        "unmask": ""
+      }
+    ]
+  }
+]

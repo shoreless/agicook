@@ -1,0 +1,147 @@
+---
+layout: null
+eleventyExcludeFromCollections: true
+# renders twice: the pinned /v2/ URL, and the bare path that always serves latest
+pagination:
+  data: routes
+  size: 1
+  alias: route
+routes:
+  - "v2/"
+  - ""
+permalink: "/which-quantum-interpretation-are-you/{{ route }}index.html"
+---
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Which Quantum Interpretation Are You?</title>
+<meta name="description" content="Nine questions, seven possible selves. Every interpretation of quantum mechanics is wild somewhere — this one finds out where you put the weirdness.">
+<link rel="canonical" href="https://agicook.com/which-quantum-interpretation-are-you/{{ route }}">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="agicook">
+<meta property="og:title" content="Which Quantum Interpretation Are You?">
+<meta property="og:description" content="Weirdness is conserved. You only get to choose where it goes.">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/css/quiz.css">
+</head>
+<body>
+
+<nav class="site-nav">
+  <a class="home" href="/">agicook</a>
+  <span class="links">
+    <a href="#glossary">glossary</a>
+    <a href="/which-quantum-interpretation-are-you/v1/">v1</a>
+  </span>
+</nav>
+
+<svg class="superpose" id="superpose" viewBox="0 0 600 700" preserveAspectRatio="none" aria-hidden="true"></svg>
+
+<main class="wrap">
+
+  <!-- ---------- intro ---------- -->
+  <section id="intro">
+    <p class="eyebrow">An instrument of self-measurement &middot; version 2</p>
+    <h1>Which Quantum Interpretation<br>Are You<span class="qm">?</span></h1>
+    <p class="dek">Ninety-nine years since anyone agreed on what a measurement is.
+      Nine questions to find out which lump under the carpet is yours.</p>
+    <p class="superpose-caption mono">You are currently in a superposition of
+      seven results &mdash; all of them, with amplitudes, none of them yet yours</p>
+
+    <div class="note">
+      <p>Every [[no-go-theorem]] of the last sixty years has closed another exit
+      marked &ldquo;common sense.&rdquo; [[bell]] ruled out one escape,
+      [[contextuality]] another, [[pbr]] a third. What survives is a short list of
+      theories that all agree with every experiment ever done and disagree
+      violently about what is happening.</p>
+      <p>None of them is sane. <strong>Weirdness is conserved</strong> &mdash; you
+      only get to choose where it goes. This measures where you put it.</p>
+      <p class="note-aside">Terms like <em>these</em> are explained on tap, and
+      collected in the <a href="#glossary">glossary</a> at the foot of the page.</p>
+    </div>
+
+    <button class="btn-primary" id="begin">Begin measurement</button>
+
+    <div class="debug" id="debug" hidden>
+      <p class="debug-head mono">Debug &middot; play a full run</p>
+      <div class="debug-links" id="debug-links"></div>
+      <p class="debug-note mono">Local only. Unlike the roster links on a reveal, these
+        synthesise a consistent playthrough &mdash; so &ldquo;How we caught you&rdquo; and
+        the near-miss render too.</p>
+    </div>
+  </section>
+
+  <!-- ---------- quiz ---------- -->
+  <section id="quiz" hidden>
+    <div class="quiz-head">
+      <p class="mono" id="counter">Question 1 of 9</p>
+      <p class="mono" id="collapse-pct">Collapse: 0%</p>
+    </div>
+    <div class="collapse-bar"><div class="collapse-fill" id="collapse-fill"></div></div>
+
+    <svg class="wavefn" id="wavefn" viewBox="0 0 600 120" preserveAspectRatio="none" aria-hidden="true">
+      <path class="wave-fill" id="wave-fill" vector-effect="non-scaling-stroke"></path>
+      <path class="wave-line" id="wave-line" vector-effect="non-scaling-stroke"></path>
+    </svg>
+    <p class="amps-caption mono">Your state, so far &mdash; which peak is which
+      is not something you get to know before measuring</p>
+
+    <h2 class="question" id="question"></h2>
+    <div class="options" id="options"></div>
+
+    <div class="quiz-foot">
+      <button class="btn-ghost" id="back">Back</button>
+    </div>
+  </section>
+
+  <!-- ---------- result ---------- -->
+  <section id="result" hidden></section>
+
+  <!-- ---------- glossary (also the no-JS fallback for every tooltip) ---------- -->
+  <section id="glossary">
+    <details class="glossary-block" id="glossary-block">
+    <summary>Glossary <span class="count">{{ quiz.glossary | length }} terms</span></summary>
+    <dl class="glossary">
+      {%- for key, term in quiz.glossary %}
+      <div class="gloss-entry" id="gloss-{{ key }}">
+        <dt>{{ term.label }}</dt>
+        <dd>
+          <p class="gloss-short">{{ term.short }}</p>
+          {%- if term.long %}<p class="gloss-long">{{ term.long }}</p>{% endif %}
+          {%- if term.see %}
+          <p class="gloss-see mono">See also:
+            {%- for s in term.see %} <a href="#gloss-{{ s }}">{{ quiz.glossary[s].label }}</a>{{ "," if not loop.last }}{% endfor %}
+          </p>
+          {%- endif %}
+        </dd>
+      </div>
+      {%- endfor %}
+    </dl>
+    </details>
+  </section>
+
+</main>
+
+<footer class="foot wrap">
+  <a href="/">agicook</a>
+  <a href="mailto:futurejira+human@gmail.com">email</a>
+  <a href="/which-quantum-interpretation-are-you/v1/">version 1</a>
+</footer>
+
+{% from "motifs.njk" import base, fringes %}
+{% include "motifs.njk" %}
+
+<script type="application/json" id="q-questions">{{ quiz.questions | jsonscript | safe }}</script>
+<script type="application/json" id="q-results">{{ quiz.results | jsonscript | safe }}</script>
+<script type="application/json" id="q-meta">{{ quiz.meta | jsonscript | safe }}</script>
+<script type="application/json" id="q-links">{{ quiz.links | jsonscript | safe }}</script>
+<script type="application/json" id="q-glossary">{{ quiz.glossary | jsonscript | safe }}</script>
+<script src="/js/gloss.js" defer></script>
+<script src="/js/share.js" defer></script>
+<script src="/js/quiz.js" defer></script>
+</body>
+</html>

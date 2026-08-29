@@ -104,24 +104,3 @@ src/js/field.js        two-slit interference field behind the wordmark
 src/js/map.js          draws the connections between nodes
 src/_data/site.json    title, byline, tagline, meta description
 ```
-
-## DNS (Namecheap)
-
-`src/CNAME` tells Pages the domain; the registrar has to point at Pages.
-In Namecheap → Domain List → **agicook.com** → Manage → **Advanced DNS**:
-
-Delete the parking records Namecheap adds by default (the `URL Redirect Record`
-on `@`, and the `CNAME` on `www` pointing at `parkingpage.namecheap.com`), then add:
-
-| Type  | Host | Value                 |
-|-------|------|-----------------------|
-| A     | @    | 185.199.108.153       |
-| A     | @    | 185.199.109.153       |
-| A     | @    | 185.199.110.153       |
-| A     | @    | 185.199.111.153       |
-| CNAME | www  | shoreless.github.io.  |
-
-Then in the repo's Settings → Pages, set the custom domain and tick **Enforce
-HTTPS** once the certificate is issued. The certificate is only issued after DNS
-resolves, so expect to wait — `shoreless.org` is already set up this way if you
-want to compare.

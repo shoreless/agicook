@@ -1,0 +1,146 @@
+{
+  "wavefunction": {
+    "label": "wavefunction",
+    "short": "The mathematical object that assigns a complex number to every possible configuration of a system.",
+    "long": "Written ψ. It is not a wave in space like a ripple on a pond — for two particles it lives in a six-dimensional configuration space, not in the room. Whether ψ is a real physical thing or a bookkeeping device for what you know is precisely what the interpretations argue about.",
+    "see": ["amplitude", "ontic", "epistemic"]
+  },
+  "amplitude": {
+    "label": "amplitude",
+    "short": "A complex number whose squared magnitude gives a probability.",
+    "long": "Amplitudes are what makes quantum mechanics quantum. Because they are complex, they can cancel — two ways of reaching the same outcome can add up to no chance of it happening at all. Classical probabilities can never do this.",
+    "see": ["born-rule", "interference"]
+  },
+  "born-rule": {
+    "label": "Born rule",
+    "short": "The recipe that turns amplitudes into probabilities: probability equals the amplitude's magnitude squared.",
+    "long": "Max Born added it in a footnote in 1926 and won a Nobel Prize for the footnote. Every interpretation has to reproduce it, and several struggle to explain why it holds rather than simply assuming it.",
+    "see": ["amplitude"]
+  },
+  "superposition": {
+    "label": "superposition",
+    "short": "A state that is a combination of other states, with amplitudes attached.",
+    "long": "Commonly mangled as \"being in two places at once.\" More accurately: the system is in one perfectly definite state, which happens not to be a state of definite position (or spin, or whatever you are about to measure). The indefiniteness is relative to the question you ask.",
+    "see": ["eigenstate", "interference"]
+  },
+  "eigenstate": {
+    "label": "eigenstate",
+    "short": "A state with a definite value for some particular observable.",
+    "long": "A state is only ever an eigenstate with respect to a specific question. Definite momentum means wildly indefinite position, and vice versa. There is no state that is definite about everything.",
+    "see": ["superposition"]
+  },
+  "interference": {
+    "label": "interference",
+    "short": "Amplitudes for different paths adding or cancelling, producing fringes.",
+    "long": "The double slit is the canonical case: close one slit and the bright band at a given spot can appear, open both and it can vanish. Adding a second way for something to happen made it stop happening. No probability theory built on ordinary numbers does this.",
+    "see": ["amplitude", "decoherence"]
+  },
+  "measurement-problem": {
+    "label": "the measurement problem",
+    "short": "Unitary evolution never produces a single definite outcome, yet we only ever see one.",
+    "long": "The Schrödinger equation is linear and deterministic, so a measuring device interacting with a superposition should end up in a superposition of readings. It doesn't — you see one number. Every interpretation on this quiz is, at bottom, a different answer to this one problem.",
+    "see": ["unitary", "collapse", "decoherence"]
+  },
+  "collapse": {
+    "label": "collapse",
+    "short": "The postulated jump from a superposition to a single definite outcome on measurement.",
+    "long": "In textbook quantum mechanics it is simply an extra rule bolted alongside the Schrödinger equation, with no account of when it applies or what counts as a measurement. Interpretations either explain it, deny it happens, or make it a real physical process with its own dynamics.",
+    "see": ["measurement-problem", "grw"]
+  },
+  "decoherence": {
+    "label": "decoherence",
+    "short": "Interaction with the environment rapidly destroying interference between branches.",
+    "long": "Real and experimentally confirmed, and it explains why you never see a superposed cat. But it does not by itself solve the measurement problem, however often it is claimed to: it explains why the branches stop interfering, not why you end up in exactly one of them.",
+    "see": ["measurement-problem", "interference"]
+  },
+  "unitary": {
+    "label": "unitary",
+    "short": "Evolution that is reversible and preserves total probability — the Schrödinger equation.",
+    "long": "Unitary dynamics never destroys information and never singles out an outcome. An interpretation that insists dynamics is always unitary (Many-Worlds) must therefore explain single outcomes some other way; one that admits non-unitary collapse must say when and why.",
+    "see": ["measurement-problem", "collapse"]
+  },
+  "ontic": {
+    "label": "ontic",
+    "short": "About what exists, independently of anyone's knowledge.",
+    "long": "An ontic reading of the wavefunction says ψ is a real physical thing, as much a part of the furniture of the world as a field. Pilot Wave and spontaneous collapse are ontic about ψ.",
+    "see": ["epistemic", "pbr"]
+  },
+  "epistemic": {
+    "label": "epistemic",
+    "short": "About what someone knows, rather than about the world itself.",
+    "long": "An epistemic reading says ψ encodes an observer's information, so \"collapse\" is just updating your beliefs — no more mysterious than a probability changing when you look at a card. QBism takes this furthest. The PBR theorem is the main obstacle in its path.",
+    "see": ["ontic", "pbr", "qbism"]
+  },
+  "hidden-variables": {
+    "label": "hidden variables",
+    "short": "Extra facts beyond the wavefunction that would fix what actually happens.",
+    "long": "The hope was that quantum randomness is like a shuffled deck — merely ignorance about details already there. Bell's theorem does not kill hidden variables; it kills *local* ones. Pilot Wave is a hidden-variable theory that survives by being frankly nonlocal.",
+    "see": ["bell", "locality", "pilot-wave"]
+  },
+  "locality": {
+    "label": "locality",
+    "short": "Nothing here is influenced by a choice made far away, faster than light could carry the news.",
+    "long": "Give this up and you can keep definite pre-existing properties. Keep it and you must give up something else. This is the central trade in the whole subject.",
+    "see": ["bell", "entanglement"]
+  },
+  "entanglement": {
+    "label": "entanglement",
+    "short": "A joint state of two systems that cannot be written as one state for each.",
+    "long": "The pair has a definite state while neither member does. Measuring one instantly fixes what the other will give — but you cannot use it to send a message, because each side alone sees nothing but noise until the results are compared.",
+    "see": ["bell", "locality"]
+  },
+  "bell": {
+    "label": "Bell's theorem",
+    "short": "No theory that is both local and assigns pre-existing values can reproduce quantum predictions.",
+    "long": "John Bell showed in 1964 that such theories obey an inequality that quantum mechanics violates. Experiments — Aspect, then loophole-free tests in 2015, Nobel Prize in 2022 — come down on quantum mechanics' side. It is the closest thing here to a settled result, and it is what forces every interpretation to give something up.",
+    "see": ["locality", "hidden-variables", "superdeterminism"]
+  },
+  "contextuality": {
+    "label": "contextuality",
+    "short": "An outcome can depend on what else you chose to measure alongside it.",
+    "long": "The Kochen–Specker theorem (1967) shows you cannot consistently assign definite values to all observables at once, independently of context. Bell rules out locality plus definite values; this rules out context-independence as well, even setting distance aside.",
+    "see": ["bell", "hidden-variables"]
+  },
+  "pbr": {
+    "label": "the PBR theorem",
+    "short": "Under modest assumptions, the wavefunction cannot be merely information about a deeper real state.",
+    "long": "Pusey, Barrett and Rudolph (2012) showed that if systems have real underlying states and independently prepared systems are independent, then ψ must be ontic. Escaping it means denying one of those assumptions — which is exactly what QBism does, by denying there is an underlying state to be ignorant of.",
+    "see": ["ontic", "epistemic", "qbism"]
+  },
+  "no-go-theorem": {
+    "label": "no-go theorem",
+    "short": "A proof that a whole class of theories cannot reproduce quantum mechanics.",
+    "long": "Bell, Kochen–Specker, PBR and Frauchiger–Renner are the big ones. Together they have closed every exit marked \"common sense.\" This is why no interpretation is sane: sanity was ruled out, and all that remains is choosing which strangeness you prefer.",
+    "see": ["bell", "contextuality", "pbr", "wigners-friend"]
+  },
+  "wigners-friend": {
+    "label": "Wigner's friend",
+    "short": "A thought experiment where an observer is themselves in superposition, as seen by someone outside.",
+    "long": "The friend, inside a sealed lab, sees a definite outcome. Wigner, outside, describes the whole lab — friend included — as superposed. Frauchiger and Renner sharpened this in 2018 into an outright contradiction: you cannot keep universal unitarity, single outcomes and observer agreement all at once.",
+    "see": ["measurement-problem", "no-go-theorem"]
+  },
+  "pilot-wave": {
+    "label": "pilot wave",
+    "short": "Particles always have definite positions, guided by a real physical wave.",
+    "long": "De Broglie proposed it in 1927, Bohm rediscovered it in 1952. It is deterministic, it has no measurement problem, and the double slit becomes an ordinary mechanism. The price is explicit nonlocality — the guiding equation depends instantly on the whole configuration.",
+    "see": ["hidden-variables", "locality"]
+  },
+  "qbism": {
+    "label": "QBism",
+    "short": "Quantum states are an agent's personal degrees of belief, not descriptions of the world.",
+    "long": "Short for Quantum Bayesianism. A wavefunction is your betting position; collapse is you updating on experience. It dissolves the measurement problem at the cost of denying that quantum mechanics describes anything observer-independent at all.",
+    "see": ["epistemic", "pbr"]
+  },
+  "grw": {
+    "label": "spontaneous collapse",
+    "short": "Collapse is a real physical process that happens at random, all by itself.",
+    "long": "Ghirardi, Rimini and Weber (1986) added a tiny random collapse term to the dynamics. One particle collapses about once every hundred million years; a cat, containing about 10²⁷ of them, collapses immediately. Uniquely among these, it is a different theory from quantum mechanics and experiments are closing in on it.",
+    "see": ["collapse", "unitary"]
+  },
+  "superdeterminism": {
+    "label": "superdeterminism",
+    "short": "Denying that experimenters' choices are independent of the system being measured.",
+    "long": "Bell's theorem quietly assumes the settings you choose are uncorrelated with the hidden variables. Drop that assumption and locality survives. The cost is that the correlation must have been arranged at the beginning of the universe, and that no experiment can ever be a fair test of anything.",
+    "see": ["bell", "hidden-variables"]
+  }
+}

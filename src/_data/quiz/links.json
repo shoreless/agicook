@@ -1,0 +1,21 @@
+{
+  "books": {
+    "What Is Real?": "https://en.wikipedia.org/wiki/What_Is_Real%3F",
+    "Something Deeply Hidden": "https://en.wikipedia.org/wiki/Something_Deeply_Hidden",
+    "Helgoland": "https://en.wikipedia.org/wiki/Helgoland_(book)"
+  },
+  "unlinked_books_no_wikipedia_article": [
+    "Beyond Weird", "Quantum Mechanics and Experience",
+    "The Emergent Multiverse", "QBism"
+  ],
+  "experiments": {
+    "cop": "https://en.wikipedia.org/wiki/Wheeler%27s_delayed-choice_experiment",
+    "mw":  "https://en.wikipedia.org/wiki/Matter_wave",
+    "pw":  "https://en.wikipedia.org/wiki/Weak_measurement",
+    "rqm": "https://en.wikipedia.org/wiki/Wigner%27s_friend",
+    "qb":  "https://en.wikipedia.org/wiki/Pusey%E2%80%93Barrett%E2%80%93Rudolph_theorem",
+    "grw": "https://en.wikipedia.org/wiki/Ghirardi%E2%80%93Rimini%E2%80%93Weber_theory",
+    "sd":  "https://en.wikipedia.org/wiki/Bell_test",
+    "cc":  "https://en.wikipedia.org/wiki/Quantum_decoherence"
+  }
+}

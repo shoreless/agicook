@@ -1,0 +1,105 @@
+{# One experiment, eight ways of seeing it. Same source, same barrier, same
+   screen in every panel — only the account of what happens between them
+   changes. Weirdness is conserved; each panel relocates it. #}
+{% macro base() %}
+  <circle class="m-src" cx="16" cy="70" r="3.2"/>
+  <line class="m-bar" x1="118" y1="8"  x2="118" y2="52"/>
+  <line class="m-bar" x1="118" y1="60" x2="118" y2="80"/>
+  <line class="m-bar" x1="118" y1="88" x2="118" y2="132"/>
+  <line class="m-scr" x1="300" y1="10" x2="300" y2="130"/>
+{% endmacro %}
+
+{% macro fringes(xs, dim) %}
+  {% for y in [22, 38, 54, 70, 86, 102, 118] %}
+    <rect class="m-fr" x="294" y="{{ y }}" width="12" height="9" rx="1"
+          opacity="{{ dim if dim else (1 if loop.index0 % 2 == 0 else 0.25) }}"/>
+  {% endfor %}
+{% endmacro %}
+
+<div class="motif-store" hidden>
+
+  {# Copenhagen — the middle is not a question you may ask #}
+  <svg class="motif" data-motif="cop" viewBox="0 0 320 140" aria-label="The double slit as Copenhagen sees it: the region between the slits and the screen is deliberately left blank.">
+    {{ base() }}{{ fringes() }}
+    <rect class="m-void" x="126" y="10" width="166" height="120" rx="3"/>
+    <text class="m-note" x="209" y="75">no question here</text>
+  </svg>
+
+  {# Many-Worlds — every branch drawn solid, one of them labelled you #}
+  <svg class="motif" data-motif="mw" viewBox="0 0 320 140" aria-label="Many-Worlds: the path fans into a branching tree, every branch solid, one marked here.">
+    {{ base() }}{{ fringes() }}
+    <path class="m-ln" d="M124,64 C170,64 175,34 216,34 C250,34 255,20 292,20"/>
+    <path class="m-ln" d="M124,64 C170,64 175,34 216,34 C250,34 255,50 292,50"/>
+    <path class="m-ln" d="M124,76 C170,76 175,106 216,106 C250,106 255,92 292,92"/>
+    <path class="m-ln" d="M124,76 C170,76 175,106 216,106 C250,106 255,122 292,122"/>
+    <circle class="m-you" cx="292" cy="50" r="4"/>
+    <text class="m-note" x="286" y="42" text-anchor="end">you are here</text>
+  </svg>
+
+  {# Pilot Wave — definite trajectories, guided; no collapse anywhere #}
+  <svg class="motif" data-motif="pw" viewBox="0 0 320 140" aria-label="Pilot Wave: continuous trajectories run from source through the slits to the screen without ever branching.">
+    {{ base() }}{{ fringes() }}
+    {% for t in [[64,22],[64,38],[64,54],[64,70],[76,70],[76,86],[76,102],[76,118]] %}
+      <path class="m-tr" d="M20,70 C70,70 100,{{ t[0] }} 124,{{ t[0] }} C190,{{ t[0] }} 240,{{ t[1] }} 298,{{ t[1] }}"/>
+    {% endfor %}
+  </svg>
+
+  {# Relational — every observer holds their own copy; the centre stays empty #}
+  <svg class="motif" data-motif="rqm" viewBox="0 0 320 140" aria-label="Relational: several observers each hold their own small picture of the same event, with no shared central account.">
+    {{ base() }}{{ fringes(0, 0.4) }}
+    {% for n in [[168,34],[236,30],[258,88],[178,112],[128,74]] %}
+      <circle class="m-node" cx="{{ n[0] }}" cy="{{ n[1] }}" r="15"/>
+      <line class="m-fr" x1="{{ n[0] - 6 }}" y1="{{ n[1] - 5 }}" x2="{{ n[0] + 6 }}" y2="{{ n[1] - 5 }}" opacity="0.8"/>
+      <line class="m-fr" x1="{{ n[0] - 6 }}" y1="{{ n[1] }}"     x2="{{ n[0] + 6 }}" y2="{{ n[1] }}"     opacity="0.35"/>
+      <line class="m-fr" x1="{{ n[0] - 6 }}" y1="{{ n[1] + 5 }}" x2="{{ n[0] + 6 }}" y2="{{ n[1] + 5 }}" opacity="0.8"/>
+    {% endfor %}
+    <path class="m-link" d="M168,34 L236,30 M236,30 L258,88 M258,88 L178,112 M178,112 L128,74 M128,74 L168,34"/>
+    <text class="m-note" x="205" y="72">no view from nowhere</text>
+  </svg>
+
+  {# QBism — the wave is inside the agent's head; outside it, nothing is drawn #}
+  <svg class="motif" data-motif="qb" viewBox="0 0 320 140" aria-label="QBism: the wave exists inside one agent's thought bubble; outside the bubble nothing is drawn.">
+    {{ base() }}{{ fringes() }}
+    <circle class="m-agent" cx="150" cy="112" r="8"/>
+    <circle class="m-bub" cx="163" cy="97" r="2.4"/>
+    <circle class="m-bub" cx="171" cy="88" r="3.4"/>
+    <ellipse class="m-bubble" cx="216" cy="58" rx="62" ry="34"/>
+    <path class="m-wv" d="M166,58 q9,-15 18,0 t18,0 t18,0 t18,0 t18,0 t18,0"/>
+    <text class="m-note" x="216" y="126">outside: undrawn</text>
+  </svg>
+
+  {# Spontaneous collapse — smooth evolution, punctuated by real localisations #}
+  <svg class="motif" data-motif="grw" viewBox="0 0 320 140" aria-label="Spontaneous collapse: smooth wave evolution interrupted at random by sharp localisation events.">
+    {{ base() }}{{ fringes() }}
+    <path class="m-wv" d="M126,70 q11,-20 22,0 t22,0 t22,0 t22,0 t22,0 t22,0 t22,0"/>
+    {% for s in [[171,42],[237,96],[281,50]] %}
+      <path class="m-spike" d="M{{ s[0] }},{{ s[1] }} L{{ s[0] }},70"/>
+      <circle class="m-spikepin" cx="{{ s[0] }}" cy="{{ s[1] }}" r="2.8"/>
+    {% endfor %}
+    <text class="m-note" x="209" y="126">and sometimes, without warning</text>
+  </svg>
+
+  {# Superdeterminism — everything, the reader included, fans back to one dot #}
+  <svg class="motif" data-motif="sd" viewBox="0 0 320 140" aria-label="Superdeterminism: every line in the diagram, including the reader's own answers, converges backwards onto a single point.">
+    {{ base() }}{{ fringes() }}
+    {% for y in [20, 40, 58, 70, 84, 102, 122] %}
+      <path class="m-fan" d="M8,70 C90,70 150,{{ y }} 298,{{ y }}"/>
+    {% endfor %}
+    <circle class="m-origin" cx="8" cy="70" r="4.4"/>
+    <text class="m-note" x="150" y="132">including this sentence</text>
+  </svg>
+
+  {# The trap — fringes wash out with no observer anywhere in the frame #}
+  <svg class="motif" data-motif="cc" viewBox="0 0 320 140" aria-label="Decoherence: the fringes wash out through collisions with stray molecules, with no observer present anywhere in the picture.">
+    {{ base() }}
+    {% for y in [22, 38, 54, 70, 86, 102, 118] %}
+      <rect class="m-fr" x="294" y="{{ y }}" width="12" height="9" rx="1" opacity="0.42"/>
+    {% endfor %}
+    <path class="m-wv m-faded" d="M126,70 q11,-18 22,0 t22,0 t22,0 t22,0 t22,0 t22,0 t22,0"/>
+    {% for d in [[150,42],[178,96],[203,50],[232,88],[258,44],[272,104],[190,28],[246,118]] %}
+      <circle class="m-mote" cx="{{ d[0] }}" cy="{{ d[1] }}" r="1.9"/>
+    {% endfor %}
+    <text class="m-note" x="200" y="126">nobody is watching</text>
+  </svg>
+
+</div>

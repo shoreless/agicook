@@ -1,0 +1,168 @@
+---
+layout: null
+eleventyExcludeFromCollections: true
+pagination:
+  data: theories
+  size: 1
+  alias: t
+permalink: "/which-quantum-interpretation-are-you/theories/{{ t.slug }}/index.html"
+---
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{ t.name }} — agicook</title>
+<meta name="description" content="{{ t.theory[0] | truncate(150) }}">
+<link rel="canonical" href="https://agicook.com/which-quantum-interpretation-are-you/theories/{{ t.slug }}/">
+<meta property="og:title" content="{{ t.name }}">
+<meta property="og:description" content="{{ t.tagline }}">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/css/quiz.css">
+</head>
+<body{% if t.scored %} style="--c: var(--{{ t.key }})"{% endif %}>
+
+{% include "motifs.njk" %}
+
+<nav class="site-nav">
+  <a class="home" href="/">agicook</a>
+  <span class="links">
+    <a href="/which-quantum-interpretation-are-you/theories/">theories</a>
+    <a href="/which-quantum-interpretation-are-you/">take the quiz</a>
+  </span>
+</nav>
+
+<main class="wrap prose-theory">
+  <p class="eyebrow">The deep dive &middot; one of eight answers to the same experiment</p>
+  <h1 class="theory-name">{{ t.name }}</h1>
+  <p class="result-tagline">{{ t.tagline | safe }}</p>
+  {%- if t.hook %}
+  <p class="dek">{{ t.hook | safe }}</p>
+  {%- endif %}
+
+  {%- if t.cold %}
+  <blockquote class="cold-open">
+    {%- for para in t.cold %}
+    <p>{{ para | safe }}</p>
+    {%- endfor %}
+    <p class="mono shrink-cue">Now shrink it.</p>
+  </blockquote>
+  {%- endif %}
+
+  <h2 class="reveal-head">The experiment that started all the trouble</h2>
+  <p>Fire tiny particles at a wall with two slits, one at a time, with a
+  screen behind it. One at a time matters: there's only ever one particle in
+  flight. Common sense says each one goes through one slit or the other, and
+  you get two piles. You don't get two piles. You get <em>stripes</em> — the
+  pattern waves make when they ripple through both slits and overlap. So you
+  put a detector at the slits to catch which one each particle uses. The
+  stripes vanish. Two piles.</p>
+  <p>Everything on this page is one theory's answer to a single question:
+  what, in the name of God, is going on between the gun and the screen?</p>
+
+  <div class="rig-wrap">
+    <div id="rig" data-lens="{{ t.key }}" role="img"
+         aria-label="An interactive double-slit experiment seen through the {{ t.name }} lens."></div>
+    <noscript><svg class="theory-motif" data-use-motif="{{ t.motif }}" aria-hidden="true"></svg></noscript>
+    <svg class="theory-motif rig-poster" data-use-motif="{{ t.motif }}" aria-hidden="true"></svg>
+    <p class="rig-cap mono">Drag to orbit &mdash; two fingers on a touchscreen.
+      Particles leave one at a time and land one at a time. The middle is
+      deliberately not drawn &mdash; what happens there is the whole argument,
+      and the lens is this theory's answer.</p>
+  </div>
+
+  {%- for para in t.theory %}{% if para %}
+  <h2 class="reveal-head">{{ t.labels[loop.index0] }}</h2>
+  <p>{{ para }}</p>
+  {% endif %}{%- endfor %}
+
+  {%- if t.story %}
+  <h2 class="reveal-head">The story</h2>
+  {%- for para in t.story %}
+  <p>{{ para | safe }}</p>
+  {%- endfor %}
+  {%- endif %}
+
+  {%- if t.argument %}
+  <h2 class="reveal-head">The argument</h2>
+  <dl class="argument">
+    {%- for round in t.argument %}
+    <dt>&ldquo;{{ round.say | safe }}&rdquo;</dt>
+    <dd>{{ round.reply | safe }}</dd>
+    {%- endfor %}
+  </dl>
+  {%- endif %}
+
+  {%- if t.experiment.name %}
+  <h2 class="reveal-head">The experiment</h2>
+  <p class="exp-name">{% if t.experiment.wiki %}<a href="{{ t.experiment.wiki }}" rel="noopener">{{ t.experiment.name }}</a>{% else %}{{ t.experiment.name }}{% endif %}{% if t.experiment.year and t.experiment.year != "-" %} &middot; {{ t.experiment.year }}{% endif %}</p>
+  {% if t.experiment.body %}<p>{{ t.experiment.body }}</p>{% endif %}
+  {% if t.experiment.ref %}<p class="exp-ref">{{ t.experiment.ref }}</p>{% endif %}
+  {%- endif %}
+
+  {%- if t.books %}
+  <h2 class="reveal-head">The books</h2>
+  <p>{{ t.books | rich | safe }}</p>
+  {%- endif %}
+
+  {%- if t.neighbors %}
+  <h2 class="reveal-head">Your neighbors</h2>
+  <p class="neighbors">
+    {%- for n in t.neighbors %}
+    <a href="/which-quantum-interpretation-are-you/theories/{{ n.slug }}/">{{ n.name }}</a> &mdash; {{ n.line | safe }}{% if not loop.last %}<br>{% endif %}
+    {%- endfor %}
+  </p>
+  {%- endif %}
+
+  <a class="cta cta-quiet" href="/which-quantum-interpretation-are-you/theories/">&larr; all theories</a>
+
+  <section id="glossary">
+    <details class="glossary-block" id="glossary-block">
+    <summary>Glossary <span class="count">{{ quiz.glossary | length }} terms</span></summary>
+    <dl class="glossary">
+      {%- for key, term in quiz.glossary %}
+      <div class="gloss-entry" id="gloss-{{ key }}">
+        <dt>{{ term.label }}</dt>
+        <dd>
+          <p class="gloss-short">{{ term.short }}</p>
+          {%- if term.long %}<p class="gloss-long">{{ term.long }}</p>{% endif %}
+          {%- if term.see %}
+          <p class="gloss-see mono">See also:
+            {%- for s in term.see %} <a href="#gloss-{{ s }}">{{ quiz.glossary[s].label }}</a>{{ "," if not loop.last }}{% endfor %}
+          </p>
+          {%- endif %}
+        </dd>
+      </div>
+      {%- endfor %}
+    </dl>
+    </details>
+  </section>
+</main>
+
+<footer class="foot wrap">
+  <a href="/">agicook</a>
+  <a href="/which-quantum-interpretation-are-you/">the quiz</a>
+  <a href="mailto:futurejira+human@gmail.com">email</a>
+</footer>
+
+<script type="application/json" id="q-glossary">{{ quiz.glossary | jsonscript | safe }}</script>
+<script src="/js/gloss.js" defer></script>
+<script>
+(function () {
+  // swap the placeholder for the real motif markup
+  var slot = document.querySelector("[data-use-motif]");
+  var src = document.querySelector('.motif[data-motif="' + slot.getAttribute("data-use-motif") + '"]');
+  if (src) { var c = src.cloneNode(true); c.setAttribute("class", "theory-motif"); slot.replaceWith(c); }
+})();
+</script>
+<script type="importmap">
+{"imports":{
+  "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js",
+  "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"
+}}
+</script>
+<script type="module" src="/js/rig.js"></script>
+</body>
+</html>

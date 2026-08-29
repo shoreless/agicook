@@ -12,8 +12,14 @@ export default function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy({ "src/css": "css" });
   // The quiz is vendored, hand-written HTML. Copy it byte-for-byte —
   // never let Nunjucks near it, or a future `{{` in its JS dies silently.
-  eleventyConfig.addPassthroughCopy({ "src/which-quantum-interpretation-are-you": "which-quantum-interpretation-are-you" });
-  eleventyConfig.ignores.add("src/which-quantum-interpretation-are-you/**");
+  // Versioned experiments: every version keeps a permanent pinned URL, and the
+  // bare path always serves LATEST. Bump LATEST when a new version ships.
+  const QUIZ = "which-quantum-interpretation-are-you";
+  // v1 is a frozen static page, copied byte-for-byte and never templated.
+  // v2 is built, and renders to BOTH /v2/ and the bare path (see quiz-v2.njk's
+  // pagination) — the bare URL always serves the latest version.
+  eleventyConfig.addPassthroughCopy({ [`src/${QUIZ}`]: QUIZ });
+  eleventyConfig.ignores.add(`src/${QUIZ}/**`);
   eleventyConfig.addPassthroughCopy({ "src/media": "media" });
   eleventyConfig.addPassthroughCopy({ "src/js": "js" });
   eleventyConfig.addPassthroughCopy("src/CNAME");
@@ -33,6 +39,24 @@ export default function (eleventyConfig) {
   eleventyConfig.amendLibrary("md", (md) => md.set({ linkify: true }));
 
   // "The Ship of Theseus" and "Ship Of Theseus" must land on the same key
+  // Safe JSON for embedding in <script type="application/json">
+  eleventyConfig.addFilter("jsonscript", (v) =>
+    JSON.stringify(v).replace(/</g, "\\u003c").replace(/\u2028|\u2029/g, ""));
+
+  // *Title* -> <em>, and a link where that book has its own article.
+  // Titles without a page stay italic and unlinked — pointing a book title at
+  // its author's page would be a link that lies about where it goes.
+  const BOOK_LINKS = JSON.parse(
+    fs.readFileSync("src/_data/quiz/links.json", "utf8")).books;
+
+  eleventyConfig.addFilter("rich", (v) =>
+    String(v == null ? "" : v).replace(/\*([^*]+)\*/g, (_, title) => {
+      const url = BOOK_LINKS[title.trim()];
+      return url
+        ? `<a href="${url}" rel="noopener"><em>${title}</em></a>`
+        : `<em>${title}</em>`;
+    }));
+
   eleventyConfig.addFilter("nodekey", (v) => String(v).toLowerCase()
     .replace(/^the\s+/, "").replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, ""));
 

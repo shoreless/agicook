@@ -1,0 +1,61 @@
+---
+layout: null
+eleventyExcludeFromCollections: true
+permalink: /which-quantum-interpretation-are-you/theories/index.html
+---
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Theories — agicook</title>
+<meta name="description" content="Every surviving interpretation of quantum mechanics agrees with every experiment ever done, and disagrees violently about what is happening. Here they are.">
+<link rel="canonical" href="https://agicook.com/which-quantum-interpretation-are-you/theories/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/css/quiz.css">
+</head>
+<body>
+{% include "motifs.njk" %}
+
+<nav class="site-nav">
+  <a class="home" href="/">agicook</a>
+  <span class="links"><a href="/which-quantum-interpretation-are-you/">take the quiz</a></span>
+</nav>
+
+<main class="wrap">
+  <p class="eyebrow">Theories</p>
+  <h1>Eight ways of<br>reading the same<br>experiment</h1>
+  <p class="dek">They agree with every measurement ever taken. They disagree
+    completely about what is happening. Weirdness is conserved &mdash; each one
+    just puts it somewhere else.</p>
+
+  <div class="theory-grid">
+    {%- for t in theories %}
+    <a class="theory-card" href="/which-quantum-interpretation-are-you/theories/{{ t.slug }}/"{% if t.scored %} style="--c: var(--{{ t.key }})"{% endif %}>
+      <svg class="card-motif" data-use-motif="{{ t.motif }}" aria-hidden="true"></svg>
+      <h2>{{ t.name }}</h2>
+      <p>{{ t.tagline | safe }}</p>
+    </a>
+    {%- endfor %}
+  </div>
+</main>
+
+<footer class="foot wrap">
+  <a href="/">agicook</a>
+  <a href="/which-quantum-interpretation-are-you/">the quiz</a>
+  <a href="mailto:futurejira+human@gmail.com">email</a>
+</footer>
+
+<script>
+document.querySelectorAll("[data-use-motif]").forEach(function (slot) {
+  var src = document.querySelector('.motif[data-motif="' + slot.getAttribute("data-use-motif") + '"]');
+  if (!src) return;
+  var c = src.cloneNode(true);
+  c.setAttribute("class", slot.getAttribute("class"));
+  slot.replaceWith(c);
+});
+</script>
+</body>
+</html>

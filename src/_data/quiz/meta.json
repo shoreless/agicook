@@ -1,0 +1,43 @@
+{
+  "trace": {
+    "cop": "a streak of Copenhagen — some questions you would simply rather not",
+    "mw": "an admixture of Many-Worlds — part of you took the other options",
+    "pw": "a stubborn dose of Pilot Wave — you kept receipts",
+    "rqm": "notes of Relational QM — it depended who was asking",
+    "qb": "a QBist streak — you were quietly updating the whole time",
+    "grw": "a trace of Spontaneous Collapse — now and then you just snapped to a verdict"
+  },
+  "keys": [
+    "cop",
+    "mw",
+    "pw",
+    "rqm",
+    "qb",
+    "grw"
+  ],
+  "tiebreak": [
+    "qb",
+    "pw",
+    "mw",
+    "rqm",
+    "grw",
+    "cop"
+  ],
+  "gates": {
+    "cc": 3,
+    "sd": 3,
+    "precedence": [
+      "cc",
+      "sd"
+    ]
+  },
+  "version": "v2",
+  "nearmiss": {
+    "mw|pw": "Same bet — the wave is real. The split: they added a particle to point at; you added everything else.",
+    "qb|rqm": "You both think facts need a witness. The split is the journal question: they say any meeting counts — mushrooms included; you say a witness is something that *bets*.",
+    "cop|qb": "You both refuse to narrate the unobserved. They closed the question for everyone; you kept it open, first-person.",
+    "grw|pw": "You both want a mechanism you can point at. Theirs was always there; yours goes off at random — but yours is the one the experiments can catch.",
+    "cop|rqm": "You both gave up the view from nowhere. They declared the in-between off-limits; you filled it with everyone's."
+  },
+  "theoriesBase": "/which-quantum-interpretation-are-you/theories/"
+}
