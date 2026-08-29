@@ -545,3 +545,11 @@ h1 .qm { color: var(--accent); }
   .share-row { gap: 0.45rem; }
   .share-btn { flex: 1 1 auto; text-align: center; }
 }
+
+.tally-line {
+  font-family: var(--mono); font-size: 0.74rem; line-height: 1.6;
+  letter-spacing: 0.02em; color: var(--muted);
+  margin: 2.2rem 0 0; padding-top: 1.2rem;
+  border-top: 1px solid var(--line);
+}
+.tally-line b { color: var(--c, var(--accent)); font-weight: 500; }

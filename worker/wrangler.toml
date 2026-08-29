@@ -6,4 +6,4 @@ compatibility_date = "2026-08-29"
 [[d1_databases]]
 binding = "DB"
 database_name = "agicook-quiz"
-database_id = "REPLACE_ME"
+database_id = "d9ec5a4e-bad5-45b5-9798-a5f4a725febf"

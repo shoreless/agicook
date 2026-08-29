@@ -39,5 +39,6 @@
     "grw|pw": "You both want a mechanism you can point at. Theirs was always there; yours goes off at random — but yours is the one the experiments can catch.",
     "cop|rqm": "You both gave up the view from nowhere. They declared the in-between off-limits; you filled it with everyone's."
   },
-  "theoriesBase": "/which-quantum-interpretation-are-you/theories/"
+  "theoriesBase": "/which-quantum-interpretation-are-you/theories/",
+  "tally": "https://agicook-tally.shaz-4b9.workers.dev"
 }

@@ -7,6 +7,7 @@
 
 const KEYS = ["cop", "mw", "pw", "rqm", "qb", "grw", "sd", "cc"];
 const N_QUESTIONS = 10;
+const VERSIONS = ["v2"];   // add a version here when one ships
 // Answers arrive as stable option ids ("q2-mw"), not positions — so a future
 // edit to option order can never reinterpret data already collected.
 const OPTION_ID = /^q(?:[1-9]|10)-(?:cop|mw|pw|rqm|qb|grw|sd|cc)$/;
@@ -40,8 +41,12 @@ export default {
 
     // GET /tally — aggregate counts, safe to show publicly
     if (url.pathname === "/tally" && request.method === "GET") {
+      // always scoped to one version — v1 and v2 asked different questions
+      const version = url.searchParams.get("v");
+      if (!VERSIONS.includes(version)) return json({ error: "unknown version" }, h, 400);
       const { results } = await env.DB
-        .prepare("SELECT result, COUNT(*) AS n FROM responses GROUP BY result")
+        .prepare("SELECT result, COUNT(*) AS n FROM responses WHERE version = ? GROUP BY result")
+        .bind(version)
         .all();
       const counts = Object.fromEntries(KEYS.map((k) => [k, 0]));
       let total = 0;
@@ -57,12 +62,13 @@ export default {
       try { body = await request.json(); }
       catch { return json({ error: "malformed json" }, h, 400); }
 
+      if (!VERSIONS.includes(body?.version)) return json({ error: "unknown version" }, h, 400);
       if (!KEYS.includes(body?.result)) return json({ error: "unknown result" }, h, 400);
       if (!validAnswers(body?.answers)) return json({ error: "bad answers" }, h, 400);
 
       await env.DB
-        .prepare("INSERT INTO responses (result, answers) VALUES (?, ?)")
-        .bind(body.result, JSON.stringify(body.answers))
+        .prepare("INSERT INTO responses (version, result, answers) VALUES (?, ?, ?)")
+        .bind(body.version, body.result, JSON.stringify(body.answers))
         .run();
 
       return json({ ok: true }, h, 201);

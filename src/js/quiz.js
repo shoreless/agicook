@@ -420,6 +420,8 @@
       elResult.appendChild(bp);
     }
 
+    recordAndTally(v.key);
+
     show(elResult);
     window.scrollTo({ top: 0 });
   }
@@ -442,6 +444,45 @@
   function clearMotifBackground() {
     var b = document.querySelector(".motif-bg");
     if (b) b.remove();
+  }
+
+  /* ---------------- tally ----------------
+     Off until META.tally is set to the deployed Worker. While it is empty
+     nothing is sent, nothing is fetched and no line appears. Browsed reveals
+     never record — only a real playthrough counts. */
+
+  var COUNTED = "agicook.quiz.counted.v2";
+
+  function recordAndTally(key) {
+    var base = META.tally;
+    if (!base) return;
+
+    var counted = false;
+    try { counted = localStorage.getItem(COUNTED) === "1"; } catch (e) {}
+
+    var post = (browsedKey || counted) ? Promise.resolve() :
+      fetch(base + "/result", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ version: META.version, result: key, answers: answerIds() })
+      }).then(function () {
+        try { localStorage.setItem(COUNTED, "1"); } catch (e) {}
+      }).catch(function () {});
+
+    post.then(function () {
+      return fetch(base + "/tally?v=" + encodeURIComponent(META.version))
+        .then(function (r) { return r.json(); });
+    }).then(function (data) {
+      if (!data || !data.total || !data.counts) return;
+      var n = data.counts[key] || 0;
+      var line = document.createElement("p");
+      line.className = "tally-line";
+      line.innerHTML = "Since launch, <b>" + Math.round((n / data.total) * 100) +
+        "%</b> of " + data.total.toLocaleString() + " measurements collapsed here.";
+      var anchor = elResult.querySelector(".roster");
+      if (anchor) anchor.parentNode.insertBefore(line, anchor);
+      else elResult.appendChild(line);
+    }).catch(function () { /* the tally is decoration; never break the reveal */ });
   }
 
   /* ---------------- back to the start ---------------- */

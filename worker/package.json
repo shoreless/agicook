@@ -1,0 +1,11 @@
+{
+  "name": "agicook-tally",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "deploy": "wrangler deploy",
+    "tail": "wrangler tail",
+    "schema": "wrangler d1 execute agicook-quiz --remote --file=schema.sql"
+  },
+  "devDependencies": { "wrangler": "^3.90.0" }
+}
