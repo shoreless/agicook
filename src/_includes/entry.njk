@@ -1,0 +1,15 @@
+---
+layout: base.njk
+---
+<div class="wrap">
+  <header class="masthead"><a class="brand" href="/">{{ site.title }}</a></header>
+  <article class="prose">
+    <h1>{{ title }}</h1>
+    <p class="byline">
+      {%- if topic %}{{ topic }} &middot; {% endif -%}
+      <time datetime="{{ page.date | isodate }}">{{ page.date | logdate }}</time>
+    </p>
+    {{ content | safe }}
+  </article>
+  <a class="back" href="/log/">&larr; the log</a>
+</div>

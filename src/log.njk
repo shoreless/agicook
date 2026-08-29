@@ -1,0 +1,30 @@
+---
+layout: base.njk
+footWrap: wide
+title: The log
+permalink: /log/index.html
+---
+<div class="wide">
+  <header class="masthead">
+    <a class="brand" href="/">{{ site.title }}</a>
+    <p class="lede">The log. Thinking out loud, mostly unfinished.</p>
+  </header>
+  <div class="rule-label">
+    <span>Entries</span>
+    <span>{{ collections.log | length }}</span>
+  </div>
+  <div class="map map--log">
+    <svg class="links" aria-hidden="true"><path d=""></path></svg>
+    {%- for e in collections.log | reverse %}
+    <article class="node node--log is-live">
+      <i class="dot" aria-hidden="true"></i>
+      <h3><a href="{{ e.url }}">{{ e.data.title }}</a></h3>
+      <p class="meta">
+        {%- if e.data.topic %}<a class="topic" href="/#n-{{ e.data.topic | nodekey }}">{{ e.data.topic }}</a><span class="sep">/</span>{% endif %}
+        <time datetime="{{ e.date | isodate }}">{{ e.date | logdate }}</time>
+      </p>
+    </article>
+    {%- endfor %}
+  </div>
+</div>
+<script src="/js/map.js" defer></script>

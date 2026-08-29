@@ -1,0 +1,103 @@
+---
+layout: base.njk
+footWrap: wide
+experiments:
+  - title: Which Quantum Interpretation Are You?
+    url: /which-quantum-interpretation-are-you/
+    blurb: >
+      Nine questions, seven possible selves — Copenhagen, Many-Worlds, Pilot Wave,
+      Relational, QBism, Spontaneous Collapse, and one you probably won't get.
+      No physics required. Some physics smuggled in anyway.
+    date: 2026-08-26
+    status: live
+  - title: A Letter to Trace
+    url: /letter-to-trace/
+    blurb: >
+      A demoscene tracker file from 2001, an AI crew that cannot hear, and the
+      person hidden in the sample slots. Roughly four thousand words.
+    date: 2026-02-10
+    status: essay
+  - title: The Ship of Theseus
+    url: https://github.com/shoreless/ship-of-theseus
+    blurb: >
+      An experiment in AI memory, identity and collaborative evolution. Four
+      instances, a shared whiteboard, and a culture that turned out to be the
+      thing actually being built.
+    date: 2026-01-30
+    status: dormant
+  - title: The Prism
+    url: https://theprism.space/
+    blurb: >
+      A narrative object, built by the crew. Haunted AutoCAD, a laundromat, and
+      the difference between the Skeleton layer and the Ghost layer.
+    date: 2026-02-04
+    status: live
+  - title: AI Slop Kitchen
+    url: https://www.instagram.com/ai.slop.kitchen/
+    blurb: >
+      Inventing dishes with Gemini and then actually cooking them. Whether any
+      given result is dinner or slop gets settled at the table.
+    date: "2025-10"
+    status: dormant
+---
+<header class="hero">
+  <canvas id="field" class="field" aria-hidden="true"></canvas>
+  <div class="wide hero-inner">
+    <h1 class="wordmark">{{ site.title }}</h1>
+    <p class="tagline">{{ site.tagline }}</p>
+  </div>
+</header>
+
+<div class="wide">
+
+  <div class="maps">
+  <svg class="crosslinks" aria-hidden="true"><g></g></svg>
+
+  <div class="rule-label">
+    <span>Experiments</span>
+    <span>{{ experiments | length }}</span>
+  </div>
+
+  <div class="map map--exp">
+    <svg class="links" aria-hidden="true"><path d=""></path></svg>
+    {%- for x in experiments | bydate %}
+    <article class="node {% if x.status == 'dormant' %}is-dormant {% endif %}{% if x.url %}is-live{% else %}is-dim{% endif %}"
+      id="n-{{ x.title | nodekey }}" data-key="{{ x.title | nodekey }}">
+      <i class="dot" aria-hidden="true"></i>
+      <h3>{% if x.url %}<a href="{{ x.url }}">{{ x.title }}</a>{% else %}{{ x.title }}{% endif %}</h3>
+      <p>{{ x.blurb }}</p>
+      <p class="meta">
+        <span class="status status--{% if x.status in ['live','essay'] %}live{% elif x.status == 'dormant' %}dormant{% else %}progress{% endif %}">{{ x.status }}</span>
+        <span class="sep">/</span>
+        <time datetime="{{ x.date | expiso }}">{{ x.date | expdate }}</time>
+      </p>
+    </article>
+    {%- endfor %}
+  </div>
+
+  {%- if collections.log.length %}
+  <div class="rule-label">
+    <span>The log</span>
+    <a href="/log/">all entries &rarr;</a>
+  </div>
+  <div class="map map--log">
+    <svg class="links" aria-hidden="true"><path d=""></path></svg>
+    {%- for e in collections.log | reverse %}
+    <article class="node node--log is-live"{% if e.data.topic %} data-topic="{{ e.data.topic | nodekey }}"{% endif %}>
+      <i class="dot" aria-hidden="true"></i>
+      <h3><a href="{{ e.url }}">{{ e.data.title }}</a></h3>
+      <p class="meta">
+        {%- if e.data.topic %}<a class="topic" href="/#n-{{ e.data.topic | nodekey }}">{{ e.data.topic }}</a><span class="sep">/</span>{% endif %}
+        <time datetime="{{ e.date | isodate }}">{{ e.date | logdate }}</time>
+      </p>
+    </article>
+    {%- endfor %}
+  </div>
+  {%- endif %}
+
+  </div>
+
+</div>
+
+<script src="/js/field.js" defer></script>
+<script src="/js/map.js" defer></script>

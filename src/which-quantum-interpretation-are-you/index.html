@@ -1,0 +1,850 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Which Quantum Interpretation Are You?</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,700;12..96,800&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+<style>
+  :root {
+    --paper: #F4F5F1;
+    --card: #FDFDFB;
+    --ink: #1C2129;
+    --muted: #5B6470;
+    --line: #D9DDD4;
+    --teal: #0E6E62;
+    --teal-soft: #0E6E6218;
+    --magenta: #B4256E;
+    --magenta-soft: #B4256E14;
+    --focus: #0E6E62;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --paper: #14171D;
+      --card: #1C2028;
+      --ink: #E8EAE4;
+      --muted: #9AA2AD;
+      --line: #2B303A;
+      --teal: #45C2AB;
+      --teal-soft: #45C2AB1c;
+      --magenta: #E4629F;
+      --magenta-soft: #E4629F16;
+      --focus: #45C2AB;
+    }
+  }
+  :root[data-theme="dark"] {
+    --paper: #14171D;
+    --card: #1C2028;
+    --ink: #E8EAE4;
+    --muted: #9AA2AD;
+    --line: #2B303A;
+    --teal: #45C2AB;
+    --teal-soft: #45C2AB1c;
+    --magenta: #E4629F;
+    --magenta-soft: #E4629F16;
+    --focus: #45C2AB;
+  }
+
+  * { box-sizing: border-box; }
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: "Newsreader", Georgia, "Times New Roman", serif;
+    font-size: 1.1rem;
+    line-height: 1.55;
+    margin: 0;
+    -webkit-font-smoothing: antialiased;
+  }
+  .mono {
+    font-family: "IBM Plex Mono", ui-monospace, "SF Mono", Consolas, monospace;
+  }
+  .wrap {
+    max-width: 44rem;
+    margin: 0 auto;
+    padding: 0 1.25rem 4rem;
+  }
+
+  /* ---------- header art ---------- */
+  .fringe-band {
+    height: 130px;
+    width: 100%;
+    display: block;
+    border-bottom: 1px solid var(--line);
+  }
+
+  /* ---------- hero ---------- */
+  .hero { padding-top: 2.5rem; text-align: left; }
+  .eyebrow {
+    font-family: "IBM Plex Mono", ui-monospace, Consolas, monospace;
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--teal);
+    margin: 0 0 1rem;
+  }
+  h1 {
+    font-family: "Bricolage Grotesque", "Arial Black", sans-serif;
+    font-weight: 800;
+    font-size: clamp(2.2rem, 6.5vw, 3.6rem);
+    line-height: 1.04;
+    letter-spacing: -0.015em;
+    margin: 0 0 1.25rem;
+    text-wrap: balance;
+  }
+  h1 .q-mark { color: var(--magenta); }
+  .dek {
+    font-style: italic;
+    font-size: 1.25rem;
+    color: var(--muted);
+    max-width: 34rem;
+    margin: 0 0 1.75rem;
+  }
+  .hero-note {
+    border-left: 3px solid var(--teal);
+    background: var(--teal-soft);
+    padding: 0.85rem 1.1rem;
+    max-width: 34rem;
+    font-size: 1.02rem;
+    margin: 0 0 2rem;
+    border-radius: 0 4px 4px 0;
+  }
+  .hero-note strong { font-weight: 600; }
+
+  /* ---------- buttons ---------- */
+  button {
+    font: inherit;
+    color: inherit;
+    cursor: pointer;
+  }
+  .btn-primary {
+    font-family: "Bricolage Grotesque", sans-serif;
+    font-weight: 700;
+    font-size: 1.05rem;
+    background: var(--teal);
+    color: var(--paper);
+    border: none;
+    padding: 0.85rem 1.8rem;
+    border-radius: 999px;
+    transition: transform 120ms ease, opacity 120ms ease;
+  }
+  .btn-primary:hover { transform: translateY(-1px); opacity: 0.92; }
+  .btn-ghost {
+    font-family: "IBM Plex Mono", ui-monospace, monospace;
+    font-size: 0.8rem;
+    background: none;
+    border: 1px solid var(--line);
+    color: var(--muted);
+    padding: 0.5rem 1rem;
+    border-radius: 999px;
+  }
+  .btn-ghost:hover { border-color: var(--muted); color: var(--ink); }
+  button:focus-visible, a:focus-visible {
+    outline: 2px solid var(--focus);
+    outline-offset: 3px;
+  }
+
+  /* ---------- quiz ---------- */
+  .quiz-head {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 1rem;
+    margin: 2.5rem 0 0.5rem;
+    font-family: "IBM Plex Mono", ui-monospace, monospace;
+    font-size: 0.72rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+  .collapse-bar {
+    height: 4px;
+    background: var(--line);
+    border-radius: 99px;
+    overflow: hidden;
+    margin-bottom: 0.9rem;
+  }
+  .collapse-fill {
+    height: 100%;
+    width: 0%;
+    background: linear-gradient(90deg, var(--teal), var(--magenta));
+    border-radius: 99px;
+    transition: width 260ms ease;
+  }
+  .amps {
+    display: flex;
+    gap: 4px;
+    align-items: flex-end;
+    height: 26px;
+    margin-bottom: 1.6rem;
+  }
+  .amp {
+    flex: 1;
+    background: var(--teal);
+    opacity: 0.35;
+    border-radius: 2px 2px 0 0;
+    min-height: 2px;
+    transition: height 300ms ease;
+  }
+  .amps-caption {
+    font-family: "IBM Plex Mono", ui-monospace, monospace;
+    font-size: 0.66rem;
+    letter-spacing: 0.08em;
+    color: var(--muted);
+    margin: -1.2rem 0 1.6rem;
+  }
+
+  .q-text {
+    font-family: "Bricolage Grotesque", sans-serif;
+    font-weight: 700;
+    font-size: clamp(1.4rem, 4vw, 1.85rem);
+    line-height: 1.2;
+    margin: 0 0 1.4rem;
+    text-wrap: balance;
+  }
+  .options { display: flex; flex-direction: column; gap: 0.6rem; }
+  .opt {
+    display: flex;
+    gap: 0.9rem;
+    align-items: baseline;
+    text-align: left;
+    width: 100%;
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    padding: 0.85rem 1.05rem;
+    font-size: 1.05rem;
+    line-height: 1.4;
+    transition: border-color 120ms ease, background 120ms ease, transform 120ms ease;
+  }
+  .opt:hover {
+    border-color: var(--teal);
+    background: var(--teal-soft);
+    transform: translateX(3px);
+  }
+  .opt .ket {
+    font-family: "IBM Plex Mono", ui-monospace, monospace;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--magenta);
+    flex: 0 0 auto;
+  }
+  .quiz-foot {
+    margin-top: 1.4rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  /* ---------- result ---------- */
+  .result-eyebrow { color: var(--magenta); }
+  .result-name {
+    font-family: "Bricolage Grotesque", sans-serif;
+    font-weight: 800;
+    font-size: clamp(2.1rem, 6vw, 3.2rem);
+    line-height: 1.05;
+    margin: 0 0 0.4rem;
+    text-wrap: balance;
+  }
+  .result-tagline {
+    font-style: italic;
+    font-size: 1.35rem;
+    color: var(--teal);
+    margin: 0 0 2rem;
+  }
+  .result-section { margin: 0 0 1.75rem; }
+  .result-section h2 {
+    font-family: "IBM Plex Mono", ui-monospace, monospace;
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin: 0 0 0.5rem;
+  }
+  .result-section p { margin: 0 0 0.75rem; max-width: 38rem; }
+  .runner-up {
+    font-style: italic;
+    color: var(--muted);
+    border-top: 1px solid var(--line);
+    padding-top: 1.2rem;
+    margin: 2rem 0 0;
+    max-width: 38rem;
+  }
+  .book {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-left: 3px solid var(--magenta);
+    border-radius: 0 8px 8px 0;
+    padding: 1rem 1.2rem;
+    margin: 2rem 0;
+    max-width: 38rem;
+  }
+  .book h2 {
+    font-family: "IBM Plex Mono", ui-monospace, monospace;
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--magenta);
+    margin: 0 0 0.4rem;
+  }
+  .book p { margin: 0; }
+  .result-actions {
+    display: flex;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+    margin: 2rem 0 0;
+  }
+  .toast {
+    font-family: "IBM Plex Mono", ui-monospace, monospace;
+    font-size: 0.78rem;
+    color: var(--teal);
+    margin-top: 0.75rem;
+    min-height: 1.2em;
+  }
+
+  /* ---------- footer ---------- */
+  .fineprint {
+    margin-top: 4rem;
+    border-top: 1px solid var(--line);
+    padding-top: 1.5rem;
+    font-size: 0.92rem;
+    color: var(--muted);
+    max-width: 38rem;
+  }
+  .fineprint h2 {
+    font-family: "IBM Plex Mono", ui-monospace, monospace;
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    margin: 0 0 0.6rem;
+    color: var(--muted);
+  }
+  .fineprint p { margin: 0 0 0.7rem; }
+
+  .hidden { display: none; }
+
+  @media (prefers-reduced-motion: reduce) {
+    * { transition: none !important; }
+  }
+
+  /* ---------- a way back to the rest of the site ---------- */
+  .site-nav {
+    max-width: 44rem;
+    margin: 0 auto;
+    padding: 1.15rem 1.25rem 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 1rem;
+    font-family: "IBM Plex Mono", ui-monospace, "SF Mono", Consolas, monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+  }
+  .site-nav a { color: var(--muted); text-decoration: none; }
+  .site-nav a:hover { color: var(--magenta); }
+  .site-nav .home { color: var(--ink); }
+  .site-nav .home::after {
+    content: "";
+    display: inline-block;
+    width: 0.4em; height: 0.4em;
+    margin-left: 0.42em;
+    border-radius: 50%;
+    background: var(--magenta);
+    vertical-align: 0.08em;
+  }
+  .site-nav .links a + a { margin-left: 1.05rem; }
+</style>
+</head>
+<body>
+
+<nav class="site-nav">
+  <a class="home" href="/">agicook</a>
+  <span class="links">
+    <a href="mailto:futurejira+human@gmail.com">email</a>
+  </span>
+</nav>
+
+<canvas class="fringe-band" id="fringe" aria-hidden="true"></canvas>
+
+<div class="wrap">
+
+  <!-- ============ INTRO ============ -->
+  <section id="intro">
+    <div class="hero">
+      <p class="eyebrow">An instrument of self-measurement</p>
+      <h1>Which Quantum Interpretation Are You<span class="q-mark">?</span></h1>
+      <p class="dek">Ninety-nine years since anyone agreed on what a measurement is. Nine questions to find out which lump under the carpet is yours.</p>
+      <div class="hero-note">
+        <strong>How this works:</strong> the no-go theorems closed every exit marked
+        &ldquo;common sense,&rdquo; so every surviving interpretation of quantum mechanics is wild
+        <em>somewhere</em>. Weirdness is conserved; you only get to choose where it goes.
+        You are currently in a superposition of seven results. Answering questions will collapse you.
+      </div>
+      <button class="btn-primary" id="begin">Begin measurement</button>
+    </div>
+  </section>
+
+  <!-- ============ QUIZ ============ -->
+  <section id="quiz" class="hidden">
+    <div class="quiz-head">
+      <span id="q-counter">Question 1 of 9</span>
+      <span id="q-collapse">Collapse: 0%</span>
+    </div>
+    <div class="collapse-bar"><div class="collapse-fill" id="collapse-fill"></div></div>
+    <div class="amps" id="amps" aria-hidden="true"></div>
+    <p class="amps-caption">your current amplitudes (unlabeled, obviously &mdash; no peeking)</p>
+    <h2 class="q-text" id="q-text"></h2>
+    <div class="options" id="options"></div>
+    <div class="quiz-foot">
+      <button class="btn-ghost" id="back">&larr; un-measure that</button>
+    </div>
+  </section>
+
+  <!-- ============ RESULT ============ -->
+  <section id="result" class="hidden"></section>
+
+  <footer class="fineprint">
+    <h2>Fine print, honestly</h2>
+    <p>Every interpretation above agrees with every experimental prediction ever made &mdash;
+    except spontaneous collapse, which sportingly risks being wrong. None of them lets you
+    send a message faster than light, and none of them means &ldquo;anything is possible.&rdquo;
+    They are all weird somewhere, because the no-go theorems (Bell, Kochen&ndash;Specker, PBR)
+    demolished the tidy options one by one. Nobody understands quantum mechanics. You are in
+    excellent company.</p>
+    <p>Scoring: simple tally. Ties break toward the funnier result, as is standard in the literature.</p>
+  </footer>
+</div>
+
+<script>
+(function () {
+  "use strict";
+
+  /* ---------------- data ---------------- */
+
+  var KEYS = ["cop", "mw", "pw", "rqm", "qb", "grw"];
+  var FUNNIER = ["qb", "pw", "mw", "rqm", "grw", "cop"]; // tie-break order
+
+  var QUESTIONS = [
+    {
+      q: "A tree falls in the forest and nobody is around. Your honest reaction?",
+      opts: [
+        { t: "It made a sound. Sound is pressure waves; the forest does not need an audience.", w: { pw: 2 } },
+        { t: "Sound relative to whom? The mushrooms registered something. You and the mushrooms may never fully compare notes.", w: { rqm: 2 } },
+        { t: "Every fall that could have happened, happened. Somewhere the tree is fine.", w: { mw: 2 } },
+        { t: "I hold beliefs about the tree, and I will update them if a hiker files a report.", w: { qb: 2 } },
+        { t: "This question is meaningless and I am declaring the discussion closed.", w: { cop: 2 } },
+        { t: "The tree was always going to fall, and you were always going to ask me this.", w: { sd: 2 } },
+        { t: "The tree did not finish falling until a conscious mind took it in.", w: { cc: 2 } }
+      ]
+    },
+    {
+      q: "Your group chat is having a big argument. You:",
+      opts: [
+        { t: "Settle it with a source. Screenshots. Timestamps. There is a fact of the matter and I have it.", w: { pw: 2, grw: 1 } },
+        { t: "Let both sides be right relative to their own contexts. Nothing needs reconciling.", w: { rqm: 2 } },
+        { t: "Mute it. The argument is happening in every branch; I cannot be expected to attend all of them.", w: { mw: 2 } },
+        { t: "Point out that this argument was inevitable, so nobody should be blamed for anything they said.", w: { sd: 2 } },
+        { t: "Post “we’re not doing this” and change the subject with authority.", w: { cop: 2 } },
+        { t: "Say nothing, but quietly re-estimate how much each participant’s judgment is worth.", w: { qb: 2 } }
+      ]
+    },
+    {
+      q: "Pick a relationship red flag you could honestly tolerate:",
+      opts: [
+        { t: "Never fully commits to one version of your future together.", w: { mw: 2 } },
+        { t: "Needs every story to be about their personal experience of it.", w: { qb: 2 } },
+        { t: "Intense at any distance — feels a disturbance instantly, even from another continent.", w: { pw: 2 } },
+        { t: "Refuses to define the relationship, and says asking is a category error.", w: { cop: 2 } },
+        { t: "Is a different person with each of their friends, and insists all versions are valid.", w: { rqm: 2 } },
+        { t: "Keeps warning you they might change completely, at random, at any moment. For real this time.", w: { grw: 2 } },
+        { t: "Says you two were fated since the beginning of time, so effort is optional.", w: { sd: 2 } }
+      ]
+    },
+    {
+      q: "How do you feel about being observed?",
+      opts: [
+        { t: "Fine. I am the same in private as in public. There is a fact of the matter about me.", w: { pw: 2 } },
+        { t: "I do not exist in general. I exist differently for each person who knows me.", w: { rqm: 2 } },
+        { t: "Being observed changes me, obviously. It changes everyone. Watch someone and see.", w: { cop: 2 } },
+        { t: "The observation is not the point. What matters is what the observer does with their beliefs.", w: { qb: 2 } },
+        { t: "I contain multitudes; being watched just picks which one gets the attention.", w: { mw: 2 } },
+        { t: "Watch or don’t. I was going to do exactly this either way.", w: { sd: 2 } },
+        { t: "Nothing is fully real until a mind beholds it. Including me. Especially me.", w: { cc: 2 } }
+      ]
+    },
+    {
+      q: "Pick an album.",
+      opts: [
+        { t: "OK Computer — Radiohead. You know why.", w: { mw: 3 } },
+        { t: "Blue — Joni Mitchell. One person’s interior experience, rendered exactly.", w: { qb: 2 } },
+        { t: "A live bootleg. Unrepeatable — it only ever existed for the people in that room.", w: { rqm: 2 } },
+        { t: "Unknown Pleasures — Joy Division. The cover is literally pulsar data. Measurable. Austere.", w: { grw: 2 } },
+        { t: "Abbey Road — the canonical release. No demos, no remixes, no discussion.", w: { cop: 2 } },
+        { t: "Whatever is already playing. Choosing is a feeling the playlist gives you.", w: { sd: 2 } },
+        { t: "Any album of singing bowls. The universe is one vibration, if you think about it.", w: { cc: 2 } }
+      ]
+    },
+    {
+      q: "Two people you love remember the same event completely differently.",
+      opts: [
+        { t: "One of them is wrong, and I am willing to find out which.", w: { pw: 2, grw: 1 } },
+        { t: "Both are right relative to their own interaction with it. There is no master tape.", w: { rqm: 2 } },
+        { t: "Both versions happened. They have simply ended up in different branches of the anecdote.", w: { mw: 2 } },
+        { t: "Memory is belief, and beliefs get updated. Nobody needs to be right for dinner to continue.", w: { qb: 2 } },
+        { t: "I rule on which version is admissible and we proceed.", w: { cop: 2 } },
+        { t: "Their disagreement was arranged roughly 13.8 billion years ago. Let it play out.", w: { sd: 2 } }
+      ]
+    },
+    {
+      q: "What is your relationship with plans?",
+      opts: [
+        { t: "I make one plan and hold a definite position at all times, even when nobody checks on me.", w: { pw: 2 } },
+        { t: "I plan every version of the evening simultaneously and let the branches sort themselves out.", w: { mw: 2 } },
+        { t: "Plans are forecasts. I revise hourly and feel no shame whatsoever.", w: { qb: 2 } },
+        { t: "The plan exists between me and each person I made it with. Those are different plans.", w: { rqm: 2 } },
+        { t: "I commit hard, then occasionally, at random, blow the whole thing up. Verifiably.", w: { grw: 2 } },
+        { t: "The plan was fixed by initial conditions long ago. I am simply finding out what it is.", w: { sd: 2 } },
+        { t: "I refuse to discuss the plan before it happens. Asking beforehand is meaningless.", w: { cop: 2 } }
+      ]
+    },
+    {
+      q: "Choose a superpower nobody would envy.",
+      opts: [
+        { t: "Copies of you handle every possibility — but you never get to meet them or compare notes.", w: { mw: 2 } },
+        { t: "You always know exactly where everything is. Only you. Nobody believes your methods.", w: { pw: 2 } },
+        { t: "Perfect certainty about your own experience — and absolutely nothing else.", w: { qb: 2 } },
+        { t: "You can end any conversation permanently. Including the ones you wanted to continue.", w: { cop: 2 } },
+        { t: "You are a different person to everyone who knows you, and can never learn which one is real.", w: { rqm: 2 } },
+        { t: "At unpredictable moments you become extremely definite, whether or not it is convenient.", w: { grw: 2 } },
+        { t: "You can predict everything and change nothing, and you knew you would read this sentence.", w: { sd: 2 } }
+      ]
+    },
+    {
+      q: "Last one. There is a lump under the carpet. It cannot be removed, only relocated. Where do you sweep it?",
+      opts: [
+        { t: "Under an infinite number of carpets, each with an imperceptibly small lump.", w: { mw: 2 } },
+        { t: "Nowhere. The lump is real, it has always had a location, and I have the receipts.", w: { pw: 2 } },
+        { t: "The lump is somewhere different for every observer of the carpet, and that is fine.", w: { rqm: 2 } },
+        { t: "I propose the lump occasionally flattens itself, and I have applied for funding to watch.", w: { grw: 2 } },
+        { t: "What lump? The carpet is for walking on. Next question.", w: { cop: 2 } },
+        { t: "The lump, the carpet, the broom, and your decision to ask were packed together at the Big Bang.", w: { sd: 2 } },
+        { t: "The lump dissolves when you truly perceive the carpet.", w: { cc: 2 } }
+      ]
+    }
+  ];
+
+  var RESULTS = {
+    cop: {
+      name: "Copenhagen",
+      tagline: "“Shut up and calculate.”",
+      claims: "The wave function predicts measurement outcomes; measurement collapses it; and what is “really happening” in between is declared not a scientific question. This was the establishment position for most of a century — which is remarkable, for a position whose central move is refusing to answer.",
+      cost: "It is less an answer than a restraining order against the question. Somewhere between the atom and your eyeball, “quantum” becomes “definite,” and Copenhagen declines to say where, how, or why — while insisting, firmly, that the matter is closed.",
+      you: "You end arguments by declaring them over. You have strong opinions about which questions are allowed at the dinner table. You are, infuriatingly, very effective; your calendar is immaculate; and nobody knows what you actually believe — possibly including you. It works. Nobody knows why. You have forbidden asking.",
+      book: "<em>What Is Real?</em> by Adam Becker — the prosecution’s case against you. Read it so you know exactly what you are refusing to discuss."
+    },
+    mw: {
+      name: "Many-Worlds",
+      tagline: "“Everything happens.”",
+      claims: "Take the Schrödinger equation literally and stop adding things to it. No collapse, no special role for measurement: the wave function just keeps evolving, and every possible outcome occurs in its own branch. The most parsimonious interpretation on assumptions; the most extravagant on universes.",
+      cost: "An unimaginably vast, constantly branching multiverse — and an unfinished argument about why probability means anything when everything happens. If every outcome occurs, what exactly were you assigning thirty percent to? Everettians have answers. Everettians have several answers. That is the problem.",
+      you: "Minimalist about assumptions, maximalist about consequences: you own one good jacket and several billion universes. Yes, OK Computer is a masterpiece. No, you did not need to bring it up again. Be reassured that somewhere there is a branch where you got a different result on this quiz — this result covers those too.",
+      book: "<em>Something Deeply Hidden</em> by Sean Carroll — the case for taking the equation at its word, by the guy at the party you were just talking to."
+    },
+    pw: {
+      name: "Pilot Wave",
+      tagline: "“There was always a particle.”",
+      claims: "Particles have definite positions at every moment, chaperoned everywhere by a real wave that steers them. No collapse, no dice, no observer-worship: the double-slit experiment stops being a koan and becomes a mechanism. Proposed in 1927, dismissed, rediscovered in 1952, dismissed again. Still standing.",
+      cost: "Nonlocality, worn openly: the wave links distant particles instantly and without apology. (No, you still cannot text faster than light — the connection is real but unsteerable, which is somehow more frustrating.) Also: nearly a century of being right on principle while nobody signs you.",
+      you: "You keep receipts. You were told your approach was unnecessary; you did it anyway, correctly, and have been waiting for the apology since 1927. You believe things are where they are even when nobody is looking, and you extend this courtesy to your keys, which is why you always know where they are.",
+      book: "<em>Quantum Mechanics and Experience</em> by David Z Albert — or Becker’s <em>What Is Real?</em>, the closest thing you will get to a vindication tour."
+    },
+    rqm: {
+      name: "Relational Quantum Mechanics",
+      tagline: "“Facts are relative to the witness.”",
+      claims: "There are no absolute properties — only properties relative to whatever system interacted to witness them. The cat has a definite state relative to the box, and none relative to the hallway. There is no view from nowhere; the universe is a web of interactions, not a warehouse of objects.",
+      cost: "The comparison problem: when two observers finally meet to compare notes, there is no master ledger where their accounts reconcile — only another interaction, relative to which there are new facts, relative to which… Whether this is profound or a regress is genuinely unresolved. You find that more exciting than troubling, which is diagnostic.",
+      you: "You think in relationships, not objects. You keep threads open on purpose. You have said “it depends what you mean by” this week — sincerely — and you were right. Your friends describe you completely differently to one another, and you regard this not as a problem but as the mechanism.",
+      book: "<em>Helgoland</em> by Carlo Rovelli — written with such warmth you will briefly forget the regress. Relative to you, it resolves everything."
+    },
+    qb: {
+      name: "QBism",
+      tagline: "“It was inference all the way down.”",
+      claims: "The wave function is not a thing in the world — it is an agent’s degrees of belief about their own future experiences. “Collapse” is just you updating on new information, the way your hopes about a lottery ticket collapse when you check the numbers. Quantum theory is a user’s manual, and you, personally, are the user.",
+      cost: "Critics call it solipsism with extra linear algebra. QBists reply that it is not, that first-person experience is where all science was hiding anyway — but the theory does keep declining to say what the world is like when you are not involved, and you would be lying if you said that never comes up at parties.",
+      you: "You are extremely comfortable with subjectivity, and it makes everyone around you nervous. You say “that’s just my prior” as a complete sentence. When you are wrong, you update so gracefully it is almost annoying — nothing embarrasses you, because nothing was ever a fact. It was only ever a bet.",
+      book: "<em>QBism: The Future of Quantum Physics</em> by Hans Christian von Baeyer — you will experience it personally, which its author would insist is the only way anything is experienced."
+    },
+    grw: {
+      name: "Spontaneous Collapse",
+      tagline: "“Put up or shut up.”",
+      claims: "Stop interpreting; start editing. Add a tiny spontaneous-collapse term to the equations — rare random localizations that almost never disturb a lone particle but cascade instantly through anything the size of a cat — and the measurement problem dissolves into ordinary physics. Uniquely on this page: testable. Experiments are hunting it right now.",
+      cost: "It proposes new physics that has never once been observed, and the experiments keep returning polite null results that shrink the territory it could be hiding in. You have chosen the one option that can actually be killed by data. You are proud of this. You should be. It might still get killed.",
+      you: "You would rather be wrong than unfalsifiable. You have opinions about other people’s untested claims and you share them, unprompted, with citations. When you say “source?” you mean it lovingly. But you do mean it. One day the verdict will come in, and you alone will accept it — because you alone requested one.",
+      book: "<em>Beyond Weird</em> by Philip Ball — rigorous, fair, allergic to hype. You will feel seen, then audited."
+    },
+    sd: {
+      name: "Superdeterminism",
+      tagline: "“The universe wrote your answers before you took the quiz.”",
+      secret: true,
+      claims: "Bell’s theorem has a loophole: it assumes experimenters could have chosen their measurement settings freely. Deny that — let the detector settings and the particles be correlated since the Big Bang — and every “spooky” result becomes bookkeeping. Nothing nonlocal ever happened. Strictly speaking, nothing ever “happened” at all, except the one thing, once, at the beginning.",
+      cost: "If measurement choices are secretly correlated with what is being measured, then controlled experiments stop being evidence for anything, anywhere, forever — including, awkwardly, the experiments that might support superdeterminism. It does not lose arguments. It dissolves the concept of arguing.",
+      you: "You win arguments by making argument impossible. You answered nine questions with the serenity of someone reading from a script, because you were. We would congratulate you on unlocking the secret ending, but you did not unlock anything: the ending, the quiz, this sentence, and your feeling of mild vindication right now were all fixed at the initial conditions of the universe. Your answers were never your own. Neither was your decision to take the quiz. Nor is what you do next — though you will enjoy feeling otherwise.",
+      book: "No book can help you; it was always going to be this way. Read <em>Beyond Weird</em> by Philip Ball anyway. You were always going to."
+    },
+    cc: {
+      name: "Consciousness Causes Collapse",
+      tagline: "“The disreputable uncle.”",
+      secret: true,
+      claims: "You clicked every answer with a candle burning inside it, so let us be direct. The idea that a conscious mind is what collapses the wave function has real pedigree — von Neumann was nobody’s crank — and almost no modern defenders, because measuring devices and stray air molecules decohere quantum states just fine with nobody watching. Today it survives mostly in airport books that promise the universe is thinking about you specifically. It is not.",
+      cost: "To be clear about what quantum mechanics does not say: entanglement cannot carry a message. Superposition does not mean anything is possible. Observation, in the physics, means interaction — a photon will do; no soul required. The moon is there when nobody looks, or at the very least every working physicist bets that way.",
+      you: "You are curious about genuinely deep questions — that instinct is correct and we salute it — but somewhere along the way the crystals got involved. The mystery of quantum mechanics is real; it is just weirder and better than the version you were sold. Please read a book. We recommend several.",
+      book: "Start with <em>Beyond Weird</em> by Philip Ball. Then <em>What Is Real?</em> by Adam Becker. Then, when you are ready to have your mind blown honestly, <em>Something Deeply Hidden</em> by Sean Carroll. The real thing is better. It was always better."
+    }
+  };
+
+  var TRACE = {
+    cop: "a streak of Copenhagen — some questions you would simply rather not",
+    mw: "an admixture of Many-Worlds — part of you took the other options",
+    pw: "a stubborn dose of Pilot Wave — you kept receipts",
+    rqm: "notes of Relational QM — it depended who was asking",
+    qb: "a QBist streak — you were quietly updating the whole time",
+    grw: "a trace of Spontaneous Collapse — now and then you just snapped to a verdict"
+  };
+
+  /* ---------------- state ---------------- */
+
+  var picks = []; // option index per answered question
+
+  var elIntro = document.getElementById("intro");
+  var elQuiz = document.getElementById("quiz");
+  var elResult = document.getElementById("result");
+  var elQText = document.getElementById("q-text");
+  var elOptions = document.getElementById("options");
+  var elCounter = document.getElementById("q-counter");
+  var elCollapsePct = document.getElementById("q-collapse");
+  var elFill = document.getElementById("collapse-fill");
+  var elAmps = document.getElementById("amps");
+  var elBack = document.getElementById("back");
+
+  // amplitude bars: 8 unlabeled (6 mainline + sd + cc), fixed shuffled order so no peeking
+  var AMP_ORDER = ["rqm", "sd", "mw", "qb", "cop", "cc", "pw", "grw"];
+  AMP_ORDER.forEach(function () {
+    var d = document.createElement("div");
+    d.className = "amp";
+    elAmps.appendChild(d);
+  });
+
+  function tally() {
+    var t = { cop: 0, mw: 0, pw: 0, rqm: 0, qb: 0, grw: 0, sd: 0, cc: 0 };
+    var sdPicks = 0, ccPicks = 0;
+    picks.forEach(function (optIdx, qIdx) {
+      var w = QUESTIONS[qIdx].opts[optIdx].w;
+      for (var k in w) t[k] += w[k];
+      if (w.sd) sdPicks++;
+      if (w.cc) ccPicks++;
+    });
+    return { totals: t, sdPicks: sdPicks, ccPicks: ccPicks };
+  }
+
+  function verdict() {
+    var s = tally();
+    if (s.ccPicks >= 3) return { key: "cc", tally: s };
+    if (s.sdPicks >= 6) return { key: "sd", tally: s };
+    var best = null;
+    KEYS.forEach(function (k) {
+      if (best === null || s.totals[k] > s.totals[best]) best = k;
+      else if (s.totals[k] === s.totals[best] &&
+               FUNNIER.indexOf(k) < FUNNIER.indexOf(best)) best = k;
+    });
+    return { key: best, tally: s };
+  }
+
+  function runnerUp(winnerKey, totals) {
+    var best = null;
+    KEYS.forEach(function (k) {
+      if (k === winnerKey) return;
+      if (best === null || totals[k] > totals[best]) best = k;
+    });
+    return (best && totals[best] > 0) ? best : null;
+  }
+
+  /* ---------------- rendering ---------------- */
+
+  function show(section) {
+    elIntro.classList.add("hidden");
+    elQuiz.classList.add("hidden");
+    elResult.classList.add("hidden");
+    section.classList.remove("hidden");
+  }
+
+  function updateMeters() {
+    var n = picks.length;
+    elCounter.textContent = "Question " + (n + 1) + " of " + QUESTIONS.length;
+    var pct = Math.round((n / QUESTIONS.length) * 100);
+    elCollapsePct.textContent = "Collapse: " + pct + "%";
+    elFill.style.width = pct + "%";
+
+    var s = tally().totals;
+    var max = 1;
+    AMP_ORDER.forEach(function (k) { if (s[k] > max) max = s[k]; });
+    var bars = elAmps.children;
+    AMP_ORDER.forEach(function (k, i) {
+      var h = 2 + Math.round((s[k] / max) * 22);
+      bars[i].style.height = h + "px";
+    });
+  }
+
+  function renderQuestion() {
+    if (picks.length >= QUESTIONS.length) { renderResult(); return; }
+    show(elQuiz);
+    updateMeters();
+    var q = QUESTIONS[picks.length];
+    elQText.textContent = q.q;
+    elOptions.innerHTML = "";
+    q.opts.forEach(function (opt, i) {
+      var b = document.createElement("button");
+      b.className = "opt";
+      b.type = "button";
+      var ket = document.createElement("span");
+      ket.className = "ket";
+      ket.textContent = "|" + String.fromCharCode(97 + i) + "⟩";
+      var txt = document.createElement("span");
+      txt.textContent = opt.t;
+      b.appendChild(ket);
+      b.appendChild(txt);
+      b.addEventListener("click", function () {
+        picks.push(i);
+        renderQuestion();
+      });
+      elOptions.appendChild(b);
+    });
+    elBack.style.visibility = picks.length ? "visible" : "hidden";
+    window.scrollTo({ top: 0 });
+  }
+
+  function esc(s) {
+    return s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+  }
+
+  function renderResult() {
+    var v = verdict();
+    var r = RESULTS[v.key];
+    var ru = (v.key === "cc") ? null : runnerUp(v.key === "sd" ? null : v.key, v.tally.totals);
+
+    var eyebrow = "Measurement complete";
+    if (v.key === "sd") eyebrow = "Measurement was never necessary";
+    if (v.key === "cc") eyebrow = "Measurement complete, unfortunately";
+
+    var youLabel = (v.key === "cc") ? "A word, from the management" : "You are the kind of person who…";
+    var claimsLabel = (v.key === "cc") ? "What it actually is" : "What it actually claims";
+    var costLabel = (v.key === "cc") ? "What quantum mechanics does not say" : "The weirdness you signed for";
+    var bookLabel = (v.key === "cc") ? "Required reading" : "Your book";
+
+    var runnerHtml = "";
+    if (ru && v.key !== "sd" && v.key !== "cc") {
+      runnerHtml = '<p class="runner-up">Your state was not pure: the measurement also detected ' + esc(TRACE[ru]) + '.</p>';
+    } else if (v.key === "sd" && ru) {
+      runnerHtml = '<p class="runner-up">For the record: underneath the fatalism, you were always going to be mostly ' + esc(RESULTS[ru].name) + '. That was fixed too.</p>';
+    }
+
+    elResult.innerHTML =
+      '<div class="hero">' +
+        '<p class="eyebrow result-eyebrow">' + esc(eyebrow) + '</p>' +
+        '<h1 class="result-name">' + esc(r.name) + '</h1>' +
+        '<p class="result-tagline">' + esc(r.tagline) + '</p>' +
+        '<div class="result-section"><h2>' + claimsLabel + '</h2><p>' + esc(r.claims) + '</p></div>' +
+        '<div class="result-section"><h2>' + costLabel + '</h2><p>' + esc(r.cost) + '</p></div>' +
+        '<div class="result-section"><h2>' + youLabel + '</h2><p>' + esc(r.you) + '</p></div>' +
+        runnerHtml +
+        '<div class="book"><h2>' + bookLabel + '</h2><p>' + r.book + '</p></div>' +
+        '<div class="result-actions">' +
+          '<button class="btn-primary" id="share">Copy my result</button>' +
+          '<button class="btn-ghost" id="restart">Re-prepare the state</button>' +
+        '</div>' +
+        '<p class="toast" id="toast"></p>' +
+      '</div>';
+
+    show(elResult);
+    window.scrollTo({ top: 0 });
+
+    document.getElementById("restart").addEventListener("click", function () {
+      picks = [];
+      renderQuestion();
+    });
+    document.getElementById("share").addEventListener("click", function () {
+      var text = "I took “Which Quantum Interpretation Are You?” and got " +
+        r.name + " — " + r.tagline +
+        (v.key === "sd" ? " (Secret ending. I had no choice.)" : "");
+      var toast = document.getElementById("toast");
+      function done(ok) {
+        toast.textContent = ok
+          ? "Copied. (In this branch, anyway.)"
+          : "Couldn’t copy — select it the old-fashioned way.";
+      }
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(text).then(function () { done(true); },
+                                                 function () { done(false); });
+      } else { done(false); }
+    });
+  }
+
+  document.getElementById("begin").addEventListener("click", renderQuestion);
+  elBack.addEventListener("click", function () {
+    if (picks.length) { picks.pop(); renderQuestion(); }
+  });
+
+  /* ---------------- header art: two-slit fringes ---------------- */
+
+  function drawFringes() {
+    var c = document.getElementById("fringe");
+    var dpr = window.devicePixelRatio || 1;
+    var w = c.clientWidth, h = c.clientHeight;
+    if (!w || !h) return;
+    c.width = w * dpr;
+    c.height = h * dpr;
+    var ctx = c.getContext("2d");
+    ctx.scale(dpr, dpr);
+
+    var styles = getComputedStyle(document.documentElement);
+    var paper = styles.getPropertyValue("--paper").trim() || "#F4F5F1";
+    var teal = styles.getPropertyValue("--teal").trim() || "#0E6E62";
+    var magenta = styles.getPropertyValue("--magenta").trim() || "#B4256E";
+
+    ctx.fillStyle = paper;
+    ctx.fillRect(0, 0, w, h);
+
+    // two coherent sources above the band; intensity = cos^2 of path difference
+    var s1x = w * 0.38, s2x = w * 0.62, sy = -h * 1.6;
+    var k = 0.055;
+    for (var x = 0; x < w; x += 2) {
+      for (var y = 0; y < h; y += 2) {
+        var d1 = Math.sqrt((x - s1x) * (x - s1x) + (y - sy) * (y - sy));
+        var d2 = Math.sqrt((x - s2x) * (x - s2x) + (y - sy) * (y - sy));
+        var t = Math.pow(Math.cos(k * (d1 - d2) / 2), 2);
+        var fade = 0.10 + 0.30 * (y / h);
+        ctx.globalAlpha = t * fade;
+        ctx.fillStyle = teal;
+        ctx.fillRect(x, y, 2, 2);
+        ctx.globalAlpha = (1 - t) * fade * 0.8;
+        ctx.fillStyle = magenta;
+        ctx.fillRect(x, y, 2, 2);
+      }
+    }
+    ctx.globalAlpha = 1;
+  }
+
+  drawFringes();
+  window.addEventListener("resize", drawFringes);
+  if (window.matchMedia) {
+    window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", drawFringes);
+  }
+})();
+</script>
+
+</body>
+</html>
