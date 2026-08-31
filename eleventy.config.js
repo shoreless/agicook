@@ -9,6 +9,13 @@ export default function (eleventyConfig) {
     fs.readdirSync("src/log").some((f) => f.endsWith(".md"));
   if (!hasLog) eleventyConfig.ignores.add("src/log.njk");
 
+  // Same for the kitchen: no dish written yet, no /kitchen/ page. Drop a .md in
+  // src/kitchen/ and the index, the entry pages and the footer link all appear.
+  // (Config is read once — restart `npm run dev` after the very first entry.)
+  const hasKitchen = fs.existsSync("src/kitchen") &&
+    fs.readdirSync("src/kitchen").some((f) => f.endsWith(".md"));
+  if (!hasKitchen) eleventyConfig.ignores.add("src/kitchen.njk");
+
   eleventyConfig.addPassthroughCopy({ "src/css": "css" });
   // The quiz is vendored, hand-written HTML. Copy it byte-for-byte —
   // never let Nunjucks near it, or a future `{{` in its JS dies silently.
@@ -42,6 +49,15 @@ export default function (eleventyConfig) {
   const NUMBERS = ["zero", "one", "two", "three", "four", "five", "six", "seven",
                    "eight", "nine", "ten", "eleven", "twelve"];
   eleventyConfig.addFilter("spell", (n) => NUMBERS[n] ?? String(n));
+
+  // Service-ticket numbering on the kitchen wall: 1 -> "001". Nunjucks has no
+  // printf filter (Jinja does; this is not Jinja).
+  eleventyConfig.addFilter("pad", (n, width) => String(n).padStart(width || 3, "0"));
+
+  // First item whose data has a truthy key. `selectattr` cannot take a dotted
+  // path in Nunjucks (it can in Jinja), so this is explicit instead.
+  eleventyConfig.addFilter("firstWith", (list, key) =>
+    (list || []).find((x) => x.data && x.data[key]) || null);
 
   // Splitting one list into a page's main run and its exception. Nunjucks has
   // rejectattr, but its `equalto` test quietly matched nothing here and the
@@ -106,6 +122,10 @@ export default function (eleventyConfig) {
 
   eleventyConfig.addCollection("log", (c) =>
     c.getFilteredByGlob("src/log/*.md").reverse());
+
+  // Newest dish first — src/kitchen.njk iterates this directly, without reversing.
+  eleventyConfig.addCollection("kitchen", (c) =>
+    c.getFilteredByGlob("src/kitchen/*.md").reverse());
 
   return {
     markdownTemplateEngine: "njk",

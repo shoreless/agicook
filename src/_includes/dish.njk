@@ -1,0 +1,78 @@
+---
+layout: base.njk
+footWrap: k-dish
+pageCss: /css/kitchen.css
+---
+{# A dish page. The index wall crops to squares so it reads as a wall; here the
+   AI image is shown whole, at whatever shape it came out — rev 5 of the spec:
+   every image is its own style, and nothing should flatten that. #}
+<div class="k-dish"
+     data-title="{{ title }}"
+     data-model="{{ model }}"
+     data-slug="{{ page.fileSlug }}"
+     data-site="{{ site.url }}">
+  <header class="k-dish-head">
+    <a class="k-back-brand" href="/kitchen/">&larr; ai slop kitchen</a>
+    <h1>{{ title }}</h1>
+    <p class="k-meta">
+      {%- if model %}<span class="k-model">{{ model }}</span>{% endif %}
+      <time datetime="{{ page.date | isodate }}">{{ page.date | logdate }}</time>
+      {%- if serves %}<span class="sep">/</span><span>serves {{ serves }}</span>{% endif %}
+    </p>
+  </header>
+
+  {%- if ai_image %}
+  <figure class="k-ai">
+    <img src="/img/kitchen/{{ page.fileSlug }}/{{ ai_image }}"
+         alt="{{ ai_alt if ai_alt else 'An AI-generated image of ' + title }}">
+    <span class="k-stamp" aria-hidden="true">ai&nbsp;generated<br>never&nbsp;eaten</span>
+    <figcaption>{{ ai_caption if ai_caption else 'How ' + model + ' saw it' }}</figcaption>
+  </figure>
+  {%- endif %}
+
+  {%- if photos %}
+  <div class="k-label">
+    <span>What came out</span>
+    <span>{{ photos | length }}</span>
+  </div>
+  <div class="k-plates">
+    {%- for p in photos %}
+    <figure><img src="/img/kitchen/{{ page.fileSlug }}/{{ p }}"
+                 alt="{{ title }}, as actually cooked ({{ loop.index }} of {{ photos | length }})"
+                 loading="lazy"></figure>
+    {%- endfor %}
+  </div>
+  {%- endif %}
+
+  <div class="k-label"><span>The recipe, as cooked</span></div>
+  <div class="k-recipe">{{ content | safe }}</div>
+
+  {%- if notes %}
+  <div class="k-label"><span>At the table</span></div>
+  <div class="k-notes">{{ notes }}</div>
+  {%- endif %}
+
+  {%- if crew_note %}
+  <div class="k-label"><span>From the galley crew</span></div>
+  <div class="k-crew-note">
+    {{ crew_note }}
+    {%- if crew_note_by %}
+    <p class="k-sig">&mdash; {{ crew_note_by }}</p>
+    {%- endif %}
+  </div>
+  {%- endif %}
+
+  <div class="k-share" hidden>
+    <button type="button" id="k-story" class="k-btn k-btn--hot">
+      Story card
+      <small>1080&times;1920, both pictures</small>
+    </button>
+    <button type="button" id="k-copy" class="k-btn">
+      Copy link
+      <small>this dish</small>
+    </button>
+  </div>
+
+  <a class="k-back" href="/kitchen/">&larr; back to the pass</a>
+</div>
+<script src="/js/dish.js" defer></script>

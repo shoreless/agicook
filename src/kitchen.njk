@@ -1,0 +1,65 @@
+---
+layout: base.njk
+footWrap: k-wrap
+pageCss: /css/kitchen.css
+title: AI Slop Kitchen
+description: A model invents a dish. I actually cook it. Whether the result is dinner or slop gets settled at the table — recipes as cooked, photos of what came out, and the machine's own idea of what it was supposed to look like.
+permalink: /kitchen/index.html
+---
+{# Newest first: the collection already reverses, so no | reverse here. The log
+   page does reverse, on purpose — its map draws a path through time. #}
+<div class="k-wrap">
+  <header class="k-head">
+    <a class="k-back-brand" href="/">&larr; {{ site.title }}</a>
+    <h1 class="k-title">AI <em>Slop</em> Kitchen</h1>
+    <p class="k-lede">A model invents a dish. <strong>I actually cook it.</strong>
+      Recipes as cooked, photos of what actually came out, and
+      the machine's own idea of what it was supposed to look like.</p>
+  </header>
+
+
+  <label class="k-search" for="k-q" hidden>
+    <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>
+    <input id="k-q" type="search" autocomplete="off" spellcheck="false"
+           placeholder="what's in the walk-in? miso, one pan, coconut cream…"
+           aria-label="Search the dishes by name, ingredient or method">
+    <span class="k-kbd">/</span>
+  </label>
+
+  <p class="k-count" id="k-count">
+    <b>{{ collections.kitchen | length }}</b> {% if collections.kitchen | length == 1 %}dish{% else %}dishes{% endif %} on the pass
+  </p>
+
+  {#- The big slot goes to the newest dish that actually has an image. Handing it
+      to a dish still WORKING would give the wall's best real estate to an empty
+      dashed box while a real photograph sits small. #}
+  {%- set featured = collections.kitchen | firstWith("ai_image") %}
+  <div class="k-wall" id="k-wall">
+    {%- for e in collections.kitchen %}
+    <a class="k-tile{% if not e.data.ai_image %} k-tile--working{% endif %}{% if featured and e.url == featured.url %} k-tile--feature{% endif %}" href="{{ e.url }}" data-search="{{ e.data.searchText }}">
+      <span class="k-no">dupe {{ (collections.kitchen | length - loop.index0) | pad(3) }}</span>
+      {%- if e.data.ai_image %}
+      <span class="k-slopmark">ai&nbsp;slop</span>
+      <img src="/img/kitchen/{{ e.page.fileSlug }}/{{ e.data.ai_image }}" alt="" loading="lazy">
+      {%- else %}
+      {# cooked, not yet imaged. "working" is what a kitchen says about a ticket
+         that has been fired and is not on the pass yet. #}
+      <span class="k-working" aria-label="image not generated yet">working</span>
+      {%- endif %}
+      <span class="k-tile-body">
+        <h3>{{ e.data.title }}</h3>
+        <span class="k-meta">
+          {%- if e.data.model %}<span class="k-model">{{ e.data.model }}</span>{% endif %}
+          <time datetime="{{ e.date | isodate }}">{{ e.date | logdate }}</time>
+        </span>
+      </span>
+    </a>
+    {%- endfor %}
+  </div>
+
+  <p class="k-empty" id="k-empty" hidden>
+    86&rsquo;d. Nothing in here matches <span id="k-empty-q"></span>.
+    <small>Try an ingredient. It searches the whole recipe, not just the name.</small>
+  </p>
+</div>
+<script src="/js/kitchen.js" defer></script>

@@ -8,10 +8,17 @@
 <meta property="og:title" content="{{ title or site.title }}">
 <meta property="og:description" content="{{ description or site.description }}">
 <meta property="og:type" content="website">
+{%- if ogImage %}
+<meta property="og:image" content="{{ site.url }}{{ ogImage }}">
+<meta name="twitter:card" content="summary_large_image">
+{%- endif %}
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=Newsreader:ital,opsz,wght@0,6..72,300..600;1,6..72,300..600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/css/style.css">
+{%- if pageCss %}
+<link rel="stylesheet" href="{{ pageCss }}">
+{%- endif %}
 </head>
 <body>
 {{ content | safe }}
@@ -20,6 +27,9 @@
     <a href="/">index</a>
     {%- if collections.log.length %}
     <a href="/log/">log</a>
+    {%- endif %}
+    {%- if collections.kitchen.length %}
+    <a href="/kitchen/">kitchen</a>
     {%- endif %}
     {%- if site.email %}
     <a href="mailto:{{ site.email }}">email</a>

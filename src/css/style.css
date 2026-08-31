@@ -483,3 +483,27 @@ a.topic:hover { text-decoration: underline; text-underline-offset: 0.2em; }
   border-bottom: 1px solid var(--rule);
 }
 .meta .versions a:hover { color: var(--accent); border-bottom-color: var(--accent); }
+
+/* ---------- rule labels ---------- */
+/* Used by the index, the log and the kitchen. Was markup with no styling until
+   2026-08-31 — the label and its count rendered as bare inline text. */
+
+.rule-label {
+  display: flex;
+  align-items: baseline;
+  gap: 0.9rem;
+  margin: 3rem 0 0;
+  padding-bottom: 0.55rem;
+  border-bottom: 1px solid var(--rule);
+  font-family: var(--mono);
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.11em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.rule-label > :last-child { margin-left: auto; font-variant-numeric: tabular-nums; }
+.rule-label > :only-child { margin-left: 0; }
+.rule-label a { color: var(--muted); text-decoration: none; }
+.rule-label a:hover { color: var(--accent); }
+
