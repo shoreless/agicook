@@ -35,7 +35,11 @@ permalink: "/which-quantum-interpretation-are-you/theories/{{ t.slug }}/index.ht
 </nav>
 
 <main class="wrap prose-theory">
-  <p class="eyebrow">The deep dive &middot; one of eight answers to the same experiment</p>
+  {#- Decoherence is on this list but is not one of the answers; calling it one
+      would make exactly the claim the trap's page spends its length undoing. -#}
+  <p class="eyebrow">The deep dive &middot;
+    {%- if t.slug == "decoherence" %} not an answer &mdash; the thing every answer has to explain
+    {%- else %} one of eight answers to the same experiment{% endif %}</p>
   <h1 class="theory-name">{{ t.name }}</h1>
   <p class="result-tagline">{{ t.tagline | safe }}</p>
   {%- if t.hook %}

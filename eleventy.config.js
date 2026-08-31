@@ -37,6 +37,20 @@ export default function (eleventyConfig) {
     fmt({ year: "numeric", month: "2-digit", day: "2-digit" })
       .format(d).split("/").reverse().join("-"));
 
+  // Counts written out in prose. The theories headline said "Eight ways" over
+  // nine cards for two days; a headline that counts its own list cannot.
+  const NUMBERS = ["zero", "one", "two", "three", "four", "five", "six", "seven",
+                   "eight", "nine", "ten", "eleven", "twelve"];
+  eleventyConfig.addFilter("spell", (n) => NUMBERS[n] ?? String(n));
+
+  // Splitting one list into a page's main run and its exception. Nunjucks has
+  // rejectattr, but its `equalto` test quietly matched nothing here and the
+  // headline rendered "Zero ways" — so this is explicit instead.
+  eleventyConfig.addFilter("without", (list, key, value) =>
+    (list || []).filter((x) => x[key] !== value));
+  eleventyConfig.addFilter("only", (list, key, value) =>
+    (list || []).find((x) => x[key] === value) || null);
+
   // plain URLs in the reference list should be links
   eleventyConfig.amendLibrary("md", (md) => md.set({ linkify: true }));
 

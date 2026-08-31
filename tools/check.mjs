@@ -42,7 +42,7 @@ ok(true, "eleventy build");
 
 /* ---- 3. an OG card for every result, and the quiz's own ---- */
 const results = JSON.parse(fs.readFileSync(path.join(ROOT, "src/_data/quiz/results.json"), "utf8"));
-for (const name of ["quiz", ...Object.keys(results)]) {
+for (const name of ["quiz", "theories", ...Object.keys(results)]) {
   const p = path.join(ROOT, "_site/img/og", name + ".png");
   ok(fs.existsSync(p) && fs.statSync(p).size > 5000, `og card  /img/og/${name}.png`);
 }
@@ -109,8 +109,34 @@ for (const [url, name, firstRoster] of cases) {
   ok(!stray, `markup   ${url}`, stray ? "literal *asterisks* left in the copy" : "");
 }
 
+/* The theories index. Its headline counts its own list, so the count and the
+   card count are checked against each other rather than against a number
+   written here — that is the failure this page already had once. */
+{
+  const d = await dom(QUIZ + "theories/");
+  const cards = (d.match(/class="theory-card"/g) || []).length;
+  const h1 = /<h1>([\s\S]*?)<\/h1>/.exec(d);
+  const spelled = ["zero", "one", "two", "three", "four", "five", "six", "seven",
+                   "eight", "nine", "ten"][cards];
+  ok(cards === 8, "theories cards", cards + " in the grid");
+  ok(h1 && new RegExp("^" + spelled + " ways", "i").test(h1[1].trim()),
+     "theories headline", h1 ? h1[1].replace(/<[^>]+>/g, " ").trim() : "missing");
+  ok(d.includes("theory-aside"), "theories aside", "decoherence is set apart");
+  ok(!/class="theory-card"[^>]*theories\/decoherence/.test(d),
+     "theories grid", "decoherence stays out of the eight");
+
+  const deco = await dom(QUIZ + "theories/decoherence/");
+  ok(/not an answer/.test(deco), "decoherence eyebrow", "not counted as one of the eight");
+
+  const home = await dom("/");
+  ok(home.includes('href="' + QUIZ + 'theories/"'), "index link", "theories reachable from the map");
+  const nav = await dom(QUIZ);
+  ok(nav.includes('href="' + QUIZ + 'theories/"'), "quiz nav", "theories reachable from the quiz");
+}
+
 /* the og: tags a network reads when someone posts the link */
-for (const [url, key] of [[QUIZ + "r/sd/", "sd"], [QUIZ, "quiz"]]) {
+for (const [url, key] of [[QUIZ + "r/sd/", "sd"], [QUIZ, "quiz"],
+                          [QUIZ + "theories/", "theories"]]) {
   const d = fs.readFileSync(path.join(site, url.replace(/^\//, ""), "index.html"), "utf8");
   const img = /property="og:image" content="([^"]+)"/.exec(d);
   ok(img && img[1].endsWith(`/img/og/${key}.png`), `og:image ${url}`, img ? img[1] : "missing");

@@ -60,10 +60,26 @@ function wave(peakIndex) {
 const esc = (s) => String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
 const unquote = (s) => String(s).replace(/[“”"]/g, "");
 
+/* The cards that are not a result: the quiz's own, and the theories index.
+   Both show the superposition — no peak, because nothing has been measured. */
+const PAGES = {
+  quiz: {
+    title: TITLE,
+    h1: 'Which Quantum<br>Interpretation Are You<span style="color:#B4256E">?</span>',
+    tagline: "Ten questions. Weirdness is conserved &mdash;<br>you only get to choose where it goes.",
+  },
+  theories: {
+    title: "The theories &middot; agicook",
+    h1: "Eight ways of reading<br>the same experiment",
+    tagline: "They agree with every measurement ever taken.<br>They disagree completely about what is happening.",
+  },
+};
+
 function page(key) {
-  const r = key ? results[key] : null;
-  const hue = key ? HUE[key] : "#B4256E";
-  const d = wave(key ? KEYS.indexOf(key) : null);
+  const r = results[key] || null;
+  const fixed = PAGES[key];
+  const hue = r ? HUE[key] : "#B4256E";
+  const d = wave(r ? KEYS.indexOf(key) : null);
 
   // the same eyebrow the reveal page uses — both secret endings earned their own
   const eyebrow = key === "sd" ? "Measurement was never necessary"
@@ -74,8 +90,8 @@ function page(key) {
     ? `<p class="eyebrow">${eyebrow}</p>
        <h1 class="fit" style="color:${hue}">${esc(r.name)}</h1>
        <p class="tagline">${esc(unquote(r.tagline))}</p>`
-    : `<h1 class="big">Which Quantum<br>Interpretation Are You<span style="color:#B4256E">?</span></h1>
-       <p class="tagline">Ten questions. Weirdness is conserved &mdash;<br>you only get to choose where it goes.</p>`;
+    : `<h1 class="big">${fixed.h1}</h1>
+       <p class="tagline">${fixed.tagline}</p>`;
 
   return `<!doctype html><html><head><meta charset="utf-8">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -105,7 +121,7 @@ function page(key) {
 </style></head><body>
 <svg class="wave" viewBox="0 0 ${W} 300" preserveAspectRatio="none"><path d="${d}"/></svg>
 <div class="pad">
-  <div class="title">${esc(TITLE)}</div>
+  <div class="title">${r ? esc(TITLE) : fixed.title}</div>
   <div class="body">${headline}<p class="foot">agicook.com</p></div>
 </div>
 <div class="bar"></div>
@@ -127,10 +143,9 @@ function page(key) {
 const tmp = fs.mkdtempSync(path.join(os.tmpdir(), "og-"));
 fs.mkdirSync(OUT, { recursive: true });
 
-for (const key of [null, ...KEYS]) {
-  const name = key || "quiz";
+for (const name of [...Object.keys(PAGES), ...KEYS]) {
   const html = path.join(tmp, name + ".html");
-  fs.writeFileSync(html, page(key));
+  fs.writeFileSync(html, page(name));
   execFileSync(chrome, [
     "--headless=new", "--disable-gpu", "--no-sandbox", "--hide-scrollbars",
     "--force-device-scale-factor=1", `--window-size=${W},${H}`,
@@ -141,4 +156,4 @@ for (const key of [null, ...KEYS]) {
   console.log(`${name.padEnd(6)} ${(size / 1024).toFixed(0)}K`);
 }
 fs.rmSync(tmp, { recursive: true, force: true });
-console.log("wrote " + (KEYS.length + 1) + " cards to src/img/og/");
+console.log("wrote " + (KEYS.length + Object.keys(PAGES).length) + " cards to src/img/og/");

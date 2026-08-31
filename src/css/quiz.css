@@ -468,18 +468,61 @@ h1 .qm { color: var(--accent); }
   color: var(--muted);
 }
 
+/* The hairlines are drawn by the cards, not by a coloured gap behind them.
+   The old version painted the grid background with --line and let a 1px gap
+   show through: elegant until the card count did not fill the last row, and
+   the leftover cell rendered as a solid grey block. */
+/* One, two or four columns — never three. Eight cards divide evenly into all
+   three, so the last row is never short and the grid never ends ragged. */
 .theory-grid {
-  display: grid; gap: 1px;
-  grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
-  background: var(--line); border: 1px solid var(--line);
+  display: grid; gap: 0;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  border-top: 1px solid var(--line); border-left: 1px solid var(--line);
   margin: 2.5rem 0 0;
 }
+@media (min-width: 58rem) { .theory-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
+@media (max-width: 30rem) { .theory-grid { grid-template-columns: minmax(0, 1fr); } }
 .theory-card {
   background: var(--paper); padding: 1.4rem 1.4rem 1.6rem;
+  border-right: 1px solid var(--line); border-bottom: 1px solid var(--line);
   text-decoration: none; color: var(--ink);
   transition: background .16s ease;
 }
 .theory-card:hover { background: var(--card); }
+
+/* One axis for the whole page — nav, content and footer. The grid needs more
+   room than a reading measure, so this page is wider than the rest of the quiz
+   and the nav has to follow it or the wordmark floats off on its own. */
+.theories-page,
+body.theories .site-nav,
+body.theories .foot {
+  max-width: 64rem; margin-left: auto; margin-right: auto;
+  padding-left: clamp(1.25rem, 4vw, 3rem);
+  padding-right: clamp(1.25rem, 4vw, 3rem);
+}
+.theories-page { padding-top: 1.6rem; padding-bottom: 4rem; }
+.theories-head h1, .theories-head .dek { max-width: 34rem; }
+
+/* Decoherence is not a ninth interpretation, so it is not a ninth card. */
+.theory-aside {
+  display: grid; gap: 1.6rem; align-items: start;
+  grid-template-columns: minmax(0, 15rem) minmax(0, 1fr);
+  margin: 2.5rem 0 0; padding: 1.6rem 0 0;
+  border-top: 1px solid var(--line);
+  text-decoration: none; color: var(--ink);
+}
+.theory-aside .card-motif { margin: 0; color: var(--accent); }
+.theory-aside h2 {
+  font-family: var(--display); font-weight: 600; font-size: 1.14rem;
+  letter-spacing: -0.018em; margin: 0 0 0.35rem;
+}
+.theory-aside:hover h2 { color: var(--accent); }
+.aside-tag { margin: 0 0 0.9rem; font-size: 0.92rem; font-style: italic; color: var(--muted); }
+.aside-note { margin: 0; font-size: 0.94rem; line-height: 1.62; color: var(--muted); max-width: 34rem; }
+
+@media (max-width: 34rem) {
+  .theory-aside { grid-template-columns: minmax(0, 1fr); gap: 1rem; }
+}
 .card-motif { display: block; width: 100%; margin-bottom: 0.9rem; color: var(--c, var(--accent)); overflow: visible; }
 .theory-card h2 {
   font-family: var(--display); font-weight: 600; font-size: 1.14rem;

@@ -11,12 +11,22 @@ permalink: /which-quantum-interpretation-are-you/theories/index.html
 <title>Theories — agicook</title>
 <meta name="description" content="Every surviving interpretation of quantum mechanics agrees with every experiment ever done, and disagrees violently about what is happening. Here they are.">
 <link rel="canonical" href="https://agicook.com/which-quantum-interpretation-are-you/theories/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="agicook">
+<meta property="og:url" content="https://agicook.com/which-quantum-interpretation-are-you/theories/">
+<meta property="og:title" content="Eight Ways of Reading the Same Experiment">
+<meta property="og:description" content="They agree with every measurement ever taken. They disagree completely about what is happening. Weirdness is conserved — each one just puts it somewhere else.">
+<meta property="og:image" content="https://agicook.com/img/og/theories.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Eight ways of reading the same experiment — the interpretations of quantum mechanics, one page each.">
+<meta name="twitter:card" content="summary_large_image">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/css/quiz.css">
 </head>
-<body>
+<body class="theories">
 {% include "motifs.njk" %}
 
 <nav class="site-nav">
@@ -24,22 +34,45 @@ permalink: /which-quantum-interpretation-are-you/theories/index.html
   <span class="links"><a href="/which-quantum-interpretation-are-you/">take the quiz</a></span>
 </nav>
 
-<main class="wrap">
-  <p class="eyebrow">Theories</p>
-  <h1>Eight ways of<br>reading the same<br>experiment</h1>
-  <p class="dek">They agree with every measurement ever taken. They disagree
-    completely about what is happening. Weirdness is conserved &mdash; each one
-    just puts it somewhere else.</p>
+{#- Decoherence is on this list but is not one of the eight: it is the
+    mechanism every interpretation has to account for. It gets its own block
+    below rather than a ninth cell, which also keeps the headline honest. -#}
+{%- set ways = theories | without("slug", "decoherence") %}
+{%- set deco = theories | only("slug", "decoherence") %}
+
+<main class="theories-page">
+  <div class="theories-head">
+    <p class="eyebrow">Theories</p>
+    <h1>{{ ways | length | spell | title }} ways of<br>reading the same<br>experiment</h1>
+    <p class="dek">They agree with every measurement ever taken. They disagree
+      completely about what is happening. Weirdness is conserved &mdash; each one
+      just puts it somewhere else.</p>
+  </div>
 
   <div class="theory-grid">
-    {%- for t in theories %}
-    <a class="theory-card" href="/which-quantum-interpretation-are-you/theories/{{ t.slug }}/"{% if t.scored %} style="--c: var(--{{ t.key }})"{% endif %}>
-      <svg class="card-motif" data-use-motif="{{ t.motif }}" aria-hidden="true"></svg>
-      <h2>{{ t.name }}</h2>
-      <p>{{ t.tagline | safe }}</p>
-    </a>
-    {%- endfor %}
+      {%- for t in ways %}
+      <a class="theory-card" href="/which-quantum-interpretation-are-you/theories/{{ t.slug }}/"{% if t.scored %} style="--c: var(--{{ t.key }})"{% endif %}>
+        <svg class="card-motif" data-use-motif="{{ t.motif }}" aria-hidden="true"></svg>
+        <h2>{{ t.name }}</h2>
+        <p>{{ t.tagline | safe }}</p>
+      </a>
+      {%- endfor %}
   </div>
+
+  {%- if deco %}
+    <a class="theory-aside" href="/which-quantum-interpretation-are-you/theories/{{ deco.slug }}/">
+      <svg class="card-motif" data-use-motif="{{ deco.motif }}" aria-hidden="true"></svg>
+      <div>
+        <p class="eyebrow">Not one of the eight</p>
+        <h2>{{ deco.name }}</h2>
+        <p class="aside-tag">{{ deco.tagline | safe }}</p>
+        <p class="aside-note">The picture is the same one the disreputable uncle
+          is drawn with, and the caption is the entire difference. This is not a
+          reading of the experiment &mdash; it is the thing every reading above
+          has to explain.</p>
+      </div>
+    </a>
+  {%- endif %}
 </main>
 
 <footer class="foot wrap">
