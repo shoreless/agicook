@@ -16,6 +16,31 @@
 
   var picks = [];
 
+  /* Routing. Each result has a real page — QUIZ_ROOT + "r/<key>/" — because the
+     networks that unfurl a link read og: tags, and a query string cannot carry
+     its own. QUIZ_ROOT is this page's own quiz root, so a visitor pinned to /v2/
+     keeps every link inside /v2/; ?r=<key> still works, being what the first
+     shares used. Not named BASE: that is already the amplitude graph's baseline
+     eighty lines down, and the second `var` quietly won. */
+  var QUIZ_ROOT = document.body.getAttribute("data-quiz-base") ||
+                  location.pathname.replace(/[^/]*$/, "");
+  var REVEAL = (META.share && META.share.reveal) || "r/";
+
+  function revealHref(key) { return QUIZ_ROOT + REVEAL + key + "/"; }
+
+  function keyFromLocation() {
+    var m = /[?&]r=([a-z]+)/.exec(location.search);
+    if (m) return m[1];
+    m = /\/r\/([a-z]+)\/?$/.exec(location.pathname);
+    return m ? m[1] : null;
+  }
+
+  /* The slots the share card's collapsed peak is drawn across. The card uses
+     all eight results, not the six scored ones: the old six-slot version had
+     no slot for Superdeterminism or Consciousness Causes Collapse, so both
+     peaked on slot zero — which is Copenhagen's. */
+  var CARD_SLOTS = Object.keys(RESULTS);
+
   var el = function (id) { return document.getElementById(id); };
   var elQuiz = el("quiz"), elIntro = el("intro"), elResult = el("result");
   var elQuestion = el("question"), elOptions = el("options");
@@ -400,12 +425,12 @@
     Object.keys(RESULTS).forEach(function (k) {
       var a = document.createElement("a");
       a.className = "roster-link" + (k === v.key ? " is-self" : "");
-      a.href = "?r=" + k;
+      a.href = revealHref(k);
       a.style.setProperty("--c", "var(--" + k + ")");
       a.innerHTML = '<span class="roster-name">' + RESULTS[k].name + "</span>";
       a.addEventListener("click", function (e) {
         e.preventDefault();
-        history.pushState(null, "", "?r=" + k);
+        history.pushState(null, "", revealHref(k));
         browseTo(k);
       });
       roster.appendChild(a);
@@ -488,7 +513,7 @@
   /* ---------------- back to the start ---------------- */
 
   function resetToStart(pushUrl) {
-    if (pushUrl) history.pushState(null, "", location.pathname);
+    if (pushUrl) history.pushState(null, "", QUIZ_ROOT);
     browsedKey = null;
     picks = [];
     clearMotifBackground();
@@ -501,8 +526,8 @@
   /* ---------------- sharing ---------------- */
 
   function shareRow(result, key) {
-    var row = document.createElement("div");
-    row.className = "share-row";
+    var wrap = document.createElement("div");
+    wrap.className = "share";
 
     var flash = function (btn, label, revert) {
       btn.textContent = label;
@@ -510,21 +535,25 @@
       setTimeout(function () { btn.textContent = revert; btn.removeAttribute("data-done"); }, 2200);
     };
 
+    var row = document.createElement("div");
+    row.className = "share-row";
+
+    /* the picture path: the OS sheet on a phone, a saved PNG anywhere else.
+       This is the only route to Instagram, which accepts no link at all. */
     var primary = document.createElement("button");
     primary.type = "button";
     primary.className = "share-btn share-btn--primary";
-    // most people are on a phone, where the sheet is the whole point
     primary.textContent = navigator.share ? "Share result" : "Save image";
     primary.addEventListener("click", function () {
       primary.disabled = true;
       var was = primary.textContent;
-      primary.textContent = "Drawing\u2026";
-      window.Share.share(result, key, KEYS.concat(["sd", "cc"]).slice(0, 6), function (state) {
-        if (state === "saved") flash(primary, "Saved \u2713", was);
+      primary.textContent = "Drawing…";
+      window.Share.shareImage(result, key, CARD_SLOTS, function (state) {
+        if (state === "saved") flash(primary, "Saved ✓", was);
         if (state === "failed") flash(primary, "Couldn't share", was);
       }).then(function () {
         primary.disabled = false;
-        if (primary.textContent === "Drawing\u2026") primary.textContent = was;
+        if (primary.textContent === "Drawing…") primary.textContent = was;
       });
     });
     row.appendChild(primary);
@@ -535,7 +564,7 @@
     link.textContent = "Copy link";
     link.addEventListener("click", function () {
       window.Share.copyLink(key, function (state) {
-        flash(link, state === "copied" ? "Copied \u2713" : "Couldn't copy", "Copy link");
+        flash(link, state === "copied" ? "Copied ✓" : "Couldn't copy", "Copy link");
       });
     });
     row.appendChild(link);
@@ -547,7 +576,48 @@
     again.addEventListener("click", function () { resetToStart(true); });
     row.appendChild(again);
 
-    return row;
+    wrap.appendChild(row);
+
+    /* the link path, one target per network. Labels rather than logos: ten
+       brand marks would fight the page, and the page wins. */
+    var nets = document.createElement("div");
+    nets.className = "share-nets";
+
+    var label = document.createElement("span");
+    label.className = "share-nets-label mono";
+    label.textContent = "post it to";
+    nets.appendChild(label);
+
+    window.Share.networks.forEach(function (n) {
+      var b = document.createElement("button");
+      b.type = "button";
+      b.className = "share-net";
+      b.textContent = n.label;
+      b.addEventListener("click", function () {
+        window.Share.shareTo(n.id, result, key, CARD_SLOTS, function (state) {
+          if (state === "saved") flash(b, "Saved ✓", n.label);
+          if (state === "failed") flash(b, "Failed", n.label);
+        });
+      });
+      nets.appendChild(b);
+    });
+
+    /* the escape hatch for everything with no intent URL — Mastodon, Discord,
+       Slack, a text message, a friend who only uses email attachments */
+    var cap = document.createElement("button");
+    cap.type = "button";
+    cap.className = "share-net share-net--copy";
+    cap.textContent = "Copy caption";
+    cap.title = window.Share.full(result, key);
+    cap.addEventListener("click", function () {
+      window.Share.copyText(result, key, function (state) {
+        flash(cap, state === "copied" ? "Copied ✓" : "Failed", "Copy caption");
+      });
+    });
+    nets.appendChild(cap);
+
+    wrap.appendChild(nets);
+    return wrap;
   }
 
   /* ---------------- browsing a reveal directly ---------------- */
@@ -560,8 +630,8 @@
   }
 
   addEventListener("popstate", function () {
-    var m = /[?&]r=([a-z]+)/.exec(location.search);
-    if (m && RESULTS[m[1]]) browseTo(m[1]);
+    var k = keyFromLocation();
+    if (k && RESULTS[k]) browseTo(k);
     else resetToStart(false);
   });
 
@@ -610,8 +680,8 @@
   }
 
   function setupDeepLink() {
-    var m = /[?&]r=([a-z]+)/.exec(location.search);
-    if (m && RESULTS[m[1]]) browseTo(m[1]);
+    var k = keyFromLocation();
+    if (k && RESULTS[k]) browseTo(k);
   }
 
   /* ---------------- wiring ---------------- */

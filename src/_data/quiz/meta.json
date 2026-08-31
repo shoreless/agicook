@@ -40,5 +40,10 @@
     "cop|rqm": "You both gave up the view from nowhere. They declared the in-between off-limits; you filled it with everyone's."
   },
   "theoriesBase": "/which-quantum-interpretation-are-you/theories/",
-  "tally": "https://agicook-tally.shaz-4b9.workers.dev"
+  "tally": "https://agicook-tally.shaz-4b9.workers.dev",
+  "share": {
+    "title": "Which Quantum Interpretation Are You?",
+    "site": "https://agicook.com",
+    "reveal": "r/"
+  }
 }

@@ -2,6 +2,7 @@
   "cop": {
     "name": "Copenhagen",
     "tagline": "“Shut up and calculate.”",
+    "hook": "I got Copenhagen — the interpretation whose entire position is that you are not allowed to ask. It works. Nobody knows why. I have forbidden asking.",
     "claims": "The wave function predicts measurement outcomes; measurement collapses it; and what is “really happening” in between is declared not a scientific question. This was the establishment position for most of a century — which is remarkable, for a position whose central move is refusing to answer.",
     "cost": "It is less an answer than a restraining order against the question. Somewhere between the atom and your eyeball, “quantum” becomes “definite,” and Copenhagen declines to say where, how, or why — while insisting, firmly, that the matter is closed.",
     "you": "You end arguments by declaring them over. You have strong opinions about which questions are allowed at dinner. You are, infuriatingly, very effective; your calendar is immaculate; and nobody knows what you actually believe — possibly including you. It works. Nobody knows why. You've forbidden asking.",
@@ -25,6 +26,7 @@
   "mw": {
     "name": "Many-Worlds",
     "tagline": "“Everything happens.”",
+    "hook": "I got Many-Worlds. Somewhere there is a version of me that got a different result. This result covers them too.",
     "claims": "Take the Schrödinger equation literally and stop adding things to it. No collapse, no special role for measurement: the wave function just keeps evolving, and every possible outcome occurs in its own branch. The most parsimonious interpretation on assumptions; the most extravagant on universes.",
     "cost": "An unimaginably vast, constantly branching multiverse — and an unfinished argument about why probability means anything when everything happens. If every outcome occurs, what exactly were you assigning thirty percent to? Everettians have answers. Everettians have several answers. That is the problem.",
     "you": "Minimalist about rules, maximalist about consequences: you own one good jacket and several billion universes. When the math and your feelings disagree, you side with the math, calmly, every time. Yes, OK Computer is a masterpiece. No, you didn't need to bring it up again. And relax — somewhere there's a version of you that got a different result on this quiz. This result covers them too.",
@@ -48,6 +50,7 @@
   "pw": {
     "name": "Pilot Wave",
     "tagline": "“There was always a particle.”",
+    "hook": "I got Pilot Wave. Things are where they are even when nobody is looking, which is why I always know where my keys are. Still waiting on an apology from 1927.",
     "claims": "Particles have definite positions at every moment, chaperoned everywhere by a real wave that steers them. No collapse, no dice, no observer-worship: the double-slit experiment stops being a koan and becomes a mechanism. Proposed in 1927, dismissed, rediscovered in 1952, dismissed again. Still standing.",
     "cost": "Nonlocality, worn openly: the wave links distant particles instantly and without apology. (No, you still cannot text faster than light — the connection is real but unsteerable, which is somehow more frustrating.) Also: nearly a century of being right on principle while nobody signs you.",
     "you": "You keep receipts. You were told your approach was unnecessary; you did it anyway, correctly, and you've been waiting for the apology since 1927. You believe things are where they are even when nobody's looking, and you extend this courtesy to your keys — which is why you always know where they are.",
@@ -71,6 +74,7 @@
   "rqm": {
     "name": "Relational Quantum Mechanics",
     "tagline": "“Facts are relative to the witness.”",
+    "hook": "I got Relational Quantum Mechanics. My friends would each describe me completely differently, and I have decided that is the mechanism and not the problem.",
     "claims": "There are no absolute properties — only properties relative to whatever system interacted to witness them. The cat has a definite state relative to the box, and none relative to the hallway. There is no view from nowhere; the universe is a web of interactions, not a warehouse of objects.",
     "cost": "The comparison problem: when two observers finally meet to compare notes, there is no master ledger where their accounts reconcile — only another interaction, relative to which there are new facts, relative to which… Whether this is profound or a regress is genuinely unresolved. You find that more exciting than troubling, which is diagnostic.",
     "you": "You think in relationships, not objects. You keep threads open on purpose. You've said \"it depends what you mean by—\" this week, sincerely, and you were right. Your friends describe you completely differently to one another, and you consider that not a bug but the whole mechanism.",
@@ -94,6 +98,7 @@
   "qb": {
     "name": "QBism",
     "tagline": "“It was inference all the way down.”",
+    "hook": "I got QBism. Nothing embarrasses me, because nothing was ever a fact — it was only ever a bet. That's just my prior.",
     "claims": "The wave function is not a thing in the world — it is an agent’s degrees of belief about their own future experiences. “Collapse” is just you updating on new information, the way your hopes about a lottery ticket collapse when you check the numbers. Quantum theory is a user’s manual, and you, personally, are the user.",
     "cost": "Critics call it solipsism with extra linear algebra. QBists reply that it is not, that first-person experience is where all science was hiding anyway — but the theory does keep declining to say what the world is like when you are not involved, and you would be lying if you said that never comes up at parties.",
     "you": "You're extremely comfortable with subjectivity and it makes everyone around you nervous. You say \"that's just my prior\" as a complete sentence. When you're wrong you update so gracefully it's almost annoying — nothing embarrasses you, because nothing was ever a fact. It was only ever a bet.",
@@ -117,6 +122,7 @@
   "grw": {
     "name": "Spontaneous Collapse",
     "tagline": "“Put up or shut up.”",
+    "hook": "I got Spontaneous Collapse: the one interpretation that volunteered to be proven wrong. I would rather be falsifiable than right. Source?",
     "claims": "Stop interpreting; start editing. Add a tiny spontaneous-collapse term to the equations — rare random localizations that almost never disturb a lone particle but cascade instantly through anything the size of a cat — and the measurement problem dissolves into ordinary physics. Uniquely on this page: testable. Experiments are hunting it right now.",
     "cost": "It proposes new physics that has never once been observed, and the experiments keep returning polite null results that shrink the territory it could be hiding in. You have chosen the one option that can actually be killed by data. You are proud of this. You should be. It might still get killed.",
     "you": "You'd rather be wrong than unfalsifiable. You have opinions about other people's untested claims and you share them, unprompted, with citations. When you say \"source?\" you mean it lovingly. But you do mean it. One day the verdict will come in, and you alone will accept it — because you alone requested one.",
@@ -140,6 +146,7 @@
   "sd": {
     "name": "Superdeterminism",
     "tagline": "“The universe wrote your answers before you took the quiz.”",
+    "hook": "I got Superdeterminism, the secret ending. I would say I unlocked it, but my answers, this post, and your reaction to it were all packed into the universe at the start.",
     "secret": true,
     "claims": "Bell’s theorem has a loophole: it assumes experimenters could have chosen their measurement settings freely. Deny that — let the detector settings and the particles be correlated since the Big Bang — and every “spooky” result becomes bookkeeping. Nothing nonlocal ever happened. Strictly speaking, nothing ever “happened” at all, except the one thing, once, at the beginning.",
     "cost": "If measurement choices are secretly correlated with what is being measured, then controlled experiments stop being evidence for anything, anywhere, forever — including, awkwardly, the experiments that might support superdeterminism. It does not lose arguments. It dissolves the concept of arguing.",
@@ -164,6 +171,7 @@
   "cc": {
     "name": "Consciousness Causes Collapse",
     "tagline": "“The disreputable uncle.”",
+    "hook": "I got Consciousness Causes Collapse, the disreputable uncle of quantum mechanics. Apparently the real thing is weirder and better than the version I was sold.",
     "secret": true,
     "claims": "You clicked every answer with a candle burning inside it, so let us be direct. The idea that a conscious mind is what collapses the wave function has real pedigree — von Neumann was nobody’s crank — and almost no modern defenders, because measuring devices and stray air molecules decohere quantum states just fine with nobody watching. Today it survives mostly in airport books that promise the universe is thinking about you specifically. It is not.",
     "cost": "To be clear about what quantum mechanics does not say: entanglement cannot carry a message. Superposition does not mean anything is possible. Observation, in the physics, means interaction — a photon will do; no soul required. The moon is there when nobody looks, or at the very least every working physicist bets that way.",

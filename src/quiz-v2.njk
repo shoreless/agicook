@@ -1,35 +1,43 @@
 ---
 layout: null
 eleventyExcludeFromCollections: true
-# renders twice: the pinned /v2/ URL, and the bare path that always serves latest
+# 18 pages: the pinned /v2/ and the bare latest path, each with one real page
+# per result so a shared link can carry its own og: tags. See _data/quizroutes.js
 pagination:
-  data: routes
+  data: quizroutes
   size: 1
   alias: route
-routes:
-  - "v2/"
-  - ""
-permalink: "/which-quantum-interpretation-are-you/{{ route }}index.html"
+permalink: "/which-quantum-interpretation-are-you/{{ route.path }}index.html"
 ---
+{%- set QUIZ = "https://agicook.com/which-quantum-interpretation-are-you/" %}
+{%- set SHARE = quiz.meta.share %}
+{%- set rev = route.reveal %}
+{%- set r = quiz.results[rev] if rev else false %}
+{%- set here = QUIZ + route.path %}
 <!doctype html>
 <html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Which Quantum Interpretation Are You?</title>
-<meta name="description" content="Nine questions, seven possible selves. Every interpretation of quantum mechanics is wild somewhere — this one finds out where you put the weirdness.">
-<link rel="canonical" href="https://agicook.com/which-quantum-interpretation-are-you/{{ route }}">
+<title>{% if r %}{{ r.name }} — {{ SHARE.title }}{% else %}{{ SHARE.title }}{% endif %}</title>
+<meta name="description" content="{% if r %}{{ r.tagline | replace("“", "") | replace("”", "") }} Ten questions to find out which lump under the carpet is yours.{% else %}Ten questions, six answers and two you have to earn. Every interpretation of quantum mechanics is wild somewhere — this one finds out where you put the weirdness.{% endif %}">
+<link rel="canonical" href="{{ here }}">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="agicook">
-<meta property="og:title" content="Which Quantum Interpretation Are You?">
-<meta property="og:description" content="Weirdness is conserved. You only get to choose where it goes.">
+<meta property="og:url" content="{{ here }}">
+<meta property="og:title" content="{% if r %}{{ r.name }} — {{ SHARE.title }}{% else %}{{ SHARE.title }}{% endif %}">
+<meta property="og:description" content="{% if r %}{{ r.tagline | replace("“", "") | replace("”", "") }} Find out which lump under the carpet is yours.{% else %}Weirdness is conserved. You only get to choose where it goes.{% endif %}">
+<meta property="og:image" content="https://agicook.com/img/og/{% if r %}{{ rev }}{% else %}quiz{% endif %}.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="{% if r %}{{ r.name }}: {{ r.tagline | replace("“", "") | replace("”", "") }}{% else %}Which Quantum Interpretation Are You? An instrument of self-measurement.{% endif %}">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/css/quiz.css">
 </head>
-<body>
+<body data-quiz-base="/which-quantum-interpretation-are-you/{{ route.base }}">
 
 <nav class="site-nav">
   <a class="home" href="/">agicook</a>
@@ -48,7 +56,7 @@ permalink: "/which-quantum-interpretation-are-you/{{ route }}index.html"
     <p class="eyebrow">An instrument of self-measurement &middot; version 2</p>
     <h1>Which Quantum Interpretation<br>Are You<span class="qm">?</span></h1>
     <p class="dek">Ninety-nine years since anyone agreed on what a measurement is.
-      Nine questions to find out which lump under the carpet is yours.</p>
+      Ten questions to find out which lump under the carpet is yours.</p>
     <p class="superpose-caption mono">You are currently in a superposition of
       seven results &mdash; all of them, with amplitudes, none of them yet yours</p>
 

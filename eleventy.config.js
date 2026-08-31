@@ -22,6 +22,8 @@ export default function (eleventyConfig) {
   eleventyConfig.ignores.add(`src/${QUIZ}/**`);
   eleventyConfig.addPassthroughCopy({ "src/media": "media" });
   eleventyConfig.addPassthroughCopy({ "src/js": "js" });
+  // OG cards, rendered by tools/og.mjs and committed — Pages has no image step
+  eleventyConfig.addPassthroughCopy({ "src/img": "img" });
   eleventyConfig.addPassthroughCopy("src/CNAME");
 
   // Dates are Tokyo. Never toISOString() — that files nine hours early.

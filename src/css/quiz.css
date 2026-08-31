@@ -526,6 +526,28 @@ h1 .qm { color: var(--accent); }
 .share-btn[data-done="1"] { border-color: var(--c, var(--accent)); color: var(--c, var(--accent)); background: var(--card); }
 .share-btn:disabled { opacity: 0.6; cursor: default; }
 
+/* One target per network, as labels rather than logos — ten brand marks would
+   fight a page whose whole design is one accent colour on quiet type. */
+.share-nets {
+  display: flex; flex-wrap: wrap; align-items: center;
+  gap: 0.35rem; margin: -1.2rem 0 2rem;
+}
+.share-nets-label {
+  font-size: 0.6rem; letter-spacing: 0.12em; text-transform: uppercase;
+  color: var(--muted); margin-right: 0.35rem;
+}
+.share-net {
+  font-family: var(--mono); font-size: 0.66rem; letter-spacing: 0.03em;
+  padding: 0.4rem 0.62rem;
+  border: 1px solid var(--line); border-radius: 3px;
+  background: transparent; color: var(--muted);
+  cursor: pointer;
+  transition: border-color .15s ease, color .15s ease;
+}
+.share-net:hover { border-color: var(--c, var(--accent)); color: var(--c, var(--accent)); }
+.share-net[data-done="1"] { border-color: var(--c, var(--accent)); color: var(--c, var(--accent)); }
+.share-net--copy { border-style: dashed; }
+
 /* the experiment's own figure, beneath the section that explains it */
 .exp-motif { margin: 1.4rem 0 1.2rem; max-width: 100%; }
 
@@ -544,6 +566,9 @@ h1 .qm { color: var(--accent); }
 @media (max-width: 30rem) {
   .share-row { gap: 0.45rem; }
   .share-btn { flex: 1 1 auto; text-align: center; }
+  /* the sheet is the whole point on a phone; the labels are the fallback */
+  .share-nets { gap: 0.3rem; }
+  .share-net { font-size: 0.62rem; padding: 0.38rem 0.5rem; }
 }
 
 .tally-line {

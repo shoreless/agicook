@@ -102,5 +102,24 @@ src/which-quantum-interpretation-are-you/
 src/css/style.css      the whole design system
 src/js/field.js        two-slit interference field behind the wordmark
 src/js/map.js          draws the connections between nodes
+src/quiz-v2.njk        the quiz, rendered once per route in _data/quizroutes.js:
+                       /v2/ and the bare latest path, each with one page per
+                       result at r/<key>/ so a shared link carries its own og: tags
+src/js/quiz.js         scoring, the reveal, routing, the tally
+src/js/share.js        the share card and one target per network
+src/js/gloss.js        [[term]] tooltips and *emphasis*, shared with the theory pages
+src/img/og/*.png       Open Graph cards — generated, and committed on purpose
 src/_data/site.json    title, byline, tagline, meta description
+```
+
+## Tools
+
+```sh
+node tools/check.mjs   build, serve, and read what Chrome actually rendered.
+                       Run after every change to the quiz — `node --check` has
+                       twice passed a file that was badly broken at runtime
+node tools/og.mjs      re-render the Open Graph cards into src/img/og/.
+                       Needed when a result's name or tagline changes; the
+                       Pages workflow runs Eleventy and nothing else, so these
+                       are committed rather than built in CI
 ```

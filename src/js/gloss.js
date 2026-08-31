@@ -8,13 +8,31 @@ window.Gloss = (function () {
   var GLOSSARY = node ? JSON.parse(node.textContent) : {};
   var reduce = matchMedia("(prefers-reduced-motion: reduce)");
 
-  function expand(text) {
+  /* Two markers live in the copy: [[term]] opens a tooltip, *emphasis* is an
+     <em>. One tokenizer handles both, because two passes would let each eat
+     the other's markers. Pass { terms: false } where a tooltip button would be
+     nonsense — inside another tooltip, for one. */
+  var MARK = "\\[\\[([a-z0-9-]+)\\]\\]|\\*([^*\\n]+)\\*";
+
+  function expand(text, opts) {
+    var terms = !(opts && opts.terms === false);
     var frag = document.createDocumentFragment();
-    var re = /\[\[([a-z0-9-]+)\]\]/gi, last = 0, m;
+    var re = new RegExp(MARK, "gi"), last = 0, m;
     while ((m = re.exec(text)) !== null) {
       if (m.index > last) frag.appendChild(document.createTextNode(text.slice(last, m.index)));
+      last = re.lastIndex;
+
+      if (m[2] !== undefined) {
+        var em = document.createElement("em");
+        em.textContent = m[2];
+        frag.appendChild(em);
+        continue;
+      }
+
       var key = m[1], term = GLOSSARY[key];
-      if (!term) { frag.appendChild(document.createTextNode(m[0])); last = re.lastIndex; continue; }
+      if (!term) { frag.appendChild(document.createTextNode(m[0])); continue; }
+      if (!terms) { frag.appendChild(document.createTextNode(term.label)); continue; }
+
       var b = document.createElement("button");
       b.type = "button";
       b.className = "gloss";
@@ -22,7 +40,6 @@ window.Gloss = (function () {
       b.setAttribute("aria-expanded", "false");
       b.setAttribute("data-term", key);
       frag.appendChild(b);
-      last = re.lastIndex;
     }
     if (last < text.length) frag.appendChild(document.createTextNode(text.slice(last)));
     return frag;
@@ -32,7 +49,9 @@ window.Gloss = (function () {
     if (!root) return;
     var walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT);
     var nodes = [], n;
-    while ((n = walker.nextNode())) if (n.nodeValue.indexOf("[[") !== -1) nodes.push(n);
+    while ((n = walker.nextNode())) {
+      if (n.nodeValue.indexOf("[[") !== -1 || /\*[^*\n]+\*/.test(n.nodeValue)) nodes.push(n);
+    }
     nodes.forEach(function (t) { t.parentNode.replaceChild(expand(t.nodeValue), t); });
   }
 
@@ -54,8 +73,12 @@ window.Gloss = (function () {
     tip.id = "tip-live";
 
     var h = document.createElement("h4"); h.textContent = term.label; tip.appendChild(h);
-    var p = document.createElement("p"); p.textContent = term.short; tip.appendChild(p);
-    if (term.long) { var p2 = document.createElement("p"); p2.textContent = term.long; tip.appendChild(p2); }
+    var p = document.createElement("p"); p.appendChild(expand(term.short, { terms: false })); tip.appendChild(p);
+    if (term.long) {
+      var p2 = document.createElement("p");
+      p2.appendChild(expand(term.long, { terms: false }));
+      tip.appendChild(p2);
+    }
 
     if (document.getElementById("gloss-" + btn.getAttribute("data-term"))) {
       var more = document.createElement("p");
