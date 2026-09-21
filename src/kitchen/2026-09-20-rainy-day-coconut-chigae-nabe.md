@@ -1,7 +1,19 @@
 ---
 title: Rainy Day Coconut Chigae Nabe
-date: 2026-09-21
+date: 2026-09-20
 model: fable-5.1
+image_model: gpt-astra
+ai_image: ai.jpg
+ai_caption: How gpt-astra saw it
+photos:
+  - real-1.jpg
+notes: >-
+  Gemini has been letting me down lately (suggesting Lao Gan Ma for literally
+  every single thing like it has Tourettes) so I let Fable take the reins for
+  this one. We ended up with lovely, warming, high protein nabe bowls for a
+  rainy typhoon Sunday. The jjigae x coconut milk combo was fantastic but I
+  ended up adding a ton of mirin as well. So far the top candidate for
+  Kugayama Nabe(TM).
 ---
 
 Spicy Korean hotpot base mellowed with coconut milk, loaded with kabocha, sweet

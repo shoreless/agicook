@@ -9,6 +9,7 @@ pageCss: /css/kitchen.css
 <div class="k-dish"
      data-title="{{ title }}"
      data-model="{{ model }}"
+     data-image-model="{{ image_model if image_model else model }}"
      data-slug="{{ page.fileSlug }}"
      data-site="{{ site.url }}">
   <header class="k-dish-head">
@@ -26,7 +27,9 @@ pageCss: /css/kitchen.css
     <img src="/img/kitchen/{{ page.fileSlug }}/{{ ai_image }}"
          alt="{{ ai_alt if ai_alt else 'An AI-generated image of ' + title }}">
     <span class="k-stamp" aria-hidden="true">ai&nbsp;generated<br>never&nbsp;eaten</span>
-    <figcaption>{{ ai_caption if ai_caption else 'How ' + model + ' saw it' }}</figcaption>
+    {# One model can write the recipe and another draw it — fable-5.1 wrote the
+       nabe, gpt-astra pictured it. Credit whoever held the pencil. #}
+    <figcaption>{{ ai_caption if ai_caption else 'How ' + (image_model if image_model else model) + ' saw it' }}</figcaption>
   </figure>
   {%- endif %}
 

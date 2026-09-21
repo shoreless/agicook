@@ -34,6 +34,8 @@
 
   var TITLE = root.getAttribute("data-title") || document.title;
   var MODEL = root.getAttribute("data-model") || "";
+  // the picture's author, which is not always the recipe's author
+  var IMG_MODEL = root.getAttribute("data-image-model") || MODEL;
   var SLUG = root.getAttribute("data-slug") || "";
   var SITE = (root.getAttribute("data-site") || "").replace(/\/$/, "");
   var LINK = SITE ? SITE + "/kitchen/" + SLUG + "/" : location.href;
@@ -156,7 +158,7 @@
       var panel = Math.floor((H - top - foot - gap) / (ims.length === 2 ? 2 : 1));
 
       cover(ctx, ims[0], M, top, W - M * 2, ims.length === 2 ? panel : panel);
-      chip(ctx, ims.length === 2 ? "HOW " + (MODEL || "THE MODEL").toUpperCase() + " SAW IT" : "THE DISH", M + 16, top + 16);
+      chip(ctx, ims.length === 2 ? "HOW " + (IMG_MODEL || "THE MODEL").toUpperCase() + " SAW IT" : "THE DISH", M + 16, top + 16);
 
       if (ims.length === 2) {
         var y2 = top + panel + gap;
