@@ -22,6 +22,16 @@
   if (!root || !row) return;
   row.hidden = false;
 
+  /* A dish with no pictures yet has nothing to compose: the card IS the pair,
+     and half a pair is just a food photo. So offer the link and drop the story
+     button rather than leave a button whose only job is to apologise. The
+     [hidden] here really hides because kitchen.css forces display:none on it —
+     an author rule beats the UA sheet, which is how the search once broke. */
+  var storyBtn = document.getElementById("k-story");
+  if (storyBtn && !document.querySelector(".k-ai img") && !document.querySelector(".k-plates img")) {
+    storyBtn.hidden = true;
+  }
+
   var TITLE = root.getAttribute("data-title") || document.title;
   var MODEL = root.getAttribute("data-model") || "";
   var SLUG = root.getAttribute("data-slug") || "";
@@ -163,7 +173,7 @@
     });
   }
 
-  document.getElementById("k-story").addEventListener("click", function () {
+  if (storyBtn) storyBtn.addEventListener("click", function () {
     var btn = this;
     flash(btn, "drawing…");
     var fonts = document.fonts ? document.fonts.ready : Promise.resolve();

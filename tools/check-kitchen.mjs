@@ -70,6 +70,15 @@ iv = setInterval(function () {
     return;
   }
   var w = d.defaultView, row = d.querySelector(".k-share");
+  var story = d.getElementById("k-story"), copy = d.getElementById("k-copy");
+  var paints = function (el) { return !!el && w.getComputedStyle(el).display !== "none"; };
+  /* A dish with no pictures drops the story button on purpose. Waiting for a
+     card it can never draw is what made this probe time out and report the
+     whole share row broken. Report the shape and let the caller assert it. */
+  if (!paints(story)) {
+    done({ shareVisible: paints(row), copyVisible: paints(copy), storyOffered: false, card: null });
+    return;
+  }
   if (!clicked) {
     clicked = true;
     var orig = w.HTMLCanvasElement.prototype.toBlob;
@@ -85,8 +94,10 @@ iv = setInterval(function () {
   }
   if (w.__card || tries > 300) {
     done({
-      shareVisible: w.getComputedStyle(row).display !== "none",
-      storyMsg: d.querySelector("#k-story small").textContent,
+      shareVisible: paints(row),
+      copyVisible: paints(copy),
+      storyOffered: true,
+      storyMsg: story.querySelector("small").textContent,
       card: w.__card || null
     });
   }
@@ -231,6 +242,10 @@ for (const t of all) {
   /* A dish can be cooked before it is imaged — that is a real state, and it has
      no OG image to offer. Only a dish that renders a picture must have one. */
   const hasImage = /class="k-ai"/.test(d);
+  /* The story card needs ANY picture, not the AI one specifically — it draws a
+     single panel when only one side exists. Mirror dish.js exactly, or the
+     check and the page disagree about what "still working" means. */
+  t.hasPix = hasImage || /class="k-plates"/.test(d);
   const og = (/property="og:image" content="([^"]+)"/.exec(d) || [])[1];
   ok(hasImage
        ? !!og && og.startsWith("https://agicook.com/img/kitchen/")
@@ -247,11 +262,18 @@ for (const t of all) {
   const m = /<pre id="out">([\s\S]*?)<\/pre>/.exec(d);
   let r = {};
   try { r = JSON.parse((m ? m[1] : "").replace(/&quot;/g, '"').replace(/&amp;/g, "&")); } catch (e) {}
-  ok(r.shareVisible === true, `share    ${t.href} buttons revealed`, r.error || "");
+  ok(r.shareVisible === true && r.copyVisible === true,
+     `share    ${t.href} copy link revealed`, r.error || "");
   const card = r.card;
-  ok(!!card && card.w === 1080 && card.h === 1920 && card.bytes > 20000,
-     `story    ${t.href}`,
-     card ? `${card.w}x${card.h}, ${Math.round(card.bytes / 1024)}KB` : (r.storyMsg || "no card drawn"));
+  if (!t.hasPix) {
+    /* Nothing to compose yet, so the button must be GONE, not merely broken.
+       Assert the absence as hard as the presence. */
+    ok(r.storyOffered === false, `story    ${t.href}`, "not offered — dish is still working");
+  } else {
+    ok(!!card && card.w === 1080 && card.h === 1920 && card.bytes > 20000,
+       `story    ${t.href}`,
+       card ? `${card.w}x${card.h}, ${Math.round(card.bytes / 1024)}KB` : (r.storyMsg || "no card drawn"));
+  }
 }
 
 /* ---- the experiment node on the front page ---- */
